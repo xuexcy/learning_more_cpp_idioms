@@ -10,6 +10,7 @@ set(executable_names
 address_of
 algebraic_hierarchy
 attach_by_initialization
+attorney_client
 )
 
 # https://stackoverflow.com/questions/69517191/cmake-create-executable-for-all-cpp-file-in-folder
@@ -17,5 +18,5 @@ foreach (target_name IN LISTS executable_names)
     add_executable(${target_name} ${target_name}.cpp)
 endforeach ()
 
-add_subdirectory(${attach_by_initialization}_deps)
+add_subdirectory(attach_by_initialization_deps)
 target_link_libraries(attach_by_initialization server)
