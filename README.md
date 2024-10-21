@@ -1,6 +1,6 @@
 # [more_cpp_idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
 
-- address_of: 在 `&` 操作符被重载的情况下，获取 object 的地址
+- [address_of](address_of.cpp): 在 `&` 操作符被重载的情况下，获取 object 的地址
 - algebraic_hierarchy: 仅暴露抽象基类并在用户代码中进行使用, 如使用抽象基类`Number`表达数字, 定义继承类虚数`Complex`和实数`RealNumber`
     ```cpp
     // 如下代码中只使用了 Number 基类
