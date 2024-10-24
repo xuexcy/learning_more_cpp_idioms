@@ -18,6 +18,8 @@ Number n2 = n3;
 #include <print>
 #include <string>
 
+#include "utils/main_decorator.h"
+
 struct BaseConstructor {
     BaseConstructor(int = 0) {}
 };

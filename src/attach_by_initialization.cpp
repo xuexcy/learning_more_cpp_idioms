@@ -21,6 +21,7 @@ int main() {
 #include <print>
 
 #include "attach_by_initialization_deps/server.h"
+#include "utils/main_decorator.h"
 
 int main() {
     std::print("Start server\n");

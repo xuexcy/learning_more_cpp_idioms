@@ -1,9 +1,13 @@
+/**
+@question: operator& 用于获取object的的地址，但是 & 被重载后如何获取 object 的地址
+*/
+
 #include <cassert>
 #include <memory>
 #include <print>
 
-// operator& 用于获取object的的地址，但是 & 被重载了
-// question: & 被重载后如何获取 object 的地址
+#include "utils/main_decorator.h"
+
 class nonaddressable {
 public:
     typedef double useless_type;

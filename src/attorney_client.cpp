@@ -15,6 +15,8 @@
 #include <print>
 #include <source_location>
 
+#include "utils/main_decorator.h"
+
 #define CURRENT(method_name) \
     std::source_location::current().method_name()
 #define CURRENT_FUNCTION_NAME CURRENT(function_name)
