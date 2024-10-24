@@ -1,0 +1,3 @@
+[submodule "thirdparty/cpp_utils"]
+	path = thirdparty/cpp_utils
+	url = https://github.com/xuexcy/cpp_utils.git

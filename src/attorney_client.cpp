@@ -13,13 +13,11 @@
 // virtual function 在子类中必须是 accessible 的,如 public 继承(class Derived : public Base)
 
 #include <print>
-#include <source_location>
+
+#include "cpp_utils/util.h"
 
 #include "utils/main_decorator.h"
 
-#define CURRENT(method_name) \
-    std::source_location::current().method_name()
-#define CURRENT_FUNCTION_NAME CURRENT(function_name)
 // #define GET_NAME_API(class_name) \
 //     inline static std::string_view get_name() { return #class_name; }
 

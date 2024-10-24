@@ -43,6 +43,17 @@ public:
     }
 };
 
+template <class T>
+class Value {
+public:
+    Value(T val): val_(val) {}
+    bool operator==(const Value<T>& rhs) {
+        return val_ == rhs.val_;
+    }
+private:
+    T val_;
+};
+
 // 结合 crtp(curiously_recurring_template_pattern) 实现 operator== 的重载接口
 template <typename T>
 class EqualityComparable {
@@ -57,7 +68,7 @@ public:
 
 class ValueType : private EqualityComparable<ValueType> {
 public:
-    ValueType(int val): val_(val) {}
+    explicit ValueType(int val): val_(val) {}
     bool equalTo(const ValueType& other) const {
         return this->val_ == other.val_;
     }
@@ -75,6 +86,11 @@ int main() {
         ListV2<float> l1;
         ListV2<float> l2;
         assert(l1 == l2);
+    }
+    {
+        Value v(10);
+        assert(v == 10);
+        assert(11 == v);
     }
     {
         ValueType v1(10);
