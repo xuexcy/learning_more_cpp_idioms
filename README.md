@@ -11,6 +11,6 @@
     ```
 - [attach_by_initialization](src/attach_by_initialization.cpp): 在用户代码 `main` 函数开始前，通过全局变量 global variable 执行一些工具类的初始化流程
 - [attorney_client](src/attorney_client.cpp): 通过代理类 `class Attorney` 控制友元类对私有成员的访问范围。`class A(friend class Attorney); class Attorney(friend class B)`
-- [barton_nackman_trick](src/barton_nackman_trick.cpp)
+- [barton_nackman_trick](src/barton_nackman_trick.cpp): 在模板类中将 operator 设置成 friend，解决 operator 重载带模板参数的问题
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cpp)
 
