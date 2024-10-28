@@ -3,6 +3,7 @@ project(learning_more_cpp_idioms)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# set(CMAKE_BUILD_TYPE Debug)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/opt/llvm/lib/c++")
 
@@ -24,6 +25,7 @@ algebraic_hierarchy
 attach_by_initialization
 attorney_client
 barton_nackman_trick
+base_from_member
 curiously_recurring_template_pattern
 )
 
