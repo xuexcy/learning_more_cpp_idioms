@@ -23,6 +23,8 @@ public:
 #include <cassert>
 #include <print>
 
+#include "utils/main_decorator.h"
+
 template <class T>
 std::pair<void* /*start*/, void* /*end*/> address(T* obj) {
     // T* end = start + 1;

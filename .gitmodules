@@ -1,3 +1,6 @@
 [submodule "thirdparty/cpp_utils"]
 	path = thirdparty/cpp_utils
 	url = https://github.com/xuexcy/cpp_utils.git
+[submodule "thirdparty/boost"]
+	path = thirdparty/boost
+	url = https://github.com/boostorg/boost.git
