@@ -104,6 +104,10 @@ set(main_name calling_virtuals_during_initialization)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 
+set(main_name capability_query)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} common_header)
+
 set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)

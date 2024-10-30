@@ -15,6 +15,7 @@
 - [base_from_member](src/base_from_member.cc): 基类先于继承类成员构造，若基类构造依赖继承类的成员，构造结果将可能不符合预期。通过将基类依赖的成员提取到单独的 class Container, 再由继承类控制继承顺序, 来解决此类问题
 - [boost_mutant](src/boost_mutant.cc): 对内存布局一致的两个 class，可以从同一个对象地址开始读取数据
 - [calling_virtuals_during_initialization](src/calling_virtuals_during_initialization.cc): 通过two-phase-initialization,实现类似在 Base 类的构造函数中调用继承类的虚函数的逻辑
+- [capability_query](src/capability_query.cc): 在运行时通过 dynamic_cast 将 object 指针转换为接口类指针, 根据转换是否成功来判断这个对象是否实现了接口(即是否继承了接口类)
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc): 奇异递归模板模式, 基类模板参数为继承类，实现编译期多态，即在编译期确定在基类函数中调用哪个子类函数
 - [interface_class](src/interface_class.cc): 在类中声明纯虚函数接口，实现接口类 class Interface
 
