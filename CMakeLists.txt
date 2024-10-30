@@ -60,7 +60,7 @@ FetchContent_MakeAvailable(boost)
 add_subdirectory(src/utils)
 # https://stackoverflow.com/questions/69517191/cmake-create-executable-for-all-cpp-file-in-folder
 # foreach (target_name IN LISTS executable_names)
-#     add_executable(${target_name} src/${target_name}.cpp)
+#     add_executable(${target_name} src/${target_name}.cc)
 #     target_link_libraries(${target_name} common_header)
 #     target_link_libraries(${target_name} ${EXTRA_LIBS})
 # endforeach ()
@@ -74,32 +74,36 @@ add_subdirectory(src/utils)
 
 
 set(main_name address_of)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 
 set(main_name algebraic_hierarchy)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 
 set(main_name attach_by_initialization)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 add_subdirectory(src/${main_name}_deps)
 target_link_libraries(${main_name} server)
 
 set(main_name attorney_client)
-add_executable(${main_name} src/attorney_client.cpp)
+add_executable(${main_name} src/attorney_client.cc)
 target_link_libraries(${main_name} common_header)
 
 set(main_name barton_nackman_trick)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 
 set(main_name boost_mutant)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 target_link_libraries(${main_name} boost_bimap)
 
 set(main_name curiously_recurring_template_pattern)
-add_executable(${main_name} src/${main_name}.cpp)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} common_header)
+
+set(main_name calling_virtuals_during_initialization)
+add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
