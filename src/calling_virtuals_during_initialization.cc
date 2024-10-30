@@ -17,6 +17,8 @@ Derived 在继承 Base 后, 我们期望 Base 在构造时能调用 Derived 中�
 
 #include "cpp_utils/util.h"
 
+#include "utils/main_decorator.h"
+
 #define DERIVED_VIRTUAL_FUNCTION_DEFINE \
     virtual void foo(int n) const override { \
         std::println("{}, n * n = {}", CURRENT_FUNCTION_NAME, n * n); \

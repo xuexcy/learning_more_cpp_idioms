@@ -16,4 +16,5 @@
 - [boost_mutant](src/boost_mutant.cc): 对内存布局一致的两个 class，可以从同一个对象地址开始读取数据
 - [calling_virtuals_during_initialization](src/calling_virtuals_during_initialization.cc): 通过two-phase-initialization,实现类似在 Base 类的构造函数中调用继承类的虚函数的逻辑
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc)
+- [interface_class](src/interface_class.cc) 在类中声明纯虚函数接口，实现接口类 class Interface
 
