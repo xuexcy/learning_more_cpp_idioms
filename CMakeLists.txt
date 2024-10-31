@@ -114,6 +114,10 @@ file(GLOB main_deps src/${main_name}_deps/*.h src/${main_name}_deps/*.cpp)
 add_executable(${main_name} src/${main_name}.cc ${main_deps})
 target_link_libraries(${main_name} common_header)
 
+set(main_name clear_and_minimize)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} common_header)
+
 set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
