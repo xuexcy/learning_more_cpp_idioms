@@ -34,6 +34,7 @@ FetchContent_Declare(
     boost
     # GIT_REPOSITORY https://github.com/boostorg/boost.git
     URL https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-cmake.tar.gz
+    URL_HASH SHA256=c62ce6e64d34414864fef946363db91cea89c1b90360eabed0515f0eda74c75c
     DOWNLOAD_EXTRACT_TIMESTAMP ON
     SOURCE_DIR ${THIRDPARTY_DIR}/boost
     EXCLUDE_FROM_ALL
@@ -106,6 +107,11 @@ target_link_libraries(${main_name} common_header)
 
 set(main_name capability_query)
 add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} common_header)
+
+set(main_name checked_delete)
+file(GLOB main_deps src/${main_name}_deps/*.h src/${main_name}_deps/*.cpp)
+add_executable(${main_name} src/${main_name}.cc ${main_deps})
 target_link_libraries(${main_name} common_header)
 
 set(main_name curiously_recurring_template_pattern)
