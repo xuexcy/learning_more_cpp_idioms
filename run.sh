@@ -19,7 +19,6 @@ cd $binary_dir
 
 for file in *
 do
-    echo $binary_dir/$file
     ./$file
 done
 

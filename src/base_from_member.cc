@@ -221,6 +221,7 @@ void run(const std::string& name) {
 
 #define RUN(name) run<name::DerivedB>(#name)
 int main() {
+    utils::MainDecorator::Access();
     RUN(bad_case);
     RUN(solution);
     return 0;

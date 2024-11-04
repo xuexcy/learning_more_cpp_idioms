@@ -15,6 +15,12 @@ int main() {
 方法二: 如果没有办法要求 main 的开发人员添加初始化操作，那么可以在 message_queue.cpp 中，
 添加一个全局变量，这样全局变量会在 main 开始前进行初始化操作
 
+注意: Objects in a namespace are created before any function/variable in that namespace is accessed
+在没有正儿八经使用这个 global 时，这个全局变量可能不会被创造，比如注释掉下面代码中的 start.Start()，那么整个程序就
+没有使用 MessageQueue，那么 global_msg_queue 也就不会在 main 执行前被构造
+另外，多个全局变量之间的构造和析构顺序是不确定的，如果全局变量之间有构造依赖关系，那么结果可能不符合用户预期
+
+
 */
 
 #include <cassert>
@@ -24,9 +30,10 @@ int main() {
 #include "utils/main_decorator.h"
 
 int main() {
-    std::print("Start server\n");
+    utils::MainDecorator::Access();
+    std::println("Start server");
     Server server;
     assert(true == server.Start() && "Start server failed\n");
-    std::print("Quit server");
+    std::println("Quit server");
     return 0;
 }

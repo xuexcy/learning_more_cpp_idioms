@@ -52,6 +52,7 @@ void roll_it(T* ptr) {
 }
 
 int main() {
+    utils::MainDecorator::Access();
     roll_it(get_shape(2).get());
     roll_it(get_shape(7).get());
     roll_it((Shape*)nullptr);

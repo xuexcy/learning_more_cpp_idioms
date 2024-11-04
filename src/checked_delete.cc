@@ -19,6 +19,7 @@ delete obj;
 #include "checked_delete_deps/checked_deleter.h"
 #include "checked_delete_deps/deleter.h"
 #include "checked_delete_deps/object.h"
+#include "utils/main_decorator.h"
 
 namespace bad_case {
 /**
@@ -58,6 +59,7 @@ void run() {
 
 }  // namespace solution
 int main() {
+    utils::MainDecorator::Access();
     bad_case::run();
     solution::run();
 }

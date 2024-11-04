@@ -237,6 +237,7 @@ void print(const std::string& name, const Number& n) {
 #define PRINT(name) print(#name, name)
 
 int main() {
+    utils::MainDecorator::Access();
     Number n1 = Number::makeComplex(1, 2);
     PRINT(n1);
     Number n2 = Number::makeReal(10);

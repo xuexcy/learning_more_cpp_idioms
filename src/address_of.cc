@@ -24,6 +24,7 @@ T* addressof(T& v) {
     ));
 }
 int main() {
+    utils::MainDecorator::Access();
     nonaddressable na;
     // 编译错误，因为 operator& is private
     // 即使 operator& 不是 private，返回值也不是 object 的地址

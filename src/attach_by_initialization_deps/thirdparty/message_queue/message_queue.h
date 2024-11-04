@@ -10,6 +10,7 @@ namespace message_queue {
 class MessageQueue {
 public:
     MessageQueue();
+    ~MessageQueue();
     template <class Msg>
     bool send(const std::string& field, const Msg& msg);
 private:

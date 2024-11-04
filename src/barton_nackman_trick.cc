@@ -77,6 +77,7 @@ private:
 };
 
 int main() {
+    utils::MainDecorator::Access();
     {
         List<int> l1;
         List<int> l2;
@@ -90,7 +91,9 @@ int main() {
     {
         Value v(10);
         assert(v == 10);
-        assert(11 == v);
+        assert(10 == v);
+        assert(v != 11);
+        assert(11 != v);
     }
     {
         ValueType v1(10);

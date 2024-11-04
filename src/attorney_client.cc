@@ -155,6 +155,7 @@ private:
 }  // namespace attorney_inherit
 
 int main() {
+    utils::MainDecorator::Access();
     attorney::Bar bar;
     bar.access_client_v1();
     bar.access_client_v2_by_attorney();

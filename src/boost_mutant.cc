@@ -73,6 +73,7 @@ void run_boost_bimap() {
 }
 
 int main() {
+    utils::MainDecorator::Access();
     std::pair<double, int> p(1.34, 5);
     std::println("p.first={}, p.second={}", p.first, p.second);
     std::println("mutate(p.first) = {}", mutate(p).first);

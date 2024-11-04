@@ -163,6 +163,7 @@ void run() {
 }  // namespace solution_nrvo
 
 int main() {
+    utils::MainDecorator::Access();
     bad_case_rvo::run();
     solution_rvo::run();
 

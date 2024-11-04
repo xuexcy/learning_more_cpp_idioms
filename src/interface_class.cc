@@ -60,6 +60,7 @@ private:
 };
 
 int main() {
+    utils::MainDecorator::Access();
     std::vector<std::shared_ptr<shape>> shapes;
     shapes.push_back(std::make_shared<point>(0, 0));
     shapes.push_back(std::make_shared<line>(point(0, 0), point(0, 4)));

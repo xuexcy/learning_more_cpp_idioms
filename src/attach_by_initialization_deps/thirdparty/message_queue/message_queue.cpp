@@ -20,5 +20,8 @@ MessageQueue::MessageQueue():
         "Initialize MessageQueue finished! local uuid: {}, message_queue address: {}\n",
         uuid_, address_);
 }
+MessageQueue::~MessageQueue() {
+    std::println("Destroy MessageQueue");
+}
 
 }  // namespace message_queue

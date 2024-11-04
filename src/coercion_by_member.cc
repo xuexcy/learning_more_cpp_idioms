@@ -88,11 +88,6 @@ template <class T>
 class Ptr {
 public:
     Ptr() {}
-    ~Ptr() {
-        if (ptr) {
-            delete ptr;
-        }
-    }
     Ptr(const Ptr& p): ptr(p.ptr) {
         std::println("copy constructor");
     }
@@ -137,11 +132,14 @@ void run() {
     d_ptr.ptr = new D;
     Ptr<B> b_ptr(d_ptr);
     b_ptr = d_ptr;
+
+    delete d_ptr.ptr;
 }
 
 }  // namespace solution
 
 int main() {
+    utils::MainDecorator::Access();
     bad_case::run();
     solution::run();
 }

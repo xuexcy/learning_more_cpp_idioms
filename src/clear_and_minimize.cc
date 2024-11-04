@@ -32,6 +32,7 @@ Finished main
 */
 
 int main() {
+    utils::MainDecorator::Access();
     std::vector<int> v(10000, 1);
     print_container("init", v);
     v.emplace_back(1);

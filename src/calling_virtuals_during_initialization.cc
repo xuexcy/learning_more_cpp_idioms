@@ -199,6 +199,7 @@ void run() {
 */
 
 int main() {
+    utils::MainDecorator::Access();
     bad_case::run();
     solution1::run();
     // solution2::run();

@@ -50,6 +50,7 @@ public:
 }  // namespace crtp_polymorphism
 
 int main() {
+    utils::MainDecorator::Access();
     namespace vp = virtual_polymorphism;
     namespace cp = crtp_polymorphism;
 
