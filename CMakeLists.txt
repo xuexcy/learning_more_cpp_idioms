@@ -122,6 +122,10 @@ set(main_name coercion_by_member)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
 
+set(main_name computational_constructor)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} common_header)
+
 set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} common_header)
