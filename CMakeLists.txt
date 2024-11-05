@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # set(CMAKE_BUILD_TYPE Debug)
 
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/opt/llvm/lib/c++")
+# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/opt/llvm/lib/c++")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output/bin)
 
@@ -134,11 +134,19 @@ set(main_name construct_on_first_use)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name construction_tracker)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
 set(main_name interface_class)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
+set(main_name parameterized_base)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
