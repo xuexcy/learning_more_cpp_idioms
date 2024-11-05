@@ -29,7 +29,7 @@ Derived 在继承 Base 后, 我们期望 Base 在构造时能调用 Derived 中�
         return bar; \
     } \
     virtual void base_is_pure_virtual() const override { \
-        std::println("{}", CURRENT_FUNCTION_NAME); \
+        PRINT_CURRENT_FUNCTION_NAME; \
     }
 
 namespace bad_case {
@@ -57,7 +57,7 @@ public:
         return bar;
     }
     virtual void base_is_pure_virtual() const {
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
     }
 };
 

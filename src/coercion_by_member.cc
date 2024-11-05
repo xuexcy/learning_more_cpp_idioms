@@ -73,14 +73,14 @@ class B {
 public:
     virtual ~B() {
         // 析构函数需要是虚函数，否则 D 转换成 B 后再 delete 不会调用 D 的析构函数
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
     }
 };
 
 class D: public B {
 public:
     virtual ~D() {
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
     }
 };
 

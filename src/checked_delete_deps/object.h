@@ -7,6 +7,6 @@
 class Object {
 public:
     ~Object() {
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
     }
 };

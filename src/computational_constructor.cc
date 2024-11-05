@@ -37,7 +37,7 @@ Nrvo: named return value optimization 命名返回值优化，函数返回一个
 
 struct Data {
     Data(char c = 0) {
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
         std::fill(bytes, bytes + 16, c);
     }
     Data(const Data& d) {
@@ -48,7 +48,7 @@ struct Data {
         std::println("{}", bytes);
     }
     ~Data() {
-        std::println("{}", CURRENT_FUNCTION_NAME);
+        PRINT_CURRENT_FUNCTION_NAME;
     }
 private:
     char bytes[16];
