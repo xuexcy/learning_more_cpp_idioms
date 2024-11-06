@@ -20,6 +20,10 @@ cd $binary_dir
 for file in *
 do
     ./$file
+    if [ $? -ne 0 ]; then
+        echo $file "execute failed"
+        exit 1
+    fi
 done
 
 
