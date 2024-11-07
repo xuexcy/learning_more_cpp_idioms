@@ -7,7 +7,7 @@
 # Author  :   xuechengyun
 # E-mail  :   xuechengyunxue@gmail.com
 # Date    :   24/10/20 19:34:50
-# Desc    :
+# Desc    :   编译所有目标文件
 ########################################################################
 
 # set -x

@@ -7,7 +7,7 @@
 # Author  :   xuechengyun
 # E-mail  :   xuechengyunxue@gmail.com
 # Date    :   2024/10/29 22:22:06
-# Desc    :
+# Desc    :   执行所有目标文件，执行输出结果到 ./stdout 目录下
 ########################################################################
 
 # set -x
