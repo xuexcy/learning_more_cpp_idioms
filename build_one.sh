@@ -5,8 +5,8 @@
 #
 ########################################################################
 # Author  :   xuechengyun
-# E-mail  :   xuechengyunxue@gmail.com
-# Date    :   24/10/20 19:34:50
+# E-mail  :   xuechengyun@gmail.com
+# Date    :   2024/11/06 16:57:53
 # Desc    :
 ########################################################################
 
@@ -14,12 +14,17 @@
 CUR_DIR=$(cd `dirname $0`; pwd)
 cd ${CUR_DIR}
 
-source env_variable.sh
+source ./env_variable.sh
 
-mkdir -p $build_dir
 cd $build_dir
-cmake ..
-make
+
+# cmake ..
+
+if [ $# -gt 0 ]; then
+    make $1
+else
+    make $default_execute_file
+fi
 
 
 
@@ -30,5 +35,6 @@ make
 
 
 cd -
+
 
 

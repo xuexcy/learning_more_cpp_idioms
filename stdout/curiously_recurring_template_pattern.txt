@@ -1,0 +1,6 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/curiously_recurring_template_pattern
+virtual_polymorphism::Base::Run()
+virtual_polymorphism::Derive::Run()
+crtp_polymorphism::Derived::Run()
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/curiously_recurring_template_pattern
+

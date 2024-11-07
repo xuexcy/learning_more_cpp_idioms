@@ -1,0 +1,15 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/algebraic_hierarchy
+Constructing a Complex
+n1: Complex{real_part: 1, imaginary_part: 2}
+Constructing a RealNumber
+n2: RealNumber{10}
+Constructing a Complex
+n3: Complex{real_part: 11, imaginary_part: 2}
+Assigning a Number using Number::operator=
+Constructing a number using Number::Number
+Inside Complex::~Complex()
+n3: RealNumber{10}
+Inside RealNumber::~RealNumber()
+Inside Complex::~Complex()
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/algebraic_hierarchy
+

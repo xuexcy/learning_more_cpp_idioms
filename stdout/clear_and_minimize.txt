@@ -1,0 +1,8 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/clear_and_minimize
+phase after: init, size: 10000, capacity: 10000
+phase after: push, size: 10001, capacity: 20000
+phase after: clear, size: 0, capacity: 20000
+phase after: push, size: 1, capacity: 20000
+phase after: clear by swap with empty, size: 0, capacity: 0
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/clear_and_minimize
+

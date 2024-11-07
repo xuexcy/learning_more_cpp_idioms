@@ -1,0 +1,21 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/calling_virtuals_during_initialization
+Start bad_case::Base::Base()
+virtual void bad_case::Base::foo(int) const, n + n = 64
+virtual double bad_case::Base::bar() const, bar: 1
+virtual void bad_case::Base::base_is_pure_virtual() const
+End bad_case::Base::Base()
+
+solution1: construct by init
+solution1::Derived::Derived(int, char), i: 1, j: x
+virtual void solution1::Derived::foo(int) const, n * n = 1024
+virtual double solution1::Derived::bar() const, bar: 1e+06
+virtual void solution1::Derived::base_is_pure_virtual() const
+
+solution1: construct by factory
+solution1::Derived::Derived(int, char), i: 2, j: y
+virtual void solution1::Derived::foo(int) const, n * n = 1024
+virtual double solution1::Derived::bar() const, bar: 1e+06
+virtual void solution1::Derived::base_is_pure_virtual() const
+
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/calling_virtuals_during_initialization
+

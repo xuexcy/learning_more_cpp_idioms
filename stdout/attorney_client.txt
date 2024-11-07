@@ -1,0 +1,22 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/attorney_client
+call void attorney::Bar::access_client_v1() 
+call void attorney::ClientV1::A(int) 
+a: 1
+call void attorney::ClientV1::B(float) 
+b: 2
+call void attorney::ClientV1::C(double) 
+c: 3
+call void attorney::Bar::access_client_v2_by_attorney() 
+call void attorney::ClientV2::A(int) 
+a: 1
+call void attorney::ClientV2::B(float) 
+b: 2
+call void attorney::AccessC::access_client_v2_by_attorney() 
+call void attorney::ClientV2::C(double) 
+c: 2
+call virtual void attorney_inherit::Base::Func(int) 
+x: 5
+call virtual void attorney_inherit::Derived::Func(int) 
+x: 10
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/attorney_client
+

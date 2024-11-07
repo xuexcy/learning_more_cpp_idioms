@@ -1,0 +1,19 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/computational_constructor
+Start bad_case_rvo
+Data::Data(char)
+ccccccccccccccc
+End bad_case_rvo
+Data::~Data()
+Start solution_rvo
+Data::Data(char)
+rrrrrrrrrrrrrrr
+Data::~Data()
+End solution_rvo
+Start bad_case_nrvo
+/lib/libc.so.6
+End bad_case_nrvo
+Start solution_nrvo
+/lib/libc.so.6
+End solution_nrvo
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/computational_constructor
+

@@ -1,0 +1,7 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/coercion_by_member
+coercing member template constructor
+coercing member template assignment operator
+virtual solution::D::~D()
+virtual solution::B::~B()
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/coercion_by_member
+

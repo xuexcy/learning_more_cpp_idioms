@@ -1,0 +1,6 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/capability_query
+Rollable
+not Rollable
+not Rollable
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/capability_query
+

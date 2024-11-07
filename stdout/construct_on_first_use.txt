@@ -1,0 +1,19 @@
+bad_case::Foo::Foo()
+void Bar::f()
+Bar::Bar(const std::string &)
+Bar::name_: bad_case
+solution_1::Foo::Foo()
+Bar::Bar(const std::string &)
+Bar::name_: solution_1
+void Bar::f()
+solution_2::Foo::Foo()
+Bar::Bar(const std::string &)
+Bar::name_: solution_2
+void Bar::f()
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/construct_on_first_use
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/construct_on_first_use
+
+Bar::~Bar()
+Bar::name_: solution_2
+Bar::~Bar()
+Bar::name_: bad_case
