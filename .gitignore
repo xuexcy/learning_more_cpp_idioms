@@ -1,6 +1,7 @@
 build/
 .cache/
 .vscode/
+.DS_Store
 
 # for rust
 Cargo.lock

@@ -30,11 +30,20 @@
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
 
-
+# Related Idioms
+| idioms | related idioms | mark in code |
+| :------ | :-------------- | :------------: |
+| algebraic_hierarch | handle_boy, envelop_letter | no |
+| barbon_nackman_trick | curiously_recurring_template_pattern | yes |
+| capability_query | interface_class, inner_class | no |
+| coercion_by_member_template | generic_container_idioms | no |
+| construct_on_first_use | nifty_schwarz_counter | no |
+| copy_and_swap | non_throwing_swap, resource_acquisition_is_initialization | no |
+| non_throwing_swap | handle_body | no |
 # TODO
 - [x] construction_tracker 中的 adapter 怎么实现
 - [x] 括号操作符
-- [ ] parameterized_base: rust traits
+- [x] parameterized_base: rust traits
 
 # Note
 - xx

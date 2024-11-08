@@ -66,6 +66,7 @@ public:
     }
 };
 
+// idiom: curiously_recurring_template_pattern
 class ValueType : private EqualityComparable<ValueType> {
 public:
     explicit ValueType(int val): val_(val) {}
