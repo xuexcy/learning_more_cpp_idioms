@@ -40,11 +40,3 @@
 | construct_on_first_use | nifty_schwarz_counter | no |
 | copy_and_swap | non_throwing_swap, resource_acquisition_is_initialization | no |
 | non_throwing_swap | handle_body | no |
-# TODO
-- [x] construction_tracker 中的 adapter 怎么实现
-- [x] 括号操作符
-- [x] parameterized_base: rust traits
-
-# Note
-- xx
-- xx
