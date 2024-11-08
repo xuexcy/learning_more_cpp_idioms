@@ -68,12 +68,18 @@ public:
     }
 };
 
+template <class T>
+std::string hex_string(T t) {
+    return std::format("[{0:#0{1}x} = {0}]", t, sizeof(T) * 2 + 2);
+}
+
 struct Point {
     int x{0};
     short y{0};
     static const size_t SIZE;
     std::string string() const {
-        return std::format("[int x = {}, short y = {}]", x, y);
+        return std::format(
+            "[int x = {}, short y = {}]", hex_string(x), hex_string(y), 8);
     }
 };
 const size_t Point::SIZE = sizeof(Point);
@@ -86,7 +92,7 @@ struct Circle {
     std::string string() const {
         return std::format(
             "[Point center = {}, long int radius = {}]",
-            center.string(), radius);
+            center.string(), hex_string(radius));
     }
 };
 const size_t Circle::SIZE = sizeof(Circle);
@@ -101,8 +107,8 @@ void run() {
     auto native = std::endian::native;
     std::println("machine endian: {}", native == std::endian::little ? "little" : "big");
 
-    char data[sizeof(Point) + sizeof(Circle) + sizeof(int)];
-    char* buffer = data;
+    uint8_t data[sizeof(Point) + sizeof(Circle) + sizeof(int)];
+    char* buffer = (char*)data;
     static_assert(28 == sizeof(data));
     size_t buf_size = sizeof(data);
     size_t idx = 0;
@@ -110,7 +116,7 @@ void run() {
     {
         auto old_buffer= buffer;
         auto old_buf_size = buf_size;
-        Point p {5, 10};
+        Point p {0x12345678, 0x0ABC};
         Serializable<Point> s_p(p);
         std::println("Serializable<Point> s_p = {}", s_p.string());
 
@@ -119,31 +125,45 @@ void run() {
         assert(used_size == Point::SIZE);
         assert(old_buffer + Point::SIZE == buffer);
         assert(old_buf_size == Point::SIZE + buf_size);
-        // s_p.x = 0x0005
-        // s_p.y = 0x0A
-        std::vector<char> int_x{5, 0, 0, 0};
-        std::vector<char> short_y{10, 0};
-        std::vector<char> aligning_for_y{0, 0};
-        std::vector<char> aligned_y = short_y;
+        // s_p.x = 0x12345678
+        // s_p.y = 0x0ABC
+        std::vector<uint8_t> int_x{0x78, 0x56, 0x34, 0x12};
+        std::vector<uint8_t> short_y{0xBC, 0x0A};
+        std::vector<uint8_t> aligning_for_y{0, 0};
+        std::vector<uint8_t> aligned_y = short_y;
         aligned_y.insert(aligned_y.end(), aligning_for_y.begin(), aligning_for_y.end());
 
         if (native == std::endian::big) {
             reverse_container(int_x, aligned_y);
         }
         for (size_t i = 0; i < int_x.size(); ++i, ++idx) {
-            std::println("int_x[{}]: {}, data[{}]: {}", i, int(int_x[i]), idx, int(data[idx]));
-            assert(int_x[i] == data[idx]);
+            if (int_x[i] == data[idx]) {
+                std::println("int_x[{}] == {} == data[{}]",
+                    i, hex_string(data[idx]), idx);
+            } else {
+                std::println(
+                    "int_x[{}]: {} != data[{}]: {}",
+                    i, hex_string(int_x[i]), idx, hex_string(data[idx]));
+                assert(false);
+            }
         }
         for (size_t i = 0; i < aligned_y.size(); ++i, ++idx) {
-            std::println("aligned_y[{}]: {}, data[{}]: {}", i, int(aligned_y[i]), idx, int(data[idx]));
-            assert(aligned_y[i] == data[idx]);
+            if (aligned_y[i] == data[idx]) {
+                std::println("aligned_y[{}] == {} == data[{}]",
+                    i, hex_string(data[idx]), idx);
+            } else {
+                std::println(
+                    "aligned_y[{}]: {} != data[{}]: {}",
+                    i, hex_string(aligned_y[i]), idx, hex_string(data[idx]));
+                assert(false);
+            }
         }
     }
     {
         auto old_buffer = buffer;
         auto old_buf_size = buf_size;
-        Point p {7, 11};
-        Circle c {p, 4};
+        Point p {0x2468ACDF, 0x3928};
+        Circle c {p, 0x2825628257282931};
         Serializable<Circle> s_c(c);
         std::println("Serializable<Circle> s_c = {}", s_c.string());
 
@@ -152,30 +172,51 @@ void run() {
         assert(used_size == Circle::SIZE);
         assert(old_buffer + Circle::SIZE == buffer);
         assert(old_buf_size == Circle::SIZE + buf_size);
-        // s_c.center.x = 0x0007
-        // s_c.center.y = 0x0B
-        // s_c.radius = 0x00000004
-        std::vector<char> int_x{7, 0, 0, 0};
-        std::vector<char> short_y{11, 0};
-        std::vector<char> aligning_for_y{0, 0};
-        std::vector<char> aligned_y = short_y;
+        // s_c.center.x = 0x2468ACDF
+        // s_c.center.y = 0x3928
+        // s_c.radius = 0x2825628257282931
+        std::vector<uint8_t> int_x{0xDF, 0xAC, 0x68, 0x24};
+        std::vector<uint8_t> short_y{0x28, 0x39};
+        std::vector<uint8_t> aligning_for_y{0, 0};
+        std::vector<uint8_t> aligned_y = short_y;
         aligned_y.insert(aligned_y.end(), aligning_for_y.begin(), aligning_for_y.end());
-        std::vector<char> long_int_radius{4, 0, 0, 0, 0 ,0, 0, 0};
+        std::vector<uint8_t> long_int_radius{0x31, 0x29, 0x28, 0x57, 0x82, 0x62, 0x25, 0x28};
 
         if (native == std::endian::big) {
             reverse_container(int_x, aligned_y, long_int_radius);
         }
         for (size_t i = 0; i < int_x.size(); ++i, ++idx) {
-            std::println("int_x[{}]: {}, data[{}]: {}", i, int(int_x[i]), idx, int(data[idx]));
-            assert(int_x[i] == data[idx]);
+            if (int_x[i] == data[idx]) {
+                std::println("int_x[{}] == {} == data[{}]",
+                    i, hex_string(data[idx]), idx);
+            } else {
+                std::println(
+                    "int_x[{}]: {} != data[{}]: {}",
+                    i, hex_string(int_x[i]), idx, hex_string(data[idx]));
+                assert(false);
+            }
         }
         for (size_t i = 0; i < aligned_y.size(); ++i, ++idx) {
-            std::println("aligned_y[{}]: {}, data[{}]: {}", i, int(aligned_y[i]), idx, int(data[idx]));
-            assert(aligned_y[i] == data[idx]);
+            if (aligned_y[i] == data[idx]) {
+                std::println("aligned_y[{}] == {} == data[{}]",
+                    i, hex_string(data[idx]), idx);
+            } else {
+                std::println(
+                    "aligned_y[{}]: {} != data[{}]: {}",
+                    i, hex_string(aligned_y[i]), idx, hex_string(data[idx]));
+                assert(false);
+            }
         }
         for (size_t i = 0; i < long_int_radius.size(); ++i, ++idx) {
-            std::println("long_int_radius[{}]: {}, data[{}]: {}", i, int(long_int_radius[i]), idx, int(data[idx]));
-            assert(long_int_radius[i] == data[idx]);
+            if (long_int_radius[i] == data[idx]) {
+                std::println("long_int_radius[{}] == {} == data[{}]",
+                    i, hex_string(data[idx]), idx);
+            } else {
+                std::println(
+                    "long_int_radius[{}]: {} != data[{}]: {}",
+                    i, hex_string(long_int_radius[i]), idx, hex_string(data[idx]));
+                assert(false);
+            }
         }
     }
     // no: 基本类型不能被继承
@@ -204,7 +245,7 @@ void run() {
     // }
     {
         assert(sizeof(int) == buf_size);
-        assert(data + Point::SIZE + Circle::SIZE == buffer);
+        assert((char*)data + Point::SIZE + Circle::SIZE == buffer);
     }
 }
 

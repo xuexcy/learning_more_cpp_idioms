@@ -21,14 +21,5 @@ cd $build_dir
 cmake ..
 make
 
-
-
-
-
-
-
-
-
 cd -
-
 

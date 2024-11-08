@@ -32,11 +32,9 @@ do
     echo 'end ' $file
 done
 
-
-
-
-
-
 cd -
+
+# cd $patameterized_base_rust
+# cargo run >$stdout_dir/$file_rust_traits.txt
 
 
