@@ -1,4 +1,4 @@
-# [more_cpp_idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
+# [More C++ Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
 
 - [address_of](address_of.cpp): ⭐ 在 `&` 操作符被重载的情况下，获取 object 的地址
     > `&` 操作符作为一元操作符，用于获取 object 的地址，作为二元操作符，表示两个 object 逻辑与。如果  `&` 一元操作符被重载后不表示 object 的地址，那就改变了操作符含义。我们可能会重载 `operator+`，但是并不会改变 `+` 的含义，比如小时 + 分 + 秒，依旧表示时间上的相加。但是什么情况下会改变 `operator&` 的含义呢？如果改变了其含义，那和 `#define false true` 有什么区别，这不是搞事情吗？
