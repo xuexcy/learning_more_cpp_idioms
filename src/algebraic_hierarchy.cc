@@ -55,6 +55,7 @@ private:
     virtual Number realAdd(const RealNumber& n) const;
 
 private:
+    // idiom: handle body
     Number* rep{nullptr};
     short referenceCount{0};
 };

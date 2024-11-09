@@ -27,6 +27,7 @@
 - [copy_and_swap](src/copy_and_swap.cc): ⭐⭐⭐ 在拷贝赋值函数内使用 swap 来保证 strong guarantee（强烈保证）异常安全
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc): ⭐⭐⭐⭐ 奇异递归模板模式， 基类模板参数为继承类，实现编译期多态，即在编译期确定在基类函数中调用哪个子类函数
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface
+- [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
 - [pointer_to_implementation](src/pointer_to_implementation.cc): ⭐⭐⭐ 将公开接口放到 class Public，并由 class Public 包含实现细节 class Public::Impl 的指针(class Public 的成员变量)，以此带来一些代码编译、解耦等方面的优势
@@ -34,10 +35,9 @@
 # Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |
-| algebraic_hierarch | handle_boy, envelop_letter | no |
+| algebraic_hierarch | handle_body, envelop_letter | no |
 | barbon_nackman_trick | curiously_recurring_template_pattern | yes |
 | capability_query | interface_class, inner_class | no |
 | coercion_by_member_template | generic_container_idioms | no |
 | construct_on_first_use | nifty_schwarz_counter | no |
 | copy_and_swap | non_throwing_swap, resource_acquisition_is_initialization | no |
-| non_throwing_swap | handle_body | no |
