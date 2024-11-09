@@ -4,31 +4,31 @@ Circle size: 16
 Serializable<Point> size: 16
 Serializable<Circle> size: 24
 machine endian: little
-Serializable<Point> s_p = [int x = 5, short y = 10]
-int_x[0]: 5, data[0]: 5
-int_x[1]: 0, data[1]: 0
-int_x[2]: 0, data[2]: 0
-int_x[3]: 0, data[3]: 0
-aligned_y[0]: 10, data[4]: 10
-aligned_y[1]: 0, data[5]: 0
-aligned_y[2]: 0, data[6]: 0
-aligned_y[3]: 0, data[7]: 0
-Serializable<Circle> s_c = [Point center = [int x = 7, short y = 11], long int radius = 4]
-int_x[0]: 7, data[8]: 7
-int_x[1]: 0, data[9]: 0
-int_x[2]: 0, data[10]: 0
-int_x[3]: 0, data[11]: 0
-aligned_y[0]: 11, data[12]: 11
-aligned_y[1]: 0, data[13]: 0
-aligned_y[2]: 0, data[14]: 0
-aligned_y[3]: 0, data[15]: 0
-long_int_radius[0]: 4, data[16]: 4
-long_int_radius[1]: 0, data[17]: 0
-long_int_radius[2]: 0, data[18]: 0
-long_int_radius[3]: 0, data[19]: 0
-long_int_radius[4]: 0, data[20]: 0
-long_int_radius[5]: 0, data[21]: 0
-long_int_radius[6]: 0, data[22]: 0
-long_int_radius[7]: 0, data[23]: 0
+Serializable<Point> s_p = [int x = [0x12345678 = 305419896], short y = [0x0abc = 2748]]
+int_x[0] == [0x78 = 120] == data[0]
+int_x[1] == [0x56 = 86] == data[1]
+int_x[2] == [0x34 = 52] == data[2]
+int_x[3] == [0x12 = 18] == data[3]
+aligned_y[0] == [0xbc = 188] == data[4]
+aligned_y[1] == [0x0a = 10] == data[5]
+aligned_y[2] == [0x00 = 0] == data[6]
+aligned_y[3] == [0x00 = 0] == data[7]
+Serializable<Circle> s_c = [Point center = [int x = [0x2468acdf = 610839775], short y = [0x3928 = 14632]], long int radius = [0x2825628257282931 = 2892826647602932017]]
+int_x[0] == [0xdf = 223] == data[8]
+int_x[1] == [0xac = 172] == data[9]
+int_x[2] == [0x68 = 104] == data[10]
+int_x[3] == [0x24 = 36] == data[11]
+aligned_y[0] == [0x28 = 40] == data[12]
+aligned_y[1] == [0x39 = 57] == data[13]
+aligned_y[2] == [0x00 = 0] == data[14]
+aligned_y[3] == [0x00 = 0] == data[15]
+long_int_radius[0] == [0x31 = 49] == data[16]
+long_int_radius[1] == [0x29 = 41] == data[17]
+long_int_radius[2] == [0x28 = 40] == data[18]
+long_int_radius[3] == [0x57 = 87] == data[19]
+long_int_radius[4] == [0x82 = 130] == data[20]
+long_int_radius[5] == [0x62 = 98] == data[21]
+long_int_radius[6] == [0x25 = 37] == data[22]
+long_int_radius[7] == [0x28 = 40] == data[23]
 Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/parameterized_base
 

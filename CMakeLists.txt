@@ -154,3 +154,9 @@ set(main_name parameterized_base)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name pointer_to_implementation)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+add_subdirectory(src/${main_name}_deps)
+target_link_libraries(${main_name} book book_with_pimpl book_template_with_pimpl)
+
