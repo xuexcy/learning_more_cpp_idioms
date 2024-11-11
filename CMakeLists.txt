@@ -146,6 +146,10 @@ set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name inner_class)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name interface_class)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)

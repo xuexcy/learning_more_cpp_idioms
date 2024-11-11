@@ -1,7 +1,8 @@
 /**
 在运行时判断某个 obj/class 是否满足某个接口
 
-@solution: 使用 dynamic_cast 将继承类对象指针转换为基类指针，通过判断转换是否成功来判断 obj 是否满足某个接口
+@solution: 使用 dynamic_cast 将指针在不同基类指针间转换，通过判断转换是否成功来判断 obj 是否满足某个接口
+这种 dynamic_cast 一般叫做 cross-cast
  */
 
 #include <memory>
@@ -19,7 +20,7 @@ public:
     virtual ~Rollable() = default;
     virtual void roll() const = 0;
 };
-
+// idiom: interface_class
 class Circle : public Shape, public Rollable {
 public:
     void draw() const override {}
