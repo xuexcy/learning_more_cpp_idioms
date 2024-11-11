@@ -142,6 +142,10 @@ set(main_name copy_and_swap)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name copy_on_write)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name curiously_recurring_template_pattern)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)

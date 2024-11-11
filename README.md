@@ -1,5 +1,15 @@
 # [More C++ Idioms](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms)
+## Build And Run
+- `env_variable.sh`: 设置环境变量，如 cmake 工作目录、可执行文件存放的 bin 文件夹目录等
+- `build.sh`: 编译所有 src/*.cc
+- `run.sh`: 运行所有编译后的可执行文件，并将结果输出到 src 目录
+- `build_one.sh`: 编译 src 目录下的一个 .cc 文件，具体编译哪一个文件取决于 `env_variable.sh` 中的 `default_execute_file` 环境变量, 这个脚本主要是自己修改、测试某个 .cc 代码的时候使用，该文件里没有调用 cmake，如果编译的相关依赖发生改变，请重新执行 `build.sh` 生成新的 makefile 文件
+- `run.sh`: 执行一个编译结果，同 `build_one.sh` 一样，具体哪个取决于 `env_variable.sh` 中的 `default_execute_file`
+- 其他:
+  - `run.sh` 执行后的输出结果在 src 目录下（可以通过 `env_variable.sh` 进行配置）
+  - `src/*.cc` 是各个 idiom main 文件
 
+## Idioms
 - [address_of](address_of.cpp): ⭐ 在 `&` 操作符被重载的情况下，获取 object 的地址
     > `&` 操作符作为一元操作符，用于获取 object 的地址，作为二元操作符，表示两个 object 逻辑与。如果  `&` 一元操作符被重载后不表示 object 的地址，那就改变了操作符含义。我们可能会重载 `operator+`，但是并不会改变 `+` 的含义，比如小时 + 分 + 秒，依旧表示时间上的相加。但是什么情况下会改变 `operator&` 的含义呢？如果改变了其含义，那和 `#define false true` 有什么区别，这不是搞事情吗？
 - [algebraic_hierarchy](algebraic_hierarchy.cpp): ⭐ 仅暴露抽象基类并在用户代码中进行使用， 如使用抽象基类`Number`表达数字， 定义继承类虚数`Complex`和实数`RealNumber`，但是，在用户代码中只会使用基类而不是使用继承类
@@ -25,6 +35,12 @@
 - [construct_on_first_use](src/construct_on_first_use.cc): ⭐⭐⭐⭐ class static variable 可能在使用时还未被构造，这样可能导致使用结果不符合预期，通过将其放到 class static/member function 中，在 function 中确保 variable 使用前完成了构造，即 `static Bar bar_;` -> `Bar& get_bar() { static Bar bar; return bar; }`
 - [construction_tracker](src/construction_tracker.cc): ⭐⭐⭐ 在构造函数的列表初始化成员时，不同成员可能会抛出相同类型的异常，通过对每个成员初始化前设置特定 tracker 值，来定位到底时那个成员初始化失败。比如 `b_((++tracker), "x"), "y")`
 - [copy_and_swap](src/copy_and_swap.cc): ⭐⭐⭐ 在拷贝赋值函数内使用 swap 来保证 strong guarantee（强烈保证）异常安全
+- [copy_on_write](src/copy_on_write.cc): ⭐⭐⭐⭐⭐ 在实例发生 copy 时，通过智能指针共享数据用于数据读取，而不是直接 copy 整个实例中包含的数据，在实例需要 update/write 数据时，再对对应的实例 copy 一份刚刚共享的数据以便写入，到达了 lazy copy 的目的。另外，copy 后也不一定发生 write（比如 write 的前提是需要满足某些业务条件），那么这样就 no copy。 如下代码，假设 `condition1 == true`，那么 copy 发生在 `a.set_x(1)` 时，如果 `codition1 == false; condition2 == true`，那么 copy 发生在 `a.set_y(2)` 时, 这样就是 lazy copy，如果 `condition1 == false; condition2 == false`，那么就不会发生 copy，也就是 no copy。
+    ```cpp
+    A a(another_a);
+    if (condition1) { a.set_x(1); }
+    if (condition2) { a.set_y(2); }`
+    ```
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc): ⭐⭐⭐⭐ 奇异递归模板模式， 基类模板参数为继承类，实现编译期多态，即在编译期确定在基类函数中调用哪个子类函数
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
@@ -34,7 +50,7 @@
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
 - [pointer_to_implementation](src/pointer_to_implementation.cc): ⭐⭐⭐ 将公开接口放到 class Public，并由 class Public 包含实现细节 class Public::Impl 的指针(class Public 的成员变量)，以此带来一些代码编译、解耦等方面的优势
 
-# Related Idioms
+## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |
 | algebraic_hierarch | handle_body, envelop_letter | no |
