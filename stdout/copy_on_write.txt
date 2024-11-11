@@ -1,0 +1,56 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/copy_on_write
+solution_with_bug::COWPtr<std::string>::COWPtr(T *) [T = std::string]
+T &solution_with_bug::COWPtr<std::string>::operator*() [T = std::string]
+const T &solution_with_bug::COWPtr<std::string>::operator*() const [T = std::string]
+123 use_count: 2
+const T &solution_with_bug::COWPtr<std::string>::operator*() const [T = std::string]
+123 use_count: 2
+const T &solution_with_bug::COWPtr<std::string>::operator*() const [T = std::string]
+153 use_count: 2
+const T &solution_with_bug::COWPtr<std::string>::operator*() const [T = std::string]
+153 use_count: 2
+
+write tb twice
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+void solution::COWBase<solution::Book>::clone_if_needed() [T = solution::Book]
+void solution::Book::set_content(std::string)
+content updated from tb: Oh my Jesus, 我佛慈悲
+variable: tb, use_count: 1, book value: [name: Bible, content: content updated from tb: Oh my Jesus, 我佛慈悲, note: New book with empty note]
+variable: tb2, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+void solution::Book::set_note(std::string)
+note updated from tb: 东西结合，邪魔退让
+variable: tb, use_count: 1, book value: [name: Bible, content: content updated from tb: Oh my Jesus, 我佛慈悲, note: note updated from tb: 东西结合，邪魔退让]
+variable: tb2, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+
+write tb2 twice
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+void solution::COWBase<solution::Book>::clone_if_needed() [T = solution::Book]
+void solution::Book::set_content(std::string)
+content updated from tb2: Oh my Jesus, 我佛慈悲
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 1, book value: [name: Bible, content: content updated from tb2: Oh my Jesus, 我佛慈悲, note: New book with empty note]
+void solution::Book::set_note(std::string)
+note updated from tb2: 东西结合，邪魔退让
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 1, book value: [name: Bible, content: content updated from tb2: Oh my Jesus, 我佛慈悲, note: note updated from tb2: 东西结合，邪魔退让]
+
+write tb once, write tb2 once
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 2, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+void solution::COWBase<solution::Book>::clone_if_needed() [T = solution::Book]
+void solution::Book::set_content(std::string)
+content updated from tb2: Oh my Jesus, 我佛慈悲
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: New book with empty note]
+variable: tb2, use_count: 1, book value: [name: Bible, content: content updated from tb2: Oh my Jesus, 我佛慈悲, note: New book with empty note]
+void solution::Book::set_note(std::string)
+note updated from tb: 东西结合，邪魔退让
+variable: tb, use_count: 1, book value: [name: Bible, content: Oh my Jesus, note: note updated from tb: 东西结合，邪魔退让]
+variable: tb2, use_count: 1, book value: [name: Bible, content: content updated from tb2: Oh my Jesus, 我佛慈悲, note: New book with empty note]
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/copy_on_write
+

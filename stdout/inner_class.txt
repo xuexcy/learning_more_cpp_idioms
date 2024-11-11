@@ -1,0 +1,29 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/inner_class
+start bad_case
+virtual int bad_case::Derived::open(int)
+2
+haha, Base1
+haha, Base2
+end bad_case
+
+start solution
+int solution::Derived::base1_open(int)
+virtual int solution::Derived::Base1_Impl::open(int)
+i: 3, i * 2: 6
+6
+int solution::Derived::base2_open(int)
+virtual int solution::Derived::Base2_Impl::open(int)
+i: 3, i * i: 9
+9
+int solution::base1_open(Base1 &, int)
+virtual int solution::Derived::Base1_Impl::open(int)
+i: 3, i * 2: 6
+6
+int solution::base2_open(Base2 &, int)
+virtual int solution::Derived::Base2_Impl::open(int)
+i: 3, i * i: 9
+9
+end solution
+
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/inner_class
+

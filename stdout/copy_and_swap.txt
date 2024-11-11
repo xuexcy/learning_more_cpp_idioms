@@ -1,126 +1,126 @@
 Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/copy_and_swap
 普通构造
 BaseString::BaseString(const char *)
-    this = 0x7ff7b288e678, &str = 0x7f7e2f1040b0, str = solution_1
+    this = 0x7ff7b3cb2638, &str = 0x7f9d339040b0, str = solution_1
 void BaseString::print()
-    this = 0x7ff7b288e678, &str = 0x7f7e2f1040b0, str = solution_1
-&s1 = 0x7ff7b288e678
+    this = 0x7ff7b3cb2638, &str = 0x7f9d339040b0, str = solution_1
+&s1 = 0x7ff7b3cb2638
 
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0040b0, str = solution_1
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338040b0, str = solution_1
 void BaseString::print()
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0040b0, str = solution_1
-&s2 = 0x7ff7b288e640
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338040b0, str = solution_1
+&s2 = 0x7ff7b3cb2600
 
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e618, &str = nullptr
+    this = 0x7ff7b3cb25d8, &str = nullptr
 拷贝赋值
 String &solution_1::String::operator=(const String &)
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e528, &str = 0x7f7e2f0040c0, str = solution_1
+    this = 0x7ff7b3cb24e8, &str = 0x7f9d338040c0, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e528, &str = nullptr
+    this = 0x7ff7b3cb24e8, &str = nullptr
 void BaseString::print()
-    this = 0x7ff7b288e618, &str = 0x7f7e2f0040c0, str = solution_1
-&s3 = 0x7ff7b288e618
+    this = 0x7ff7b3cb25d8, &str = 0x7f9d338040c0, str = solution_1
+&s3 = 0x7ff7b3cb25d8
 
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e5f0, &str = 0x7f7e2f0040d0, str = solution_1
+    this = 0x7ff7b3cb25b0, &str = 0x7f9d338040d0, str = solution_1
 void BaseString::print()
-    this = 0x7ff7b288e5f0, &str = 0x7f7e2f0040d0, str = solution_1
-&s4 = 0x7ff7b288e5f0
+    this = 0x7ff7b3cb25b0, &str = 0x7f9d338040d0, str = solution_1
+&s4 = 0x7ff7b3cb25b0
 
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e5c8, &str = nullptr
+    this = 0x7ff7b3cb2588, &str = nullptr
 拷贝赋值
 String &solution_1::String::operator=(const String &)
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e528, &str = 0x7f7e2f004140, str = solution_1
+    this = 0x7ff7b3cb24e8, &str = 0x7f9d33804140, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e528, &str = nullptr
+    this = 0x7ff7b3cb24e8, &str = nullptr
 void BaseString::print()
-    this = 0x7ff7b288e5c8, &str = 0x7f7e2f004140, str = solution_1
-&s5 = 0x7ff7b288e5c8
+    this = 0x7ff7b3cb2588, &str = 0x7f9d33804140, str = solution_1
+&s5 = 0x7ff7b3cb2588
 
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e5c8, &str = 0x7f7e2f004140, str = solution_1
+    this = 0x7ff7b3cb2588, &str = 0x7f9d33804140, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e5f0, &str = 0x7f7e2f0040d0, str = solution_1
+    this = 0x7ff7b3cb25b0, &str = 0x7f9d338040d0, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e618, &str = 0x7f7e2f0040c0, str = solution_1
+    this = 0x7ff7b3cb25d8, &str = 0x7f9d338040c0, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0040b0, str = solution_1
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338040b0, str = solution_1
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e678, &str = 0x7f7e2f1040b0, str = solution_1
+    this = 0x7ff7b3cb2638, &str = 0x7f9d339040b0, str = solution_1
 普通构造
 BaseString::BaseString(const char *)
-    this = 0x7ff7b288e678, &str = 0x7f7e2f0041c0, str = solution_2
+    this = 0x7ff7b3cb2638, &str = 0x7f9d338041c0, str = solution_2
 void BaseString::print()
-    this = 0x7ff7b288e678, &str = 0x7f7e2f0041c0, str = solution_2
-&s1 = 0x7ff7b288e678
+    this = 0x7ff7b3cb2638, &str = 0x7f9d338041c0, str = solution_2
+&s1 = 0x7ff7b3cb2638
 
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0041d0, str = solution_2
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338041d0, str = solution_2
 void BaseString::print()
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0041d0, str = solution_2
-&s2 = 0x7ff7b288e640
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338041d0, str = solution_2
+&s2 = 0x7ff7b3cb2600
 
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e618, &str = nullptr
+    this = 0x7ff7b3cb25d8, &str = nullptr
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e608, &str = 0x7f7e2f004140, str = solution_2
+    this = 0x7ff7b3cb25c8, &str = 0x7f9d33804140, str = solution_2
 拷贝赋值
 String &solution_2::String::operator=(String)
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e608, &str = nullptr
+    this = 0x7ff7b3cb25c8, &str = nullptr
 void BaseString::print()
-    this = 0x7ff7b288e618, &str = 0x7f7e2f004140, str = solution_2
-&s3 = 0x7ff7b288e618
+    this = 0x7ff7b3cb25d8, &str = 0x7f9d33804140, str = solution_2
+&s3 = 0x7ff7b3cb25d8
 
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e5e0, &str = 0x7f7e2f004180, str = solution_2
+    this = 0x7ff7b3cb25a0, &str = 0x7f9d33804180, str = solution_2
 void BaseString::print()
-    this = 0x7ff7b288e5e0, &str = 0x7f7e2f004180, str = solution_2
-&s4 = 0x7ff7b288e5e0
+    this = 0x7ff7b3cb25a0, &str = 0x7f9d33804180, str = solution_2
+&s4 = 0x7ff7b3cb25a0
 
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e5b8, &str = nullptr
+    this = 0x7ff7b3cb2578, &str = nullptr
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e5a8, &str = 0x7f7e2f004190, str = solution_2
+    this = 0x7ff7b3cb2568, &str = 0x7f9d33804190, str = solution_2
 拷贝赋值
 String &solution_2::String::operator=(String)
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e5a8, &str = nullptr
+    this = 0x7ff7b3cb2568, &str = nullptr
 void BaseString::print()
-    this = 0x7ff7b288e5b8, &str = 0x7f7e2f004190, str = solution_2
-&s5 = 0x7ff7b288e5b8
+    this = 0x7ff7b3cb2578, &str = 0x7f9d33804190, str = solution_2
+&s5 = 0x7ff7b3cb2578
 
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e5b8, &str = 0x7f7e2f004190, str = solution_2
+    this = 0x7ff7b3cb2578, &str = 0x7f9d33804190, str = solution_2
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e5e0, &str = 0x7f7e2f004180, str = solution_2
+    this = 0x7ff7b3cb25a0, &str = 0x7f9d33804180, str = solution_2
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e618, &str = 0x7f7e2f004140, str = solution_2
+    this = 0x7ff7b3cb25d8, &str = 0x7f9d33804140, str = solution_2
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e640, &str = 0x7f7e2f0041d0, str = solution_2
+    this = 0x7ff7b3cb2600, &str = 0x7f9d338041d0, str = solution_2
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e678, &str = 0x7f7e2f0041c0, str = solution_2
+    this = 0x7ff7b3cb2638, &str = 0x7f9d338041c0, str = solution_2
 
 void solution_difference()
 
@@ -128,49 +128,49 @@ Start solution_1_copy_assignment
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e638, &str = nullptr
-&t = 0x7ff7b288e638
+    this = 0x7ff7b3cb25f8, &str = nullptr
+&t = 0x7ff7b3cb25f8
 
 普通构造
 BaseString::BaseString(const char *)
-    this = 0x7ff7b288e600, &str = 0x7f7e2f0040b0, str = solution_1_copy_assignment
+    this = 0x7ff7b3cb25c0, &str = 0x7f9d338040b0, str = solution_1_copy_assignment
 拷贝赋值
 String &solution_1::String::operator=(const String &)
 拷贝构造
 BaseString::BaseString(const BaseString &)
-    this = 0x7ff7b288e558, &str = 0x7f7e2f004140, str = solution_1_copy_assignment
+    this = 0x7ff7b3cb2518, &str = 0x7f9d33804140, str = solution_1_copy_assignment
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e558, &str = nullptr
+    this = 0x7ff7b3cb2518, &str = nullptr
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e600, &str = 0x7f7e2f0040b0, str = solution_1_copy_assignment
+    this = 0x7ff7b3cb25c0, &str = 0x7f9d338040b0, str = solution_1_copy_assignment
 void BaseString::print()
-    this = 0x7ff7b288e638, &str = 0x7f7e2f004140, str = solution_1_copy_assignment
-&t = 0x7ff7b288e638
+    this = 0x7ff7b3cb25f8, &str = 0x7f9d33804140, str = solution_1_copy_assignment
+&t = 0x7ff7b3cb25f8
 
 End solution_1_copy_assignment
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e638, &str = 0x7f7e2f004140, str = solution_1_copy_assignment
+    this = 0x7ff7b3cb25f8, &str = 0x7f9d33804140, str = solution_1_copy_assignment
 
 Start solution_2_copy_assignment
 默认构造
 BaseString::BaseString()
 void BaseString::print()
-    this = 0x7ff7b288e638, &str = nullptr
-&t = 0x7ff7b288e638
+    this = 0x7ff7b3cb25f8, &str = nullptr
+&t = 0x7ff7b3cb25f8
 
 普通构造
 BaseString::BaseString(const char *)
-    this = 0x7ff7b288e600, &str = 0x7f7e2f0040b0, str = solution_2_copy_assignment
+    this = 0x7ff7b3cb25c0, &str = 0x7f9d338040b0, str = solution_2_copy_assignment
 拷贝赋值
 String &solution_2::String::operator=(String)
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e600, &str = nullptr
+    this = 0x7ff7b3cb25c0, &str = nullptr
 void BaseString::print()
-    this = 0x7ff7b288e638, &str = 0x7f7e2f0040b0, str = solution_2_copy_assignment
-&t = 0x7ff7b288e638
+    this = 0x7ff7b3cb25f8, &str = 0x7f9d338040b0, str = solution_2_copy_assignment
+&t = 0x7ff7b3cb25f8
 
 End solution_2_copy_assignment
 virtual BaseString::~BaseString()
-    this = 0x7ff7b288e638, &str = 0x7f7e2f0040b0, str = solution_2_copy_assignment
+    this = 0x7ff7b3cb25f8, &str = 0x7f9d338040b0, str = solution_2_copy_assignment
 Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/copy_and_swap
 
