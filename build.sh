@@ -16,6 +16,8 @@ cd ${CUR_DIR}
 
 source env_variable.sh
 
+sh ./build_thread_safe_copy_on_write.sh
+
 mkdir -p $build_dir
 cd $build_dir
 cmake ..

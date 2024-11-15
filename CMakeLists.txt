@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.28)
 project(learning_more_cpp_idioms)
 
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # set(CMAKE_BUILD_TYPE Debug)
 
@@ -46,6 +47,17 @@ FetchContent_MakeAvailable(boost)
 #     include_directories(${THIRDPARTY_DIR}/boost/libs/${lib}/include)
 # endforeach()
 
+# FetchContent_Declare(
+#     folly
+#     # GIT_REPOSITORY https://github.com/facebook/folly.git
+#     # GIT_TAG main
+#     URL https://github.com/facebook/folly/releases/download/v2024.11.11.00/folly-v2024.11.11.00.tar.gz
+#     SOURCE_DIR ${THIRDPARTY_DIR}/folly
+# )
+# FetchContent_MakeAvailable(folly)
+
+#find_package(folly REQUIRED)
+#include_directories(${FOLLY_INCLUDE_DIRS})
 
 # set(executable_names
 # address_of

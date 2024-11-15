@@ -6,8 +6,8 @@
 ########################################################################
 # Author  :   xuechengyun
 # E-mail  :   xuechengyun@gmail.com
-# Date    :   2024/11/06 16:57:53
-# Desc    :   编译一个目标文件，主要用于自己写代码时运行测试用
+# Date    :   2024/11/15 19:22:05
+# Desc    :   build src/thread_safe_copy_on_write.cc by g++ because clang++ doesn't support std::atomic<std::shared_ptr>
 ########################################################################
 
 # set -x
@@ -16,21 +16,9 @@ cd ${CUR_DIR}
 
 source ./env_variable.sh
 
-
-# cmake ..
-
-main=$default_execute_file
-if [ $# -gt 0 ]; then
-    main=$1
-fi
-
-if [ $main = "thread_safe_copy_on_write" ];
-then
-    sh build_thread_safe_copy_on_write.sh
-else
-    cd $build_dir
-    make $main
-fi
+name=thread_safe_copy_on_write
+# I use gcc 14.2.0_1
+g++ src/$name.cc -std=c++23 -o $build_output_bin_dir/$name
 
 
 
