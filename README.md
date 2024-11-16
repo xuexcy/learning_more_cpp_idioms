@@ -41,6 +41,8 @@
     if (condition1) { a.set_x(1); }
     if (condition2) { a.set_y(2); }`
     ```
+- [counted_body(Intrusive reference counting)](src/counted_body.cc): ⭐ 对数据指针计数，归 0 时 delete 数据，即 std::shared_ptr<T> 的能力
+- [covariant_return_types]
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc): ⭐⭐⭐⭐ 奇异递归模板模式， 基类模板参数为继承类，实现编译期多态，即在编译期确定在基类函数中调用哪个子类函数
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)

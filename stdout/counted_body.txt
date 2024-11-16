@@ -1,0 +1,55 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/counted_body
+
+void run() [T = solution::String]
+*** init String a with empty
+empty constructor: ["", 1]
+
+*** assign a to "A"
+char constructor: ["A", 1]
+before assign: left ["", 1] , right ["A", 1]
+after assign: left ["A", 1] , right ["", 1]
+destructor: ["", 0]
+
+*** init String b with "B"
+char constructor: ["B", 1]
+*** init b->a
+String constructor: ["B", 2]
+before assign: left ["A", 1] , right ["B", 2]
+after assign: left ["B", 2] , right ["A", 1]
+destructor: ["A", 0]
+
+*** init c with a
+String constructor: ["B", 3]
+
+*** init d with "D"
+char constructor: ["D", 1]
+destructor: ["D", 0]
+destructor: ["B", 0]
+
+void run() [T = solution_with_shared_ptr::String]
+*** init String a with empty
+empty constructor: ["", 1]
+
+*** assign a to "A"
+char constructor: ["A", 1]
+before assign: left ["", 1] , right ["A", 1]
+after assign: left ["A", 1] , right ["", 1]
+destructor: [, 0]
+
+*** init String b with "B"
+char constructor: ["B", 1]
+*** init b->a
+String constructor: ["B", 2]
+before assign: left ["A", 1] , right ["B", 2]
+after assign: left ["B", 2] , right ["A", 1]
+destructor: [A, 0]
+
+*** init c with a
+String constructor: ["B", 3]
+
+*** init d with "D"
+char constructor: ["D", 1]
+destructor: [D, 0]
+destructor: [B, 0]
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/counted_body
+
