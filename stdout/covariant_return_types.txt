@@ -1,0 +1,13 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/covariant_return_types
+get Derived* from Base* by dynamic_case
+B
+B
+C
+D
+get Derived* from Base* by override function return sub-type of base-type
+B
+B
+C
+D
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/covariant_return_types
+
