@@ -1,0 +1,9 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/empty_base_optimization
+sizeof(Empty1): 1
+sizeof(Empty2): 1
+sizeof(ContainEmpty): 8
+sizeof(ContainEmptyV2): 12
+sizeof(DerivedEmpty): 4
+sizeof(DerivedEmptyV2): 4
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/empty_base_optimization
+

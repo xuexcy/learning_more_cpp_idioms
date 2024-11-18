@@ -1,5 +1,5 @@
 Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/address_of
-address of na is 0x7ff7b30fd4fb
-address of na is 0x7ff7b30fd4fb
+address of na is 0x7ff7b69354fb
+address of na is 0x7ff7b69354fb
 Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/address_of
 
