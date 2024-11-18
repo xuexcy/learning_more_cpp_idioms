@@ -57,19 +57,20 @@ class DerivedEmptyV2 {
     BaseOptimization<Empty1, Empty2, int> data;
 };
 
+static_assert(1 == sizeof(Empty1));
+static_assert(1 == sizeof(Empty2));
+static_assert(8 == sizeof(ContainEmpty));
+static_assert(12 == sizeof(ContainEmptyV2));
+static_assert(4 == sizeof(DerivedEmpty));  // 空基类优化
+static_assert(4 == sizeof(DerivedEmptyV2));  // 空基类优化
+
 void run() {
     std::println("sizeof({}): {}", "Empty1", sizeof(Empty1));
-    assert(1 == sizeof(Empty1));
     std::println("sizeof({}): {}", "Empty2", sizeof(Empty2));
-    assert(1 == sizeof(Empty2));
     std::println("sizeof({}): {}", "ContainEmpty", sizeof(ContainEmpty));
-    assert(8 == sizeof(ContainEmpty));
     std::println("sizeof({}): {}", "ContainEmptyV2", sizeof(ContainEmptyV2));
-    assert(12 == sizeof(ContainEmptyV2));
     std::println("sizeof({}): {}", "DerivedEmpty", sizeof(DerivedEmpty));
-    assert(4 == sizeof(DerivedEmpty));  // 空基类优化
     std::println("sizeof({}): {}", "DerivedEmptyV2", sizeof(DerivedEmptyV2));
-    assert(4 == sizeof(DerivedEmptyV2));  // 空基类优化
 }
 
 

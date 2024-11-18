@@ -1,0 +1,7 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/enable_if
+int negate(int)
+negate(1) = -1
+typename F::result_type negate(const F &) [F = String]
+template negate(aBc) = AbC
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/enable_if
+
