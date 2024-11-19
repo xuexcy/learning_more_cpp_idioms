@@ -52,6 +52,7 @@
 - [curiously_recurring_template_pattern](src/curiously_recurring_template_pattern.cc): ⭐⭐⭐⭐ 奇异递归模板模式， 基类模板参数为继承类，实现编译期多态，即在编译期确定在基类函数中调用哪个子类函数
 - [empty_base_optimization](src/empty_base_optimization.cc): ⭐⭐ 空类的 size 为 1, 和包含一个空类实例相比，可以通过继承空类可以优化掉这个浪费调用内存
 - [enable_if](src/enable_if.cc): ⭐⭐⭐⭐⭐ 在模板编程时，通过 enable_if 来限制模板参数需要符合一些性质，在 C++ 20 后可以使用 `requires`
+- [erase_remove](src/erase_remove.cc): ⭐⭐⭐⭐⭐ 在使用 std::remove 后再使用容器的 erase 来删除元素，因为 std::remove 只是将需要删除的元素挪到容器尾部
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface
