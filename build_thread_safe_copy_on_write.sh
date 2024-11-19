@@ -19,6 +19,7 @@ source ./env_variable.sh
 name=thread_safe_copy_on_write
 # I use gcc 14.2.0_1
 g++ src/$name.cc -std=c++23 -o $build_output_bin_dir/$name
+exit $?
 
 
 

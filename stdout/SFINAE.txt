@@ -1,0 +1,7 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/SFINAE
+1
+1
+1
+0
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/SFINAE
+

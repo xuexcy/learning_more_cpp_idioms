@@ -18,6 +18,11 @@ source env_variable.sh
 
 sh ./build_thread_safe_copy_on_write.sh
 
+if [ ! 0 -eq $? ]
+then
+    exit 1
+fi
+
 mkdir -p $build_dir
 cd $build_dir
 cmake ..
