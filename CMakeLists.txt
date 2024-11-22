@@ -182,6 +182,10 @@ set(main_name erase_remove)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name execute_around_pointer)
+add_executable(${main_name} src/${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name inner_class)
 add_executable(${main_name} src/${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)

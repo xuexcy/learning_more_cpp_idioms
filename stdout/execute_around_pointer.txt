@@ -1,0 +1,41 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/execute_around_pointer
+
+void bad_case::run()
+Now size is: 1
+Now size is: 2
+
+void solution::run()
+Before size is: 0
+After size is: 1
+Before size is: 1
+After size is: 2
+
+void solution_2::run()
+Before Visualization aspect
+Before Lock aspect
+Before Logging aspect
+After Logging aspect
+After Lock aspect
+After Visualization aspect
+Before Visualization aspect
+Before Lock aspect
+Before Logging aspect
+After Logging aspect
+After Lock aspect
+After Visualization aspect
+
+void solution_3::run()
+Before Visualization aspect
+Before Lock aspect
+Before Logging aspect
+After Logging aspect
+After Lock aspect
+After Visualization aspect
+Before Visualization aspect
+Before Lock aspect
+Before Logging aspect
+After Logging aspect
+After Lock aspect
+After Visualization aspect
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/execute_around_pointer
+

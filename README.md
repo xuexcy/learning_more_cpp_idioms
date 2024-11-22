@@ -33,6 +33,7 @@
 - [computational_constructor](src/computational_constructor.cc): ⭐ 对于不支持 NRVO(named return value optimization) 的编译器，将函数中的计算并 return obj 的逻辑，改成 return Object(xxx) 的方式(即由构造函数实现计算逻辑并直接 return 构造结果)，也就是通过构造 + RVO 的方式来替代 NRVO
 - [concrete_data_type](src/concrete_data_type.cc): ⭐⭐⭐ 控制类实例的作用域和生命周期;通过将构造函数或析构函数设置成 protected 来禁止在桟上构造类实例；通过将 new 设置成 private 或 protected，来禁止在堆上构造类实例
 - [construct_on_first_use](src/construct_on_first_use.cc): ⭐⭐⭐⭐ class static variable 可能在使用时还未被构造，这样可能导致使用结果不符合预期，通过将其放到 class static/member function 中，在 function 中确保 variable 使用前完成了构造，即 `static Bar bar_;` -> `Bar& get_bar() { static Bar bar; return bar; }`
+    > [more effective c++ 条款 04](https://github.com/xuexcy/learning_effective_cpp/blob/main/src/04/main.cc)
 - [construction_tracker](src/construction_tracker.cc): ⭐⭐⭐ 在构造函数的列表初始化成员时，不同成员可能会抛出相同类型的异常，通过对每个成员初始化前设置特定 tracker 值，来定位到底时那个成员初始化失败。比如 `b_((++tracker), "x"), "y")`
 - [copy_and_swap](src/copy_and_swap.cc): ⭐⭐⭐ 在拷贝赋值函数内使用 swap 来保证 strong guarantee（强烈保证）异常安全
 - [copy_on_write](src/copy_on_write.cc): ⭐⭐⭐⭐⭐ 在实例发生 copy 时，通过智能指针共享数据用于数据读取，而不是直接 copy 整个实例中包含的数据，在实例需要 update/write 数据时，再对对应的实例 copy 一份刚刚共享的数据以便写入，到达了 lazy copy 的目的。另外，copy 后也不一定发生 write（比如 write 的前提是需要满足某些业务条件），那么这样就 no copy。 如下代码，假设 `condition1 == true`，那么 copy 发生在 `a.set_x(1)` 时，如果 `codition1 == false; condition2 == true`，那么 copy 发生在 `a.set_y(2)` 时, 这样就是 lazy copy，如果 `condition1 == false; condition2 == false`，那么就不会发生 copy，也就是 no copy。
@@ -53,6 +54,7 @@
 - [empty_base_optimization](src/empty_base_optimization.cc): ⭐⭐ 空类的 size 为 1, 和包含一个空类实例相比，可以通过继承空类可以优化掉这个浪费调用内存
 - [enable_if](src/enable_if.cc): ⭐⭐⭐⭐⭐ 在模板编程时，通过 enable_if 来限制模板参数需要符合一些性质，在 C++ 20 后可以使用 `requires`
 - [erase_remove](src/erase_remove.cc): ⭐⭐⭐⭐⭐ 在使用 std::remove 后再使用容器的 erase 来删除元素，因为 std::remove 只是将需要删除的元素挪到容器尾部
+- [execute_around_pointer](src/execute_around_pointer.cc): ⭐⭐⭐⭐ 通过将实例封装到一些 class Aspect(有点像 python decorator) 类中，通过重载 operator-> 来执行实例的函数，在函数执行前后通过 Aspect 的构造和析构函数，来执行一些特定的操作，比如在 std::vector.push_back() 执行前后，来 print std::vector.size()
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface
