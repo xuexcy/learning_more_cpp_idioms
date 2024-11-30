@@ -1,4 +1,3 @@
-build/
 .cache/
 .vscode/
 .DS_Store
@@ -7,3 +6,7 @@ build/
 Cargo.lock
 src/parameterized_base_deps/rust_traits_serializable/target/
 src/inner_class_deps/rust_traits_same_function_name/target/
+
+# for build
+build/
+thirdparty/

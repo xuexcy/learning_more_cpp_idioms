@@ -15,6 +15,7 @@ CUR_DIR=$(cd `dirname $0`; pwd)
 cd ${CUR_DIR}
 
 source ./env_variable.sh
+mkdir -p $build_output_bin_dir
 
 name=thread_safe_copy_on_write
 # I use gcc 14.2.0_1

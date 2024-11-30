@@ -8,32 +8,51 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/opt/llvm/lib/c++")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output/bin)
-
 set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 message("thirdparty dir: " ${THIRDPARTY_DIR})
 
 include(FetchContent)
 set(FETCHCONTENT_QUIET OFF)
+set(FETCHCONTENT_BASE_DIR ${CMAKE_BINARY_DIR}/_deps)
 
 # import cpp_utils
 FetchContent_Declare(
     cpp_utils
     GIT_REPOSITORY https://github.com/xuexcy/cpp_utils.git
     GIT_TAG main
+    GIT_SHALLOW TRUE
     SOURCE_DIR ${THIRDPARTY_DIR}/cpp_utils
 )
 FetchContent_MakeAvailable(cpp_utils)
+# TODO
 include_directories(${THIRDPARTY_DIR}/cpp_utils)
 set(EXTRA_LIBS ${EXTRA_LIBS} cpp_utils)
 
+# import google test
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG main
+    GIT_SHALLOW TRUE
+    SOURCE_DIR ${THIRDPARTY_DIR}/googletest
+)
+FetchContent_MakeAvailable(googletest)
+
+# import google benchmark
+FetchContent_Declare(
+    google_benchmark
+    GIT_REPOSITORY https://github.com/google/benchmark.git
+    GIT_TAG main
+    GIT_SHALLOW TRUE
+    SOURCE_DIR ${THIRDPARTY_DIR}/google_benchmark
+)
+FetchContent_MakeAvailable(google_benchmark)
 
 # import boost
 set(BOOST_INCLUDE_LIBRARIES bimap dll)
 set(BOOST_ENABLE_CMAKE ON)
 FetchContent_Declare(
     boost
-    # GIT_REPOSITORY https://github.com/boostorg/boost.git
     URL https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-cmake.tar.gz
     URL_HASH SHA256=c62ce6e64d34414864fef946363db91cea89c1b90360eabed0515f0eda74c75c
     DOWNLOAD_EXTRACT_TIMESTAMP ON
@@ -70,7 +89,6 @@ FetchContent_MakeAvailable(boost)
 # boost_mutant
 # )
 
-add_subdirectory(src/utils)
 # https://stackoverflow.com/questions/69517191/cmake-create-executable-for-all-cpp-file-in-folder
 # foreach (target_name IN LISTS executable_names)
 #     add_executable(${target_name} src/${target_name}.cc)
@@ -78,133 +96,4 @@ add_subdirectory(src/utils)
 #     target_link_libraries(${target_name} ${EXTRA_LIBS})
 # endforeach ()
 
-
-
-
-
-
-
-
-
-set(main_name address_of)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name algebraic_hierarchy)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name attach_by_initialization)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-add_subdirectory(src/${main_name}_deps)
-target_link_libraries(${main_name} server)
-
-set(main_name attorney_client)
-add_executable(${main_name} src/attorney_client.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name barton_nackman_trick)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name boost_mutant)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-target_link_libraries(${main_name} boost_bimap)
-
-set(main_name calling_virtuals_during_initialization)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name capability_query)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name checked_delete)
-file(GLOB main_deps src/${main_name}_deps/*.h src/${main_name}_deps/*.cpp)
-add_executable(${main_name} src/${main_name}.cc ${main_deps})
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name clear_and_minimize)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name coercion_by_member)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name computational_constructor)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name concrete_data_type)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name construct_on_first_use)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name construction_tracker)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name copy_and_swap)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name copy_on_write)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name counted_body)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name covariant_return_types)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name curiously_recurring_template_pattern)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name empty_base_optimization)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name enable_if)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name erase_remove)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name execute_around_pointer)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name inner_class)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name interface_class)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name parameterized_base)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-
-set(main_name pointer_to_implementation)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
-add_subdirectory(src/${main_name}_deps)
-target_link_libraries(${main_name} book book_with_pimpl book_template_with_pimpl)
-
-
-set(main_name SFINAE)
-add_executable(${main_name} src/${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
+add_subdirectory(src)

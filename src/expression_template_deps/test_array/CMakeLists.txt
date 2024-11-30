@@ -1,0 +1,5 @@
+add_executable(expression_template_array_test calculation_test.cc)
+target_link_libraries(expression_template_array_test gtest)
+
+#add_executable(expression_template_array_benchmark calculation_benchmark.cc)
+#target_link_libraries(expression_template_array_benchmark benchmark::benchmark)
