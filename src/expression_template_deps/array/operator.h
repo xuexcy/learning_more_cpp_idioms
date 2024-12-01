@@ -16,7 +16,6 @@
 
 #include "concepts.h"
 
-namespace array_operator_overload {
 template <class Array>
 Array get_array(size_t n) {
     if constexpr (has_construct_with_size<Array>::value) {
@@ -25,6 +24,8 @@ Array get_array(size_t n) {
         return Array();
     }
 }
+
+namespace array_operator_overload {
 template <ArrayLike Array>
 Array operator+(const Array& a, const Array& b) {
     assert(a.size() == b.size());

@@ -12,7 +12,6 @@
 */
 #pragma once
 
-
 #include <array>
 #include <vector>
 
@@ -20,18 +19,26 @@
 #include "expression_template_deps/array/operator.h"
 #include "expression_template_deps/array/expression_template/expression.h"
 
-const size_t N = 1000;
-const size_t PRIME_1 = 19;
-const size_t PRIME_2 = 23;
+static constexpr size_t kPrime_1 = 19;
+static constexpr size_t kPrime_2 = 23;
 
+template <size_t N>
 using StdArray = std::array<double, N>;
 using StdVector = std::vector<double>;
 
-template <class T, class U>
-void init_array(T& t, U& u) {
-    for (auto i = 0; i < t.size(); ++i) {
-        t[i] = i % PRIME_1;
-        u[i] = i % PRIME_2;
+template <size_t N>
+struct ArraySize {
+    static const size_t kValue;
+};  // struct ArraySize
+template <size_t N>
+const size_t ArraySize<N>::kValue= N;
+
+template <ArrayLike A, ArrayLike B>
+void init_array(A& a, B& b) {
+    assert(a.size() == b.size());
+    for (auto i = 0; i < a.size(); ++i) {
+        a[i] = i % kPrime_1;
+        b[i] = i % kPrime_2;
     }
 }
 
@@ -44,18 +51,21 @@ const double EPSILON{0.000001};
     a + a * a + 3.4 + 0.2 + b * a + 1.1 * 1.2 + 1.2 * a * 0.3 * 1.2 * b +\
     b * a * a + a * b + 0.2 * b
 namespace array_operator_overload {
-StdArray calculate(const StdArray& a, const StdArray& b) {
+template <ArrayLike T>
+T calculate(const T& a, const T& b) {
     // operator + 和 operator * 在 array_operator.h 中重载
     return CALCULATE(a, b);
 }
-}
+}  // namespace array_operator_overload
 
 // 表达式求值
-StdArray calculate_by_expression(const StdArray& a, const StdArray& b) {
-    StdArray res;
+template <ArrayLike T>
+T calculate_by_expression(const T& a, const T& b) {
+    T res = get_array<T>(a.size());
     for (auto i = 0; i < a.size(); ++i) {
         res[i] = CALCULATE(a[i], b[i]);
     }
+    // copy elision
     return res;
 }
 
@@ -95,6 +105,7 @@ using ExprType = ADD<
     MULTIPLY<A, B>,  // a * b
     MULTIPLY<Variable<double>, B>  // 0.2 * b
 >;
+
 // 表达式模板求值
 template <ArrayLike A, ArrayLike B>
 inline auto calculate_by_expression_template(const Array<A>& a, const Array<B>& b) {

@@ -32,5 +32,4 @@ Expr<LExpr, Variable<T>> operator op (const LExpr& lhs, const T& rhs) { \
 
 OPERATOR_OVERLOAD(+, Add)
 OPERATOR_OVERLOAD(*, Multiply)
-
 }  // namespace array_expression_template
