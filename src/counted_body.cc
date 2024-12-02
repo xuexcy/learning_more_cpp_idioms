@@ -12,7 +12,9 @@
 共享数据指针并计数，计数归 0 时 delete, 也就是 std::shared_ptr 实现的功能
 */
 
+#include <cstring>
 #include <format>
+#include <memory>
 #include <print>
 
 #include "cpp_utils/util.h"

@@ -1,0 +1,43 @@
+Total: 1115 samples
+     328  29.4%  29.4%      328  29.4% ___umodti3
+     263  23.6%  53.0%      263  23.6% std::array::operator[]@10000ecd4
+     124  11.1%  64.1%      124  11.1% std::array::operator[]@10000ce08
+      78   7.0%  71.1%      179  16.1% array_expression_template::Multiply::operator[]@10001203c
+      55   4.9%  76.1%      157  14.1% array_expression_template::Array::operator[]
+      29   2.6%  78.7%       29   2.6% array_expression_template::Variable::operator[]
+      28   2.5%  81.2%      169  15.2% array_operator_overload::operator+@10000eae8
+      26   2.3%  83.5%      183  16.4% array_operator_overload::operator*@10000ea34
+      23   2.1%  85.6%       59   5.3% array_expression_template::Multiply::operator[]@100011574
+      23   2.1%  87.6%       63   5.7% array_expression_template::Multiply::operator[]@100012368
+      17   1.5%  89.1%       93   8.3% array_operator_overload::operator*@10000ebcc
+      15   1.3%  90.5%       69   6.2% array_expression_template::Multiply::operator[]@100012528
+      14   1.3%  91.7%       14   1.3% 0x000000019da0b80c
+      14   1.3%  93.0%       58   5.2% array_operator_overload::operator+@100011318
+       9   0.8%  93.8%      104   9.3% array_expression_template::Add::operator[]@1000126b8
+       8   0.7%  94.5%      298  26.7% array_expression_template::Add::operator[]@100012318
+       8   0.7%  95.2%       47   4.2% array_expression_template::Multiply::operator[]@1000125c8
+       7   0.6%  95.9%      216  19.4% array_expression_template::Add::operator[]@1000124d8
+       7   0.6%  96.5%       83   7.4% array_expression_template::Add::operator[]@100012708
+       6   0.5%  97.0%      118  10.6% __Z23calculate_by_expressionITk9ArrayLikeSt5arrayIdLm2000EEET_RKS2_S4_
+       6   0.5%  97.6%      373  33.5% array_expression_template::Add::operator[]@100011fec
+       5   0.4%  98.0%      117  10.5% array_expression_template::Add::operator[]@100012618
+       4   0.4%  98.4%      432  38.7% array_expression_template::Add::operator[]@100011524
+       4   0.4%  98.7%      199  17.8% array_expression_template::Add::operator[]@100012578
+       4   0.4%  99.1%       34   3.0% array_expression_template::Multiply::operator[]@100012668
+       4   0.4%  99.5%      493  44.2% array_expression_template::collect_result
+       3   0.3%  99.7%        3   0.3% 0x000000019da0b810
+       3   0.3% 100.0%      476  42.7% array_expression_template::Add::operator[]@100010234
+       0   0.0% 100.0%     1115 100.0% 0x000000019d654273
+       0   0.0% 100.0%     1115 100.0% _main
+       0   0.0% 100.0%        1   0.1% array_expression_template::Multiply::Multiply
+       0   0.0% 100.0%        1   0.1% array_expression_template::calculate
+       0   0.0% 100.0%        1   0.1% array_expression_template::operator*
+       0   0.0% 100.0%      503  45.1% array_operator_overload::calculate
+       0   0.0% 100.0%       41   3.7% array_operator_overload::operator*@10000ec74
+       0   0.0% 100.0%       58   5.2% array_operator_overload::operator+@10000eb9c
+       0   0.0% 100.0%     1115 100.0% run
+       0   0.0% 100.0%       17   1.5% std::array get_array
+       0   0.0% 100.0%      493  44.2% void calculate_by_et
+       0   0.0% 100.0%      118  10.6% void calculate_by_expression
+       0   0.0% 100.0%      503  45.1% void calculate_by_operator_overload
+       0   0.0% 100.0%        1   0.1% void get_expression_by_et

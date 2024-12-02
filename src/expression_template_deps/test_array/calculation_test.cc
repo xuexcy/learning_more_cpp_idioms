@@ -15,12 +15,13 @@
 
 #include <type_traits>
 
-#include "expression_template_deps/test_array/calculation_test_deps.h"
+#include "expression_template_deps/test_array/calculation_deps.h"
 
 template <class ArraySize>
 class ArrayCalculationTest : public ::testing::Test {
 protected:
-    ArrayCalculationTest() : vec_a_data(ArraySize::kValue), vec_b_data(ArraySize::kValue) {}
+    ArrayCalculationTest() : vec_a_data(ArraySize::kValue), vec_b_data(ArraySize::kValue),
+        arr_a(arr_a_data), arr_b(arr_b_data), vec_a(vec_a_data), vec_b(vec_b_data) {}
     void SetUp() override {
         init_array(arr_a_data, arr_b_data);
         init_array(vec_a_data, vec_b_data);
@@ -30,6 +31,11 @@ protected:
     StdVector vec_a_data;
     StdVector vec_b_data;
     static constexpr size_t kSize = ArraySize::kValue;
+
+    array_expression_template::Array<decltype(arr_a_data)> arr_a;
+    array_expression_template::Array<decltype(arr_b_data)> arr_b;
+    array_expression_template::Array<decltype(vec_a_data)> vec_a;
+    array_expression_template::Array<decltype(vec_b_data)> vec_b;
 };  // class ArrayCalculationTest
 TYPED_TEST_SUITE_P(ArrayCalculationTest);
 
@@ -39,65 +45,64 @@ TYPED_TEST_P(ArrayCalculationTest, CheckEqual) {
     auto& arr_b_data = this->arr_b_data;
     auto& vec_a_data = this->vec_a_data;
     auto& vec_b_data = this->vec_b_data;
-    // by expression
-    StdArray<kSize> res1 = calculate_by_expression(arr_a_data, arr_b_data);
+
+    auto& arr_a = this->arr_a;
+    auto& arr_b = this->arr_b;
+    auto& vec_a = this->vec_a;
+    auto& vec_b = this->vec_b;
+    // array by operator overload
+    StdArray<kSize> res1 = array_operator_overload::calculate(arr_a_data, arr_b_data);
     {
+        // vector by operator overload
+        StdVector res2 = array_operator_overload::calculate(vec_a_data, vec_b_data);
+        for (auto i = 0; i < res2.size(); ++i) {
+            ASSERT_NEAR(res1[i], res2[i], EPSILON);
+        }
+    }
+    {
+        // array&array by expression
+        StdArray<kSize> res2 = calculate_by_expression(arr_a_data, arr_b_data);
+        for (auto i = 0; i < res2.size(); ++i) {
+            ASSERT_NEAR(res1[i], res2[i], EPSILON);
+        }
+    }
+    {
+        // vector&vector by expression
         StdVector res2 = calculate_by_expression(vec_a_data, vec_b_data);
         for (auto i = 0; i < res2.size(); ++i) {
             ASSERT_NEAR(res1[i], res2[i], EPSILON);
         }
     }
-
-    // by overload
-    {
-        using namespace array_operator_overload;
-        StdArray<kSize> res2 = calculate(arr_a_data, arr_b_data);
-        for (auto i = 0; i < res2.size(); ++i) {
-            ASSERT_NEAR(res1[i], res2[i], EPSILON);
-        }
-    }
-    {
-        using namespace array_operator_overload;
-        StdVector res2 = calculate(vec_a_data, vec_b_data);
-        for (auto i = 0; i < res2.size(); ++i) {
-            ASSERT_NEAR(res1[i], res2[i], EPSILON);
-        }
-    }
-
-    // by expression template
-    using namespace array_expression_template;
-    Array arr_a(arr_a_data), arr_b(arr_b_data);
-    Array vec_a(vec_a_data), vec_b(vec_b_data);
-
+    // et: expression template
     #define SAME_TYPE(a, b, res) \
-        std::is_same_v< ExprType<std::decay_t<decltype(a)>, std::decay_t<decltype(b)>>, std::decay_t<decltype(res)>>
+        std::is_same_v<array_expression_template::ExprType<std::decay_t<decltype(a)>, std::decay_t<decltype(b)>>, std::decay_t<decltype(res)>>
     {
-        // arr arr
-        auto res2 = calculate_by_expression_template(arr_a, arr_b);
+        // array&array by et
+        auto res2 = array_expression_template::calculate(arr_a, arr_b);
         static_assert(SAME_TYPE(arr_a, arr_b, res2));
         for (auto i = 0; i < res2.size(); ++i) {
             ASSERT_NEAR(res1[i], res2[i], EPSILON);
         }
     }
     {
-        // vec vec
-        auto res2 = calculate_by_expression_template(vec_a, vec_b);
+        // vector&vector by et
+        auto res2 = array_expression_template::calculate(vec_a, vec_b);
         static_assert(SAME_TYPE(vec_a, vec_b, res2));
         for (auto i = 0; i < res2.size(); ++i) {
             ASSERT_NEAR(res1[i], res2[i], EPSILON);
         }
     }
     {
-        // arr vec
-        auto res2 = calculate_by_expression_template(arr_a, vec_b);
+        // array&vector by et
+        auto res2 = array_expression_template::calculate(arr_a, vec_b);
         static_assert(SAME_TYPE(arr_a, vec_b, res2));
         for (auto i = 0; i < res2.size(); ++i) {
             ASSERT_NEAR(res1[i], res2[i], EPSILON);
         }
     }
     {
-        // vec arr
-        auto res2 = calculate_by_expression_template(vec_a, arr_b);
+        // vector&array by et
+        auto res2 = array_expression_template::calculate(vec_a, arr_b);
         static_assert(SAME_TYPE(vec_a, arr_b, res2));
         for (auto i = 0; i < res2.size(); ++i) {
             ASSERT_NEAR(res1[i], res2[i], EPSILON);

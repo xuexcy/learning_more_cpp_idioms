@@ -19,6 +19,7 @@
 */
 
 #include <cassert>
+#include <cstring>
 #include <print>
 #include <random>
 

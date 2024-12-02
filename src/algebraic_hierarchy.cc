@@ -14,7 +14,8 @@ Number n2 = n3;
 
 */
 
-#include <expected>
+// #include <expected>
+#include <optional>
 #include <print>
 #include <string>
 
@@ -45,7 +46,7 @@ public:
 public:
     Number& operator=(const Number& n);
     virtual Number operator+(const Number& n) const;
-    std::expected<std::string, std::string/*err_msg*/> string() const;
+    std::optional<std::string> string() const;
     void swap(Number& n) throw ();
 protected:
     virtual std::string to_string() const { return ""; }
@@ -136,9 +137,15 @@ void Number::swap(Number& n) throw() {
 Number Number::operator+(const Number& n) const {
     return rep->operator+(n);
 }
-std::expected<std::string, std::string> Number::string() const {
+// std::expected<std::string, std::string> Number::string() const {
+//     if (nullptr == rep) {
+//         return std::unexpected("Number not init");
+//     }
+//     return rep->to_string();
+// }
+std::optional<std::string> Number::string() const {
     if (nullptr == rep) {
-        return std::unexpected("Number not init");
+        return std::nullopt;
     }
     return rep->to_string();
 }
@@ -227,13 +234,16 @@ void std::swap(Number& n1, Number& n2) {
     n1.swap(n2);
 }
 
+// void print(const std::string& name, const Number& n) {
+//     auto s = n.string();
+//     if (s.has_value()) {
+//         std::print("{}: {}\n", name, s.value());
+//     } else {
+//         std::print("{}: error: {}\n", name, s.error());
+//     }
+// }
 void print(const std::string& name, const Number& n) {
-    auto s = n.string();
-    if (s.has_value()) {
-        std::print("{}: {}\n", name, s.value());
-    } else {
-        std::print("{}: error: {}\n", name, s.error());
-    }
+    std::print("{}: {}\n", name, n.string().value_or("null"));
 }
 #define PRINT(name) print(#name, name)
 

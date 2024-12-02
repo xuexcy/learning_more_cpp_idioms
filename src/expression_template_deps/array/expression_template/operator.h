@@ -13,6 +13,7 @@
 #pragma once
 
 #include "expression_impl.h"
+#include "expression_template_deps/array/operator.h"
 
 namespace array_expression_template {
 
@@ -28,6 +29,14 @@ Expr<Variable<T>, RExpr> operator op (const T& lhs, const RExpr& rhs) { \
 template <IsExpr LExpr, class T> \
 Expr<LExpr, Variable<T>> operator op (const LExpr& lhs, const T& rhs) { \
     return Expr(lhs, Variable(rhs)); \
+}
+
+template <IsExpr From, ArrayLike To>
+void collect_result(const From& from, To* to) {
+    auto size = from.size();
+    for (auto i = 0; i < size; ++i) {
+        (*to)[i] = from[i];
+    }
 }
 
 OPERATOR_OVERLOAD(+, Add)

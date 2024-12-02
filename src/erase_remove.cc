@@ -17,6 +17,7 @@ iterator 开始删除元素即可
 */
 
 #include <iterator>
+#include <numeric>
 #include <vector>
 
 #include "utils/main_decorator.h"
@@ -39,9 +40,19 @@ inline void remove(std::vector<T>& v, const T& item) {
 
 void run() {
     std::vector<int> v{1, 99, 2, 99, 3};
-    std::println("{}", v);
+    auto print_vec = [&] {
+        static const std::string init_str{""};
+        std::println("[{}]", std::accumulate(v.begin(), v.end(), init_str,
+            [](auto pre, auto& cur) {
+                auto cur_str = std::to_string(cur);
+                return pre.empty() ? cur_str : std::format("{}, {}", pre, cur_str);
+            }));
+    };
+    //std::println("{}", v);
+    print_vec();
     remove(v, 99);
-    std::println("{}", v);
+    //std::println("{}", v);
+    print_vec();
 }
 
 int main() {

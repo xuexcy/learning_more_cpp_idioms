@@ -1,0 +1,7 @@
+Homebrew clang version 19.1.4
+Target: arm64-apple-darwin24.1.0
+Thread model: posix
+InstalledDir: /opt/homebrew/Cellar/llvm/19.1.4/bin
+Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg
+System configuration file directory: /opt/homebrew/etc/clang
+User configuration file directory: /Users/xuechengyun/.config/clang

@@ -1,0 +1,30 @@
+[==========] Running 5 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from DifferentSize/ArrayCalculationTest/0, where TypeParam = ArraySize<8ul>
+[ RUN      ] DifferentSize/ArrayCalculationTest/0.CheckEqual
+[       OK ] DifferentSize/ArrayCalculationTest/0.CheckEqual (0 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/0 (0 ms total)
+
+[----------] 1 test from DifferentSize/ArrayCalculationTest/1, where TypeParam = ArraySize<32ul>
+[ RUN      ] DifferentSize/ArrayCalculationTest/1.CheckEqual
+[       OK ] DifferentSize/ArrayCalculationTest/1.CheckEqual (0 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/1 (0 ms total)
+
+[----------] 1 test from DifferentSize/ArrayCalculationTest/2, where TypeParam = ArraySize<128ul>
+[ RUN      ] DifferentSize/ArrayCalculationTest/2.CheckEqual
+[       OK ] DifferentSize/ArrayCalculationTest/2.CheckEqual (0 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/2 (0 ms total)
+
+[----------] 1 test from DifferentSize/ArrayCalculationTest/3, where TypeParam = ArraySize<512ul>
+[ RUN      ] DifferentSize/ArrayCalculationTest/3.CheckEqual
+[       OK ] DifferentSize/ArrayCalculationTest/3.CheckEqual (0 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/3 (0 ms total)
+
+[----------] 1 test from DifferentSize/ArrayCalculationTest/4, where TypeParam = ArraySize<2048ul>
+[ RUN      ] DifferentSize/ArrayCalculationTest/4.CheckEqual
+[       OK ] DifferentSize/ArrayCalculationTest/4.CheckEqual (1 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/4 (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 5 test suites ran. (1 ms total)
+[  PASSED  ] 5 tests.

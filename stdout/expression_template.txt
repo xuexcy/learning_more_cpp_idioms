@@ -1,0 +1,5 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/expression_template
+value: 60
+value: 60
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/expression_template
+

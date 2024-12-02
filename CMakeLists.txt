@@ -6,10 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # set(CMAKE_BUILD_TYPE Debug)
 
-# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/local/opt/llvm/lib/c++")
-
 set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 message("thirdparty dir: " ${THIRDPARTY_DIR})
+set(LIB_PROFILER_DIR "/opt/homebrew/Cellar/gperftools/2.16/lib")
 
 include(FetchContent)
 set(FETCHCONTENT_QUIET OFF)
@@ -65,6 +64,16 @@ FetchContent_MakeAvailable(boost)
 # foreach(lib IN LISTS libs)
 #     include_directories(${THIRDPARTY_DIR}/boost/libs/${lib}/include)
 # endforeach()
+
+#FetchContent_Declare(
+#    eigen
+#    URL https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz
+#    DOWNLOAD_EXTRACT_TIMESTAMP ON
+#    #URL_HASH SHA128=80a43aa9b64030639d1b1bd0c01fae801ab722f537ed
+#    SOURCE_DIR ${THIRDPARTY_DIR}/eigen
+#    EXCLUDE_FROM_ALL
+#)
+#FetchContent_MakeAvailable(eigen)
 
 # FetchContent_Declare(
 #     folly

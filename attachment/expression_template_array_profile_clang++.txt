@@ -1,0 +1,55 @@
+Total: 1314 samples
+     454  34.6%  34.6%      454  34.6% std::__1::array::operator[][abi:ne190104]@10001ce48
+     209  15.9%  50.5%      229  17.4% array_expression_template::Multiply::operator[]@10001f438
+     204  15.5%  66.0%      204  15.5% std::__1::array::operator[][abi:ne190104]@10001c608
+     144  11.0%  76.9%      144  11.0% std::__1::array::size[abi:ne190104]
+      73   5.6%  82.5%      189  14.4% array_expression_template::Array::operator[]
+      46   3.5%  86.0%       46   3.5% array_expression_template::Variable::operator[]
+      28   2.1%  88.1%      199  15.1% array_expression_template::Multiply::operator[]@10001f0a0
+      15   1.1%  89.3%      139  10.6% __ZN23array_operator_overloadmlIdTk9ArrayLikeNSt3__15arrayIdLm2000EEEQ6ItemOfIT_T0_EEES5_RKS4_RKS5_
+      14   1.1%  90.3%       14   1.1% 0x000000019da0b80c
+      14   1.1%  91.4%      195  14.8% __ZN23array_operator_overloadplITk9ArrayLikeNSt3__15arrayIdLm2000EEEEET_RKS4_S6_
+      11   0.8%  92.2%       63   4.8% array_expression_template::Multiply::operator[]@10001eff4
+      10   0.8%  93.0%      249  18.9% array_expression_template::Add::operator[]@10001f1a0
+      10   0.8%  93.8%       87   6.6% array_expression_template::Multiply::operator[]@10001f1f4
+       9   0.7%  94.4%      131  10.0% __Z23calculate_by_expressionITk9ArrayLikeNSt3__15arrayIdLm2000EEEET_RKS3_S5_
+       9   0.7%  95.1%      573  43.6% __ZN25array_expression_template14collect_resultITkNS_6IsExprENS_3AddINS1_INS1_INS1_INS1_INS1_INS1_INS1_INS1_INS_5ArrayINSt3__15arrayIdLm2000EEEEENS_8MultiplyIS6_S6_EEEENS_8VariableIdEEEESB_EES8_EESB_EENS7_INS7_INS7_INS7_ISB_S6_EESB_EESB_EES6_EEEENS7_IS8_S6_EEEES8_EESG_EETk9ArrayLikeS5_EEvRKT_PT0_
+       9   0.7%  95.8%      354  26.9% array_expression_template::Add::operator[]@10001f0f8
+       8   0.6%  96.4%      194  14.8% __ZN23array_operator_overloadmlITk9ArrayLikeNSt3__15arrayIdLm2000EEEEET_RKS4_S6_
+       6   0.5%  96.9%      547  41.6% array_expression_template::Add::operator[]@10001ef4c
+       6   0.5%  97.3%      154  11.7% array_expression_template::Add::operator[]@10001f2b4
+       6   0.5%  97.8%      128   9.7% array_expression_template::Add::operator[]@10001f308
+       5   0.4%  98.2%      104   7.9% array_expression_template::Add::operator[]@10001f35c
+       5   0.4%  98.6%       53   4.0% array_expression_template::Multiply::operator[]@10001f3e4
+       4   0.3%  98.9%      493  37.5% array_expression_template::Add::operator[]@10001efa0
+       4   0.3%  99.2%      221  16.8% array_expression_template::Add::operator[]@10001f248
+       3   0.2%  99.4%      442  33.6% array_expression_template::Add::operator[]@10001f04c
+       3   0.2%  99.6%       68   5.2% array_expression_template::Multiply::operator[]@10001f14c
+       2   0.2%  99.8%       79   6.0% __ZN23array_operator_overloadplIdTk9ArrayLikeNSt3__15arrayIdLm2000EEEQ6ItemOfIT_T0_EEES5_RKS4_RKS5_
+       1   0.1%  99.8%        1   0.1% 0x000000019d99a2d4
+       1   0.1%  99.9%        1   0.1% 0x000000019da0b814
+       1   0.1% 100.0%        1   0.1% array_expression_template::Multiply::Multiply@10001e7fc
+       0   0.0% 100.0%        1   0.1% 000000019d87e9af
+       0   0.0% 100.0%        1   0.1% 000000019d901183
+       0   0.0% 100.0%     1314 100.0% 0x000000019d654273
+       0   0.0% 100.0%        1   0.1% 0x000000019d99a2bf
+       0   0.0% 100.0%      607  46.2% __ZN23array_operator_overload9calculateITk9ArrayLikeNSt3__15arrayIdLm2000EEEEET_RKS4_S6_
+       0   0.0% 100.0%       68   5.2% __ZN23array_operator_overloadmlITk9ArrayLikeNSt3__15arrayIdLm2000EEEdQ6ItemOfIT0_T_EEES5_RKS5_RKS4_
+       0   0.0% 100.0%       79   6.0% __ZN23array_operator_overloadplITk9ArrayLikeNSt3__15arrayIdLm2000EEEdQ6ItemOfIT0_T_EEES5_RKS5_RKS4_
+       0   0.0% 100.0%        2   0.2% __ZN25array_expression_template9calculateITk9ArrayLikeNSt3__15arrayIdLm2000EEETk9ArrayLikeS3_EEDaRKNS_5ArrayIT_EERKNS4_IT0_EE
+       0   0.0% 100.0%        1   0.1% __ZN25array_expression_templatemlITkNS_6IsExprENS_5ArrayINSt3__15arrayIdLm2000EEEEETkNS_6IsExprES5_EENS_8MultiplyIT_T0_EERKS7_RKS8_
+       0   0.0% 100.0%        1   0.1% __ZN25array_expression_templatemlITkNS_6IsExprENS_8MultiplyINS1_INS1_INS_8VariableIdEENS_5ArrayINSt3__15arrayIdLm2000EEEEEEES3_EES3_EETkNS_6IsExprES8_EENS1_IT_T0_EERKSC_RKSD_
+       0   0.0% 100.0%     1314 100.0% _main
+       0   0.0% 100.0%        1   0.1% array_expression_template::Multiply::Multiply@10001e66c
+       0   0.0% 100.0%        1   0.1% array_expression_template::Multiply::Multiply@10001e6a8
+       0   0.0% 100.0%        1   0.1% array_expression_template::Multiply::Multiply@10001e7c0
+       0   0.0% 100.0%     1314 100.0% run
+       0   0.0% 100.0%        1   0.1% std::__1::__print::__is_terminal[abi:ne190104]
+       0   0.0% 100.0%        1   0.1% std::__1::__print::__vprint_unicode[abi:ne190104]
+       0   0.0% 100.0%       15   1.1% std::__1::array get_array
+       0   0.0% 100.0%        1   0.1% std::__1::println[abi:ne190104]@10001c24c
+       0   0.0% 100.0%        1   0.1% std::__1::println[abi:ne190104]@10001c628
+       0   0.0% 100.0%      575  43.8% void calculate_by_et
+       0   0.0% 100.0%      131  10.0% void calculate_by_expression
+       0   0.0% 100.0%      607  46.2% void calculate_by_operator_overload
+       0   0.0% 100.0%        1   0.1% void get_expression_by_et

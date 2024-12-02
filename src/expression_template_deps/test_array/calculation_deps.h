@@ -13,6 +13,7 @@
 #pragma once
 
 #include <array>
+#include <cstddef>
 #include <vector>
 
 #include "expression_template_deps/array/concepts.h"
@@ -108,7 +109,7 @@ using ExprType = ADD<
 
 // 表达式模板求值
 template <ArrayLike A, ArrayLike B>
-inline auto calculate_by_expression_template(const Array<A>& a, const Array<B>& b) {
+inline auto calculate(const Array<A>& a, const Array<B>& b) {
     // auto = ExprType<Array<A>, Array<B>>
     return CALCULATE(a, b);
 }

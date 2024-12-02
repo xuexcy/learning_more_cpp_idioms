@@ -14,6 +14,7 @@ Derived 在继承 Base 后, 我们期望 Base 在构造时能调用 Derived 中�
 */
 
 #include <print>
+#include <memory>
 
 #include "cpp_utils/util.h"
 

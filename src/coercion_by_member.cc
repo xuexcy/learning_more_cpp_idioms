@@ -29,6 +29,7 @@ no:
 */
 
 #include <print>
+#include <memory>
 
 #include "cpp_utils/util.h"
 

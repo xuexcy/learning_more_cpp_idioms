@@ -9,4 +9,5 @@ src/inner_class_deps/rust_traits_same_function_name/target/
 
 # for build
 build/
+build_g++/
 thirdparty/
