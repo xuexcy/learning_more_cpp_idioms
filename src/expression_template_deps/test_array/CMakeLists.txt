@@ -4,6 +4,9 @@ target_link_libraries(expression_template_array_test gtest)
 add_executable(expression_template_array_benchmark calculation_benchmark.cc)
 target_link_libraries(expression_template_array_benchmark benchmark::benchmark )
 
+add_executable(expression_template_array_benchmark_2 calculation_benchmark_2.cc)
+target_link_libraries(expression_template_array_benchmark_2 benchmark::benchmark )
+
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L${LIB_PROFILER_DIR} -lprofiler -ltcmalloc")
 add_executable(expression_template_array_profile calculation_profile.cc)
 #target_link_directories(expression_template_array_profile PRIVATE /opt/homebrew/Cellar/gperftools/2.16/lib)

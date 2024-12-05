@@ -17,26 +17,26 @@
 
 namespace array_expression_template {
 
-#define OPERATOR_OVERLOAD(op, Expr) \
-template <IsExpr LExpr, IsExpr RExpr> \
-Expr<LExpr, RExpr> operator op (const LExpr& l_exp, const RExpr& r_exp) { \
-    return Expr(l_exp, r_exp); \
-} \
-template <class T, IsExpr RExpr> \
-Expr<Variable<T>, RExpr> operator op (const T& lhs, const RExpr& rhs) { \
-    return Expr(Variable(lhs), rhs); \
-} \
-template <IsExpr LExpr, class T> \
-Expr<LExpr, Variable<T>> operator op (const LExpr& lhs, const T& rhs) { \
-    return Expr(lhs, Variable(rhs)); \
-}
+#define OPERATOR_OVERLOAD(op, Expr)                          \
+  template <IsExpr LExpr, IsExpr RExpr>                      \
+  auto operator op(const LExpr& l_exp, const RExpr& r_exp) { \
+    return Expr<LExpr, RExpr>(l_exp, r_exp);                 \
+  }                                                          \
+  template <class T, IsExpr RExpr>                           \
+  auto operator op(const T& lhs, const RExpr& rhs) {         \
+    return Expr<Variable<T>, RExpr>(Variable(lhs), rhs);     \
+  }                                                          \
+  template <IsExpr LExpr, class T>                           \
+  auto operator op(const LExpr& lhs, const T& rhs) {         \
+    return Expr<LExpr, Variable<T>>(lhs, Variable(rhs));     \
+  }
 
 template <IsExpr From, ArrayLike To>
 void collect_result(const From& from, To* to) {
-    auto size = from.size();
-    for (auto i = 0; i < size; ++i) {
-        (*to)[i] = from[i];
-    }
+  auto size = from.size();
+  for (auto i = 0; i < size; ++i) {
+    (*to)[i] = from[i];
+  }
 }
 
 OPERATOR_OVERLOAD(+, Add)

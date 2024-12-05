@@ -33,6 +33,8 @@ do
 done
 
 cd -
+# cd ${CUR_DIR}
+# sh expression_template_array_profile.sh
 
 # cd $patameterized_base_rust
 # cargo run >$stdout_dir/$file_rust_traits.txt

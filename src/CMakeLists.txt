@@ -109,9 +109,9 @@ add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
 set(main_name expression_template)
+add_subdirectory(${main_name}_deps)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
-add_subdirectory(${main_name}_deps)
 #target_link_libraries(${main_name} array_compare_calculation)
 
 

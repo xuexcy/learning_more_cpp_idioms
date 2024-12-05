@@ -9,7 +9,8 @@ fi
 echo "Project Root Dir:" $CUR_DIR
 
 export compiler=clang++
-#export compiler=g++
+# export compiler=g++
+export default_execute_file=expression_template_array_benchmark
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
@@ -32,7 +33,7 @@ export build_output_bin_dir=$build_output_dir/bin
 # 附件目录
 export attachment_dir=${CUR_DIR}/attachment
 
-export default_execute_file=expression_template_array_profile
+#export default_execute_file=expression_template
 
 # 特殊目录
 ## parameterized_base 在 rust 语言上的一些实现

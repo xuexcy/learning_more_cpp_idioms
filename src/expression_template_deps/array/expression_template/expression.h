@@ -15,5 +15,4 @@
 #include "expression_impl.h"
 #include "operator.h"
 
-namespace array_expression_template {
-}  // namespace array_expression_template
+namespace array_expression_template {}  // namespace array_expression_template

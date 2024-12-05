@@ -24,6 +24,8 @@ compiler_info_file=$attachment_dir/$task_name.compiler_version.txt
 bin_path=$build_output_bin_dir/expression_template_array_profile
 $CXX -v > $compiler_info_file 2>&1
 
+#pprof --gv $bin_path $prof_file
+#exit 0
 env CPUPROFILE=$prof_file $bin_path
 pprof $bin_path $prof_file --text > $text_file
 pprof $bin_path $prof_file --svg > $svg_file
