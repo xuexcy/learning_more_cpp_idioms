@@ -56,6 +56,7 @@
 - [erase_remove](src/erase_remove.cc): ⭐⭐⭐⭐⭐ 在使用 std::remove 后再使用容器的 erase 来删除元素，因为 std::remove 只是将需要删除的元素挪到容器尾部
 - [execute_around_pointer](src/execute_around_pointer.cc): ⭐⭐⭐⭐ 通过将实例封装到一些 class Aspect(有点像 python decorator) 类中，通过重载 operator-> 来执行实例的函数，在函数执行前后通过 Aspect 的构造和析构函数，来执行一些特定的操作，比如在 std::vector.push_back() 执行前后，来 print std::vector.size()
 - [expression_template](src/expression_template.cc): ⭐⭐⭐⭐ 通过模板展开将待操作的步骤记录成表达式，以做到延时计算和一些优化。比如计算 `1.2 * a + a * b`(a、b 为 std::array)，则表达式可以记录为 `Add<Multiply<double, std::array>, Multiply<std::array, std::array>>`，这一步骤可以在编译时通过模板展开生成，在需要计算时再调用表达时的计算操作逻辑
+    > [expression_template_array](src/expression_template_deps/README.md)
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface
