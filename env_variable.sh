@@ -6,11 +6,17 @@ then
     CUR_DIR=$(cd `dirname ${BASH_SOURCE[0]}`; pwd)
 fi
 
-echo "Project Root Dir:" $CUR_DIR
+echo "Project root dir:" $CUR_DIR
+echo ''
+
+export expression_template_array_attachment_dir=${CUR_DIR}/attachment/expression_template_array
+export expression_template_array_attachment_bin_dir=${expression_template_array_attachment_dir}/bin
+echo "expression_template_array_attachment_dir: " $expression_template_array_attachment_dir
+echo ''
 
 export compiler=clang++
-# export compiler=g++
-export default_execute_file=expression_template_array_benchmark
+#export compiler=g++
+export default_execute_file=expression_template_array
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
@@ -25,6 +31,11 @@ else
 fi
 echo "Compiler:" $CXX
 $CXX -v
+echo ''
+
+export lib_profiler_dir=`brew --prefix gperftools`/lib
+echo "Lib profiler dir: "$lib_profiler_dir
+echo ''
 
 # 项目产出目录
 export build_output_dir=$build_dir/output
@@ -32,6 +43,8 @@ export build_output_dir=$build_dir/output
 export build_output_bin_dir=$build_output_dir/bin
 # 附件目录
 export attachment_dir=${CUR_DIR}/attachment
+export expression_template_array_attachment_dir=${attachment_dir}/expression_template_array
+export expression_template_array_attachment_bin_dir=${expression_template_array_attachment_dir}/bin
 
 #export default_execute_file=expression_template
 

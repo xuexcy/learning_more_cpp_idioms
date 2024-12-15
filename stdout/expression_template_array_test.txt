@@ -12,14 +12,14 @@
 
 [----------] 1 test from DifferentSize/ArrayCalculationTest/2, where TypeParam = ArraySize<2048ul>
 [ RUN      ] DifferentSize/ArrayCalculationTest/2.CheckEqual
-[       OK ] DifferentSize/ArrayCalculationTest/2.CheckEqual (2 ms)
-[----------] 1 test from DifferentSize/ArrayCalculationTest/2 (2 ms total)
+[       OK ] DifferentSize/ArrayCalculationTest/2.CheckEqual (4 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/2 (4 ms total)
 
 [----------] 1 test from DifferentSize/ArrayCalculationTest/3, where TypeParam = ArraySize<16384ul>
 [ RUN      ] DifferentSize/ArrayCalculationTest/3.CheckEqual
-[       OK ] DifferentSize/ArrayCalculationTest/3.CheckEqual (17 ms)
-[----------] 1 test from DifferentSize/ArrayCalculationTest/3 (17 ms total)
+[       OK ] DifferentSize/ArrayCalculationTest/3.CheckEqual (26 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/3 (26 ms total)
 
 [----------] Global test environment tear-down
-[==========] 4 tests from 4 test suites ran. (20 ms total)
+[==========] 4 tests from 4 test suites ran. (31 ms total)
 [  PASSED  ] 4 tests.

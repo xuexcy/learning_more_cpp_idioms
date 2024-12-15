@@ -8,7 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 message("thirdparty dir: " ${THIRDPARTY_DIR})
-set(LIB_PROFILER_DIR "/opt/homebrew/Cellar/gperftools/2.16/lib")
+set(LIB_PROFILER_DIR $ENV{lib_profiler_dir})
 
 include(FetchContent)
 set(FETCHCONTENT_QUIET OFF)

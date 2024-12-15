@@ -14,14 +14,17 @@
 CUR_DIR=$(cd `dirname $0`; pwd)
 cd ${CUR_DIR}
 
-source ../env_variable.sh
+source ${CUR_DIR}/../../../env_variable.sh
 
 task_name=expression_template_array_profile_$compiler
-prof_file=$attachment_dir/$task_name.prof
-text_file=$attachment_dir/$task_name.txt
-svg_file=$attachment_dir/$task_name.svg
-compiler_info_file=$attachment_dir/$task_name.compiler_version.txt
-bin_path=$build_output_bin_dir/expression_template_array_profile
+bin_dir=$expression_template_array_attachment_bin_dir
+output_dir=$expression_template_array_attachment_dir/output
+mkdir -p $output_dir
+prof_file=$output_dir/$task_name.prof
+text_file=$output_dir/$task_name.txt
+svg_file=$output_dir/$task_name.svg
+compiler_info_file=$output_dir/$task_name.compiler_version.txt
+bin_path=$bin_dir/$task_name
 $CXX -v > $compiler_info_file 2>&1
 
 #pprof --gv $bin_path $prof_file

@@ -1,4 +1,5 @@
-# 问题: 向量计算
+# 使用表达式模板做向量计算
+# 1. 问题: 向量计算
 ```cpp
 static constexpr size_t N{1000};
 using StdArray = std::array<double, N>;
@@ -6,9 +7,10 @@ StdArray a;
 StdArray b;
 // 计算 1.2 * a + a * b 并将结果存入 StdArray c
 ```
-# 方案分析
-## 1. 表达式计算<a name="#jump表达式计算"></a>
-### 1.1 代码实现
+---
+# 2. 方案分析
+## 2.1 表达式计算<a name="#jump表达式计算"></a>
+### 2.1.1 代码实现
 [./test_array/calculation_deps.h](./test_array/calculation_deps.h) `calculate_by_expression`
 ```cpp
 StdArray c;
@@ -16,7 +18,7 @@ for (auto i = 0; i < a.size(); ++i) {
     c[i] = 1.2 * a[i] + a[i] * b[i];
 }
 ```
-### 1.2 执行步骤
+### 2.1.2 执行步骤
 1. `double result_1 = 1.2 * a[i]`:
     - 读取 a[i]: 读取 N 个 double
     - 计算 1.2 * a[i]: 计算 N 个乘法
@@ -28,14 +30,14 @@ for (auto i = 0; i < a.size(); ++i) {
 4. `c[i] = result_3;`:
     - 读取 c[i]: 读取 N 个 double
     - 将 result_3 写入 c[i]: 写入 N 个 double
-### 1.3. 开销
+### 2.1.3. 开销
 1. 在每轮循环中创建 result_1、result_2、result_3，使用后立刻销毁(开销可忽略不计)
 2. 读取 4000 = 3N = N + 2N + N 个 double
 3. 写入 1000 = N 个 double 写入
 4. 计算: 乘法 2000 = 2N; 加法 1000 = N
 
-## 2. 操作符重载
-### 2.1 代码实现
+## 2.2 操作符重载
+### 2.2.1 代码实现
 [./array/operator.h](./array/operator.h) `namespace array_operator_overload`
 ```cpp
 namespace array_operator_overload {
@@ -55,13 +57,13 @@ StdArray operator*(const StdArray& a, const StdArray& b) {
 }
 } // namespace array_operator_overload
 ```
-### 2.2 使用方法
+### 2.2.2 使用方法
 ``` cpp
 #include "array/operator.h"
 using namespace array_operator_overload;
 StdArray c = 1.2 * a + a * b;
 ```
-### 2.3 执行步骤
+### 2.2.3 执行步骤
 1. `StdArray result_1 = 1.2 * a;`: 即 `operator*<double, StdArray>(1.2, a)`
     - 创建临时变量 StdArray result_1: 创建 N 个 double
     - 读取 a: 读取 N 个 double
@@ -79,14 +81,14 @@ StdArray c = 1.2 * a + a * b;
     - 计算结果写入 result_3: 写入 N 个 double
 4. `StdArray c = {return result_3;};`:
     - 如果编译器支持 copy elision, 应该没有开销
-### 2.4 开销
+### 2.2.4 开销
 1. 先后创建 3 个临时变量 StdArray result_1, result_2, result_3: 创建 3 * N 个 double
 2. 读取 5000 = 5N = N + 2 * N + 2 * N 个 double
 3. 写入 3000 = 3N 个 double
 4. 计算: 乘法 2000 = 2N; 加法 1000 = N
 
-## 3. 表达式模板(expression template; ET)
-### 3.1 代码实现
+## 2.3 表达式模板(expression template; ET)
+### 2.3.1 代码实现
 [./array/expression_template/expression.h](./array/expression_template/expression.h) `namespace array_expression_template`
 ```cpp
 // array/expression_template/expression.h
@@ -120,14 +122,14 @@ struct Add : public BinaryExpression<LExpr, RExpr> {
   item_type operator[](size_t idx) const {
     return l_expr_[idx] + r_expr_[idx];
   }
-}  // Add
+};  // Add
 
 template <IsExpr LExpr, IsExpr RExpr>
 struct Multiply : public BinaryExpression<LExpr, RExpr> {
   item_type operator[](size_t idx) const {
     return l_expr_[idx] * r_expr_[idx];
   }
-}  // Multiply
+};  // Multiply
 
 // array/expression_template/operator.h
 template <IsExpr LExr, IsExpr RExpr>
@@ -143,7 +145,7 @@ auto operator*(const LExpr l_expr, const RExpr r_expr) {
 
 }  // namespace array_expression_template
 ```
-### 3.2 使用方法
+### 2.3.2 使用方法
 ```cpp
 #include "array/expression_template/expression.h"
 using namespace array_expression_template;
@@ -152,7 +154,7 @@ auto expr = 1.2 * arr_a + arr_a * arr_b;
 StdArray c;
 collect_result(expr, &c);
 ```
-### 3.3 执行步骤
+### 2.3.3 执行步骤
 1. `auto expr_1 = 1.2 * arr_a;`: 即 `operator*<double,  Array>(1.2, arr_a)`
     - 创建临时变量 expr_1: 具体类型 `Multiply<Variable<double>, Array<StdArray>>`
 2. `auto expr_2 = arr_a * arr_b;`: 即 `operator*<Array,  Array>(arr_a, arr_b)`
@@ -166,14 +168,20 @@ collect_result(expr, &c);
         >
         ```
 5. `collect_result(expr, &c)`: 像<a href="#jump表达式计算">表达式计算</a>一样进行计算`1.2 * a[i] + a[i] * b[i]` 并将结果赋值给 c[i]
-### 3.4 开销
+### 2.3.4 开销
 1. 我们创建了一些表达式对象
     - 两个 Array: 即 `Array arr_a(a), arr_b(b);`
     - `auto expr`: 根据前面描述的 expr 的具体类型，一共创建了 1 个 Add，2 个 Multiply，3 个 Array，1 个 Variable，共 7 个表达式对象（Instance of `class Expression`）
 2. 在 `collect_result` 中，我们通过 `operator[]` 从表达式中取值，此时 `operator[]` 中的 `l_expr_` 和 `r_expr_` 继续调用对应表达式的 `operator[]`，直到从 `Variable` 和 `Array` 返回具体的数值，此时表达式对象一共调用了 7 次重载的 `operator[]`
-# 方案对比
+---
+# 3. 方案对比
+## 3.1 对比分析
 表达式 `1.2 * a + a * b` 中一共有 1 个常量、3 个 StdArray 和 3 个操作符。
-下面用 x 代表表达式中常量，y 代表表达式中 StdArray 的个数，z 代表操作符个数，其中 x + y = z + 1:
+> 现定义如下变量
+> x : 表达式中的常量个数
+> y : 表达式中 StdArray 的个数
+> z : 表达式中的操作符个数
+> 其中 x + y = z + 1
 1. 表达式方案：
     - y: 读取 2 次 a，1 次 b
     - z: 计算 2 次乘法，1 次加法
@@ -204,7 +212,8 @@ collect_result(expr, &c);
 | 生成最终可以被销毁的对象个数 | 0 | z - 1 | x + y + z |
 | 写入最在可被销毁的对象的次数 | 0 | z - 1 | 0 |
 | 重载函数调用次数 | 0 | z | x + y + z |
-# 对比测试
+## 3.2 对比测试
+测试使用的表达式更复杂(不是`1.2 * a + a * b`)
 1. 相关代码与结果
     - test: [test_array/calculation_test.cc](./test_array/calculation_test.cc)
     - benchmark:
@@ -215,16 +224,38 @@ collect_result(expr, &c);
         - 代码 [test_array/calculation_profile.cc](./test_array/calculation_profile.cc)
         - 结果 [expression_template_array_profile_g++.svg](../../attachment/expression_template_array_profile_g++.svg)
 2. 结果分析
-    - 1
-
-    // lazy evaluation
-    // 根据上面的分析，可以知道 1.2 * a + a * b 这个表达式在一系列函数调用后得到的是一个 Array 对象，这个 Array
-    // 中存储了具体的待计算的表达式，但没有真正的执行计算逻辑
-
- 优化 1，size
- 检查内联
- operator
-# reference:
+    - 表达式方案最优(看 benchmark 和 profile 结果)，因为直接从 StdArray 取值并计算表达式，没有函数其他函数调用、较大的临时变量生成等问题，另外，可能还有编译期优化计算。该方案中调用 `std::array operator[]` 耗时占比也比较大
+    - 操作符重载和 ET 方案都有较多的函数调用(看 profile 结果)
+    - ET 方案主要耗时在调用函数 `operator[]`(看 profile 结果)，生成表达式耗时并不怎么耗时(看 benchmark 结果)
+---
+# 4. ET 方案说明
+## 4.1 方案说明
+1. lazy evaluation(惰性计算、延时计算): 一开始只是生成了表达式的实例(Add<Multiply, Multiply> expr)，并没有将结果正真的计算出来，等到 `collect_result` 时才开始遍历计算
+## 4.2 在实现过程中用到的优化手段
+1. 对 `size()` 和 `operator[]` 使用 inline 关键字
+2. 在 `class BinaryExpression` 中存储 size，而不是每次在调用 `size()` 时根据 l_expr_ 和 r_expr_ 去判断(像其构造函数中的 assert 那样)
+3. 使用 `class Add` 继承 `class BinaryExpression`，而不是将 `AddOperator` 当成 BinaryExpression 的一个模板参数，因为这样会多一次 `operator()` 函数调用
+    ```cpp
+    // bad
+    template <IsExpr LExpr, IsExpr RExpr, class Op>
+      requires SameItem<LExpr, RExpr>
+    class BinaryExpression : public Expression {
+    public:
+      item_type operator[](size_t idx) inline {
+        return Op(l_expr_[idx], r_expr_[idx]);
+      }
+    }
+    template <class T>
+    struct AddOperator {
+      static T operator()(const T& lhs, const T& rhs) {
+        return lhs + rhs;
+      }
+    };
+    template <class LExpr, class RExpr>
+    using Add = Binary<LExpr, RExpr, AddOperator<LExpr::item_type>::operator>;
+    ```
+---
+# 5. 参考
 - https://zhuanlan.zhihu.com/p/701819779
 - https://zhuanlan.zhihu.com/p/416276856
 - https://www.cnblogs.com/chengxuyuancc/p/3238469.html
