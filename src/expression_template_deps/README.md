@@ -218,11 +218,11 @@ collect_result(expr, &c);
     - test: [test_array/calculation_test.cc](./test_array/calculation_test.cc)
     - benchmark:
         - 代码 [test_array/calculation_benchmark.cc](./test_array/calculation_benchmark.cc)
-        - [机器信息](../../attachment/expression_template_array_benchmark.extra_info)
-        - 结果 [expression_template_array_benchmark.txt](../../stdout/expression_template_array_benchmark.txt)
+        - [机器信息](../../attachment/expression_template_array/output/expression_template_array_benchmark.extra_info)
+        - 结果 [expression_template_array_benchmark.txt](../../attachment/expression_template_array/output/expression_template_array_benchmark_g++.txt)
     - profile:
         - 代码 [test_array/calculation_profile.cc](./test_array/calculation_profile.cc)
-        - 结果 [expression_template_array_profile_g++.svg](../../attachment/expression_template_array_profile_g++.svg)
+        - 结果 [expression_template_array_profile_g++.svg](../../attachment/expression_template_array/output/expression_template_array_profile_g++.svg)
 2. 结果分析
     - 表达式方案最优(看 benchmark 和 profile 结果)，因为直接从 StdArray 取值并计算表达式，没有函数其他函数调用、较大的临时变量生成等问题，另外，可能还有编译期优化计算。该方案中调用 `std::array operator[]` 耗时占比也比较大
     - 操作符重载和 ET 方案都有较多的函数调用(看 profile 结果)
