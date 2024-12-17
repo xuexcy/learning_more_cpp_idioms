@@ -118,6 +118,10 @@ set(main_name final_class)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name function_poisoning)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name inner_class)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
