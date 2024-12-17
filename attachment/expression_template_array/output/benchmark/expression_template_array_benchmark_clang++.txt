@@ -1,0 +1,81 @@
+-----------------------------------------------------------------------------------------------
+Benchmark                                                     Time             CPU   Iterations
+-----------------------------------------------------------------------------------------------
+BM_calculate_by_operator_overload array size: 1             133 ns          133 ns      5272156
+BM_calculate_by_expression array size: 1                   15.1 ns         15.1 ns     46341657
+BM_calculate_by_et res=array array&array size: 1            257 ns          256 ns      2701222
+BM_calculate_by_operator_overload array size: 2             210 ns          210 ns      3396953
+BM_calculate_by_expression array size: 2                   26.4 ns         26.4 ns     26589481
+BM_calculate_by_et res=array array&array size: 2            318 ns          313 ns      2333964
+BM_calculate_by_operator_overload array size: 4             345 ns          345 ns      1996452
+BM_calculate_by_expression array size: 4                   49.2 ns         49.2 ns     14226081
+BM_calculate_by_et res=array array&array size: 4            392 ns          392 ns      1793653
+BM_calculate_by_operator_overload array size: 8             497 ns          497 ns      1380371
+BM_calculate_by_expression array size: 8                   97.5 ns         97.4 ns      7264877
+BM_calculate_by_et res=array array&array size: 8            565 ns          565 ns      1237164
+BM_calculate_by_operator_overload array size: 20           1183 ns         1183 ns       597831
+BM_calculate_by_expression array size: 20                   230 ns          230 ns      3060631
+BM_calculate_by_et res=array array&array size: 20          1118 ns         1116 ns       622355
+BM_calculate_by_operator_overload array size: 32           1838 ns         1822 ns       391591
+BM_calculate_by_expression array size: 32                   481 ns          419 ns      1676000
+BM_calculate_by_et res=array array&array size: 32          1662 ns         1636 ns       368468
+BM_calculate_by_operator_overload array size: 40           2219 ns         2218 ns       309191
+BM_calculate_by_expression array size: 40                   450 ns          450 ns      1554471
+BM_calculate_by_et res=array array&array size: 40          1894 ns         1894 ns       370081
+BM_calculate_by_operator_overload array size: 50           2727 ns         2727 ns       257146
+BM_calculate_by_expression array size: 50                   561 ns          561 ns      1230488
+BM_calculate_by_et res=array array&array size: 50          2315 ns         2315 ns       301372
+BM_calculate_by_operator_overload array size: 64           3421 ns         3421 ns       204292
+BM_calculate_by_expression array size: 64                   718 ns          718 ns       966170
+BM_calculate_by_et res=array array&array size: 64          2875 ns         2875 ns       243750
+BM_calculate_by_operator_overload array size: 80           4251 ns         4251 ns       164557
+BM_calculate_by_expression array size: 80                   904 ns          903 ns       770323
+BM_calculate_by_et res=array array&array size: 80          3650 ns         3646 ns       181712
+BM_calculate_by_operator_overload array size: 100          5258 ns         5256 ns       133764
+BM_calculate_by_expression array size: 100                 1332 ns         1243 ns       493211
+BM_calculate_by_et res=array array&array size: 100         4425 ns         4421 ns       155660
+BM_calculate_by_operator_overload array size: 128          6757 ns         6753 ns       105477
+BM_calculate_by_expression array size: 128                 1426 ns         1426 ns       492725
+BM_calculate_by_et res=array array&array size: 128         5509 ns         5509 ns       126128
+BM_calculate_by_operator_overload array size: 180          9399 ns         9399 ns        74436
+BM_calculate_by_expression array size: 180                 2008 ns         2008 ns       350121
+BM_calculate_by_et res=array array&array size: 180         7621 ns         7620 ns        91206
+BM_calculate_by_operator_overload array size: 256         13270 ns        13267 ns        52679
+BM_calculate_by_expression array size: 256                 2881 ns         2875 ns       247804
+BM_calculate_by_et res=array array&array size: 256        10946 ns        10919 ns        65247
+BM_calculate_by_operator_overload array size: 400         21068 ns        21032 ns        33315
+BM_calculate_by_expression array size: 400                 4611 ns         4551 ns       158263
+BM_calculate_by_et res=array array&array size: 400        16423 ns        16417 ns        41422
+BM_calculate_by_operator_overload array size: 512         26294 ns        26293 ns        26741
+BM_calculate_by_expression array size: 512                 5698 ns         5687 ns       124624
+BM_calculate_by_et res=array array&array size: 512        20925 ns        20924 ns        33230
+BM_calculate_by_operator_overload array size: 750         38442 ns        38392 ns        18364
+BM_calculate_by_expression array size: 750                 8630 ns         8508 ns        84966
+BM_calculate_by_et res=array array&array size: 750        30671 ns        30657 ns        22915
+BM_calculate_by_operator_overload array size: 1024        52978 ns        52973 ns        13371
+BM_calculate_by_expression array size: 1024               11389 ns        11372 ns        61929
+BM_calculate_by_et res=array array&array size: 1024       41426 ns        41421 ns        16741
+BM_calculate_by_operator_overload array size: 1500        77419 ns        77327 ns         9228
+BM_calculate_by_expression array size: 1500               16694 ns        16683 ns        41929
+BM_calculate_by_et res=array array&array size: 1500       67003 ns        64851 ns        11523
+BM_calculate_by_operator_overload array size: 2048       127440 ns       118814 ns         5664
+BM_calculate_by_expression array size: 2048               22698 ns        22693 ns        30637
+BM_calculate_by_et res=array array&array size: 2048       83000 ns        82997 ns         8564
+BM_calculate_by_operator_overload array size: 3000       152887 ns       152882 ns         4574
+BM_calculate_by_expression array size: 3000               33417 ns        33417 ns        21089
+BM_calculate_by_et res=array array&array size: 3000      120756 ns       120755 ns         5820
+BM_calculate_by_operator_overload array size: 4096       207896 ns       207881 ns         3399
+BM_calculate_by_expression array size: 4096               45326 ns        45325 ns        15458
+BM_calculate_by_et res=array array&array size: 4096      164331 ns       164327 ns         4202
+BM_calculate_by_operator_overload array size: 6000       301197 ns       301192 ns         2304
+BM_calculate_by_expression array size: 6000               66923 ns        66918 ns        10463
+BM_calculate_by_et res=array array&array size: 6000      242956 ns       242949 ns         2898
+BM_calculate_by_operator_overload array size: 8192       412443 ns       412431 ns         1696
+BM_calculate_by_expression array size: 8192               96194 ns        96192 ns         7422
+BM_calculate_by_et res=array array&array size: 8192      330381 ns       330352 ns         2129
+BM_calculate_by_operator_overload array size: 12000      602546 ns       602534 ns         1151
+BM_calculate_by_expression array size: 12000             134117 ns       134116 ns         5232
+BM_calculate_by_et res=array array&array size: 12000     481174 ns       481164 ns         1453
+BM_calculate_by_operator_overload array size: 16384      827450 ns       827432 ns          856
+BM_calculate_by_expression array size: 16384             184641 ns       184637 ns         3776
+BM_calculate_by_et res=array array&array size: 16384     659747 ns       659734 ns         1053

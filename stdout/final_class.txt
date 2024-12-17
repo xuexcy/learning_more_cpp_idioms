@@ -1,0 +1,4 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/final_class
+hi, I am C
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/final_class
+

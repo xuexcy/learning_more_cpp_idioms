@@ -1,17 +1,12 @@
 #!/bin/bash
-CUR_DIR=$(cd `dirname $0`; pwd)
+this_script_dir=$(cd `dirname $0`; pwd)
 
 if [ "${BASH_SOURCE[0]}" != "" ];
 then
-    CUR_DIR=$(cd `dirname ${BASH_SOURCE[0]}`; pwd)
+    this_script_dir=$(cd `dirname ${BASH_SOURCE[0]}`; pwd)
 fi
 
-echo "Project root dir:" $CUR_DIR
-echo ''
-
-export expression_template_array_attachment_dir=${CUR_DIR}/attachment/expression_template_array
-export expression_template_array_attachment_bin_dir=${expression_template_array_attachment_dir}/bin
-echo "expression_template_array_attachment_dir: " $expression_template_array_attachment_dir
+echo "Project root dir:" $this_script_dir
 echo ''
 
 export compiler=clang++
@@ -23,11 +18,11 @@ if [[ $compiler == "g++" ]];
 then
     export CC="gcc"
     export CXX="g++"
-    export build_dir=${CUR_DIR}/build_g++
+    export build_dir=${this_script_dir}/build_g++
 else
     export CC="clang"
     export CXX="clang++"
-    export build_dir=${CUR_DIR}/build
+    export build_dir=${this_script_dir}/build
 fi
 echo "Compiler:" $CXX
 $CXX -v
@@ -41,10 +36,9 @@ echo ''
 export build_output_dir=$build_dir/output
 # 编译产出的可执行文件存放目录
 export build_output_bin_dir=$build_output_dir/bin
+export build_output_test_dir=$build_output_dir/test
 # 附件目录
-export attachment_dir=${CUR_DIR}/attachment
-export expression_template_array_attachment_dir=${attachment_dir}/expression_template_array
-export expression_template_array_attachment_bin_dir=${expression_template_array_attachment_dir}/bin
+export attachment_dir=${this_script_dir}/attachment
 
 #export default_execute_file=expression_template
 
@@ -53,4 +47,3 @@ export expression_template_array_attachment_bin_dir=${expression_template_array_
 export parameterized_base_rust=src/parameterized_base_deps/rust_traits_serializable
 ## inner_class 在 rust 语言上的一些实现
 export inner_class_rust=src/inner_class_deps/rust_traits_same_function_name
-

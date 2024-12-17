@@ -21,8 +21,8 @@ run() {
   if [[ $1 == 2 ]]; then
     task_name=expression_template_array_benchmark_2_$compiler
   fi
-  bin_dir=$expression_template_array_attachment_bin_dir
-  output_dir=$expression_template_array_attachment_dir/output
+  bin_dir=$build_output_test_dir
+  output_dir=${CUR_DIR}/../output/benchmark
   mkdir -p $output_dir
   bin_path=$bin_dir/$task_name
 

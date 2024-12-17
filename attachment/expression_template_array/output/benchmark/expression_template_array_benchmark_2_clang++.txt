@@ -1,0 +1,67 @@
+--------------------------------------------------------------------------------------------------
+Benchmark                                                        Time             CPU   Iterations
+--------------------------------------------------------------------------------------------------
+BM_calculate_by_operator_overload array size: 32              1818 ns         1817 ns       386518
+BM_calculate_by_operator_overload vector size: 32             8106 ns         8106 ns        84151
+BM_calculate_by_expression array size: 32                      367 ns          367 ns      1912046
+BM_calculate_by_expression vector size: 32                     727 ns          727 ns       932736
+BM_get_expression_by_et array&array size: 32                   205 ns          205 ns      3457063
+BM_get_expression_by_et vector&vector size: 32                 213 ns          213 ns      3267059
+BM_get_expression_by_et array&vector size: 32                  208 ns          208 ns      3373770
+BM_get_expression_by_et vector&array size: 32                  210 ns          210 ns      3348177
+BM_calculate_by_et res=array array&array size: 32             1627 ns         1622 ns       448448
+BM_calculate_by_et res=array vector&vector size: 32           1707 ns         1688 ns       423073
+BM_calculate_by_et res=array array&vector size: 32            1692 ns         1687 ns       383660
+BM_calculate_by_et res=array vector&array size: 32            1718 ns         1681 ns       420547
+BM_calculate_by_et res=vector array&array size: 32            2404 ns         2174 ns       351185
+BM_calculate_by_et res=vector vector&vector size: 32          2006 ns         2006 ns       345843
+BM_calculate_by_et res=vector array&vector size: 32           2022 ns         2022 ns       347973
+BM_calculate_by_et res=vector vector&array size: 32           2038 ns         2037 ns       345488
+BM_calculate_by_operator_overload array size: 256            13437 ns        13437 ns        52247
+BM_calculate_by_operator_overload vector size: 256           51466 ns        51464 ns        13755
+BM_calculate_by_expression array size: 256                    2866 ns         2865 ns       246571
+BM_calculate_by_expression vector size: 256                   5154 ns         5154 ns       136852
+BM_get_expression_by_et array&array size: 256                  206 ns          206 ns      3410143
+BM_get_expression_by_et vector&vector size: 256                214 ns          214 ns      3286586
+BM_get_expression_by_et array&vector size: 256                 207 ns          207 ns      3308957
+BM_get_expression_by_et vector&array size: 256                 210 ns          210 ns      3345537
+BM_calculate_by_et res=array array&array size: 256           10844 ns        10843 ns        64442
+BM_calculate_by_et res=array vector&vector size: 256         11048 ns        11047 ns        63083
+BM_calculate_by_et res=array array&vector size: 256          11258 ns        11258 ns        62862
+BM_calculate_by_et res=array vector&array size: 256          11168 ns        11163 ns        61152
+BM_calculate_by_et res=vector array&array size: 256          12618 ns        12604 ns        55838
+BM_calculate_by_et res=vector vector&vector size: 256        12806 ns        12806 ns        54336
+BM_calculate_by_et res=vector array&vector size: 256         12945 ns        12917 ns        50307
+BM_calculate_by_et res=vector vector&array size: 256         13411 ns        13289 ns        54155
+BM_calculate_by_operator_overload array size: 2048          106391 ns       106389 ns         6577
+BM_calculate_by_operator_overload vector size: 2048         407156 ns       404414 ns         1736
+BM_calculate_by_expression array size: 2048                  22765 ns        22761 ns        30586
+BM_calculate_by_expression vector size: 2048                 42305 ns        41731 ns        17341
+BM_get_expression_by_et array&array size: 2048                 206 ns          205 ns      3422682
+BM_get_expression_by_et vector&vector size: 2048               215 ns          215 ns      3270111
+BM_get_expression_by_et array&vector size: 2048                209 ns          208 ns      3367651
+BM_get_expression_by_et vector&array size: 2048                210 ns          210 ns      3297998
+BM_calculate_by_et res=array array&array size: 2048          83096 ns        83034 ns         8481
+BM_calculate_by_et res=array vector&vector size: 2048        95027 ns        87613 ns         8087
+BM_calculate_by_et res=array array&vector size: 2048         87873 ns        87712 ns         7976
+BM_calculate_by_et res=array vector&array size: 2048         86132 ns        86061 ns         7922
+BM_calculate_by_et res=vector array&array size: 2048         97438 ns        97208 ns         7316
+BM_calculate_by_et res=vector vector&vector size: 2048       98544 ns        98461 ns         7023
+BM_calculate_by_et res=vector array&vector size: 2048        97265 ns        97249 ns         7225
+BM_calculate_by_et res=vector vector&array size: 2048       108019 ns       104499 ns         6967
+BM_calculate_by_operator_overload array size: 16384         830250 ns       829973 ns          838
+BM_calculate_by_operator_overload vector size: 16384       3217120 ns      3212882 ns          220
+BM_calculate_by_expression array size: 16384                190024 ns       189202 ns         3734
+BM_calculate_by_expression vector size: 16384               334406 ns       333820 ns         2046
+BM_get_expression_by_et array&array size: 16384                206 ns          206 ns      3369240
+BM_get_expression_by_et vector&vector size: 16384              215 ns          214 ns      3262232
+BM_get_expression_by_et array&vector size: 16384               216 ns          210 ns      3077112
+BM_get_expression_by_et vector&array size: 16384               212 ns          212 ns      3314865
+BM_calculate_by_et res=array array&array size: 16384        675141 ns       672969 ns         1056
+BM_calculate_by_et res=array vector&vector size: 16384      692221 ns       678722 ns         1044
+BM_calculate_by_et res=array array&vector size: 16384       678985 ns       678273 ns         1054
+BM_calculate_by_et res=array vector&array size: 16384       687295 ns       687101 ns         1034
+BM_calculate_by_et res=vector array&array size: 16384       804341 ns       783040 ns          845
+BM_calculate_by_et res=vector vector&vector size: 16384     824448 ns       811672 ns          893
+BM_calculate_by_et res=vector array&vector size: 16384      783512 ns       783264 ns          893
+BM_calculate_by_et res=vector vector&array size: 16384      789490 ns       789446 ns          884

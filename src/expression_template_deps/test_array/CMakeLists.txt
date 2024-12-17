@@ -1,8 +1,7 @@
 add_executable(expression_template_array_test calculation_test.cc)
 target_link_libraries(expression_template_array_test gtest)
 
-message("expression_template_array_attachment_bin_dir: $ENV{expression_template_array_attachment_bin_dir}")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY $ENV{expression_template_array_attachment_bin_dir})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY $ENV{build_output_test_dir})
 
 set(main_name expression_template_array_benchmark_$ENV{compiler})
 add_executable(${main_name} calculation_benchmark.cc)

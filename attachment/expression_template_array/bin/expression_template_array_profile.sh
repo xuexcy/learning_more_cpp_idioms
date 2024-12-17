@@ -17,8 +17,8 @@ cd ${CUR_DIR}
 source ${CUR_DIR}/../../../env_variable.sh
 
 task_name=expression_template_array_profile_$compiler
-bin_dir=$expression_template_array_attachment_bin_dir
-output_dir=$expression_template_array_attachment_dir/output
+bin_dir=$build_output_test_dir
+output_dir=${CUR_DIR}/../output/profile
 mkdir -p $output_dir
 prof_file=$output_dir/$task_name.prof
 text_file=$output_dir/$task_name.txt

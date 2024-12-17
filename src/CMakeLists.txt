@@ -114,6 +114,9 @@ add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 #target_link_libraries(${main_name} array_compare_calculation)
 
+set(main_name final_class)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
 
 set(main_name inner_class)
 add_executable(${main_name} ${main_name}.cc)
