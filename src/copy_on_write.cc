@@ -21,7 +21,7 @@
 明确的指出那些操作需要 copy 即可解决问题
 在 https://www.codeproject.com/Tips/5261583/Cplusplus-Copy-On-Write-Base-Class-Template 中的实现方式是:
 
-1. 定义 COWBase<T>，在里面实现 clone_if_needed，这个函数就是让用户决定那些操作是需要 copy 的，比如 setXXXX 函数
+1. 定义 COWBase<T>，在里面实现 clone_if_needed，这个函数就是让用户决定哪些操作是需要 copy 的，比如 setXXXX 函数
 2. 定义一个用户使用的类 T
 3. 定义在代码中实际使用的类 COW_T : private COWBase<T>，同时定义各种函数，并在需要 copy 的函数中调用 clone_if_need
 使用这种方式的前提是 T 和 COW_T 都是用户自己的代码，如果要对一个第三方的 T 封装，上述方法可能就不太合适，因为 COW_T 中
