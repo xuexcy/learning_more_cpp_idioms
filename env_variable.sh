@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=function_poisoning
+export default_execute_file=generic_container
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
