@@ -73,6 +73,8 @@
 - [free_function_allocator](): TODO
 - [function_poisoning](src/function_poisoning.cc): ⭐⭐⭐ 将一些用户使用不便的函数封装成更易使用的接口，并通过 `#pragma GCC poison $function_name` 来禁止用户使用这些函数，比如 c 或 c++ 11 以前的一些函数，封装成 RAII-friendly 的接口
 - [generic_container](src/generic_container.cc): ⭐⭐⭐⭐⭐ 在需要实现一些泛型容器时，将 new/delete array 和 delete array 换成 operator new/delete，分离内存申请与释放和实例构造与析构，以此来减少泛型类的函数依赖限制
+- [hierarchy_generation](src/hierarchy_generation.cc): ⭐⭐ 在将多个能力整合到一起时，可以通过多继承来解决(`class MyType: public A, public B, public C`)，也可以通过变长模板展开的方式来实现层次结构的单一继承(`class MyType: public A<B<C<>>>`)
+    > 在 rust 中，可以通过 trait 来将多个能力赋予 struct。[rust_traits](src/hierarchy_generation_deps/rust_traits/src/main.rs)
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface
