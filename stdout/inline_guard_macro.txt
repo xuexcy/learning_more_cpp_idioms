@@ -1,0 +1,4 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/inline_guard_macro
+void Foo::fun()
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/inline_guard_macro
+

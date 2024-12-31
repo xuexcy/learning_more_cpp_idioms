@@ -75,6 +75,45 @@
 - [generic_container](src/generic_container.cc): ⭐⭐⭐⭐⭐ 在需要实现一些泛型容器时，将 new/delete array 和 delete array 换成 operator new/delete，分离内存申请与释放和实例构造与析构，以此来减少泛型类的函数依赖限制
 - [hierarchy_generation](src/hierarchy_generation.cc): ⭐⭐ 在将多个能力整合到一起时，可以通过多继承来解决(`class MyType: public A, public B, public C`)，也可以通过变长模板展开的方式来实现层次结构的单一继承(`class MyType: public A<B<C<>>>`)
     > 在 rust 中，可以通过 trait 来将多个能力赋予 struct。[rust_traits](src/hierarchy_generation_deps/rust_traits/src/main.rs)
+- [implicit_conversion](): **TODO**
+- include_guard_macro: ⭐⭐⭐ 在同一个编译单元多次包含同一个头文件违反了 One Definition Rule (ODR)，通过宏来确保头文件只被 include 一次
+    ```cpp
+    // 通过宏来确保头文件只被 include 一次
+    #ifndef MYHEADER_H_
+    #define MYHEADER_H_
+    xxxx
+    #endif  // MYHEADER_H_
+    ```
+    ```cpp
+    // 也可以通过 #pragma once 来确保头文件只被 include 一次，而且这样编译器只会将这个文件打开一次。通过宏的方式编译器可能会多次打开头文件，在第二次及之后判断 #ifndef MYHEADER_H_ 是 false 后才不处理后续的代码
+    #pragma once
+    xxxx
+    ```
+- [inline_guard_macro](src/inline_guard_macro.cc): ⭐⭐⭐⭐ 通过将函数定义放置于 .ipp 文件中，在 .h 和 .cpp 文件中通过 `#ifdef ENABLE_INLINE` 和 `#ifndef ENABLE_INLINE` 的方式来决定函数定义是否是 inline，如果是 inline 则定义于 .h 中，如果不是，则定义于 .cpp 中
+    ```cpp
+    // foo.ipp
+    INLINE void foo() { std::println("hi"); }  // define function
+    ```
+    ```
+    // foo.h
+    void foo();  // declare function
+    #ifdef ENABLE_INLINE
+    #define INLINE inline
+    #include "foo.ipp"
+    #endif
+    ```
+    ```
+    #include "foo.h"
+    // foo.cpp
+    #ifndef ENABLE_INLINE
+    #define INLINE inline
+    #include "foo.ipp"
+    #endif
+    ```
+    ```cmake
+    // CMakeLists.txt
+    add_definitions(-DENABLE_INLINE)
+    ```
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface

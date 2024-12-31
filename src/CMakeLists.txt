@@ -130,6 +130,15 @@ set(main_name hierarchy_generation)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name inline_guard_macro)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+# add_definitions(-DENABLE_INLINE)
+# add_definitions(-DENABLE_PRINT_HI)
+set(deps ${main_name}_deps)
+add_subdirectory(${deps})
+target_link_libraries(${main_name} ${deps}_test)
+
 
 set(main_name inner_class)
 add_executable(${main_name} ${main_name}.cc)

@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=hierarchy_generation
+export default_execute_file=inline_guard_macro
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

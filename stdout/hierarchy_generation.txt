@@ -1,0 +1,21 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/hierarchy_generation
+void multiple_inheritance::SongC::sing()
+void multiple_inheritance::DanceA::dance()
+void multiple_inheritance::JokeB::joke()
+void multiple_inheritance::SongA::sing()
+void multiple_inheritance::DanceB::dance()
+void multiple_inheritance::JokeA::joke()
+void multiple_inheritance::SongB::sing()
+void multiple_inheritance::DanceC::dance()
+void multiple_inheritance::JokeC::joke()
+void template_hierarchy::SongC<template_hierarchy::GenHierarchy<>>::sing() [ParentT = template_hierarchy::GenHierarchy<>]
+void template_hierarchy::DanceA<template_hierarchy::GenHierarchy<template_hierarchy::JokeB, template_hierarchy::SongC>>::dance() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::JokeB, template_hierarchy::SongC>]
+void template_hierarchy::JokeB<template_hierarchy::GenHierarchy<template_hierarchy::SongC>>::joke() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::SongC>]
+void template_hierarchy::SongA<template_hierarchy::GenHierarchy<>>::sing() [ParentT = template_hierarchy::GenHierarchy<>]
+void template_hierarchy::DanceB<template_hierarchy::GenHierarchy<template_hierarchy::JokeA, template_hierarchy::SongA>>::dance() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::JokeA, template_hierarchy::SongA>]
+void template_hierarchy::JokeA<template_hierarchy::GenHierarchy<template_hierarchy::SongA>>::joke() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::SongA>]
+void template_hierarchy::SongB<template_hierarchy::GenHierarchy<>>::sing() [ParentT = template_hierarchy::GenHierarchy<>]
+void template_hierarchy::DanceC<template_hierarchy::GenHierarchy<template_hierarchy::JokeC, template_hierarchy::SongB>>::dance() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::JokeC, template_hierarchy::SongB>]
+void template_hierarchy::JokeC<template_hierarchy::GenHierarchy<template_hierarchy::SongB>>::joke() [ParentT = template_hierarchy::GenHierarchy<template_hierarchy::SongB>]
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/hierarchy_generation
+

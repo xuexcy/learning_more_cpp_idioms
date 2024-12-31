@@ -1,0 +1,6 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/generic_container
+placement new for T
+call destructor of T
+operator delete
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/generic_container
+
