@@ -114,6 +114,7 @@
     // CMakeLists.txt
     add_definitions(-DENABLE_INLINE)
     ```
+- [int_to_type](src/int_to_type.cc): ⭐⭐ 通过 `template <int I> struct Int2Type {};` 将编译期的 int 变成一个类型，业务代码可以根据不同的类型在编译期确定执行逻辑，也可以用 `enable_if` 和 `constexpr` 来实现
 - [inner_class](src/inner_class.cc): ⭐⭐ 通过在 Derived 中定义不同的 Inner 类来继承不同的 Base，以解决在不同 Base 间含有同名虚函数时，为不同 Base 各自实现虚函数的问题
     > 在 rust 中没有继承，接口能力通过 traits 赋予各个 struct，这样可以在不同的 impl Trait for Struct 中实现同名函数，样例 [rust_traits_same_function_name](src/inner_class_deps/rust_traits_same_function_name/src/main.rs)
 - [interface_class](src/interface_class.cc): ⭐⭐⭐⭐⭐ 在类中声明纯虚函数接口，实现接口类 class Interface

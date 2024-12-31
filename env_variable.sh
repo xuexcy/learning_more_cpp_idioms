@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=inline_guard_macro
+export default_execute_file=int_to_type
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

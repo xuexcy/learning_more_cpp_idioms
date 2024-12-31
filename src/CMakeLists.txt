@@ -139,6 +139,9 @@ set(deps ${main_name}_deps)
 add_subdirectory(${deps})
 target_link_libraries(${main_name} ${deps}_test)
 
+set(main_name int_to_type)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
 
 set(main_name inner_class)
 add_executable(${main_name} ${main_name}.cc)
