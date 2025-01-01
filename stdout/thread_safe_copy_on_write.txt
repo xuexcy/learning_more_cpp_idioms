@@ -1,103 +1,105 @@
-    [32mWRITE_1, thread_id: 0, epoch: 0, name: M, score: 1[0m
-    [32mWRITE_1, thread_id: 1, epoch: 0, name: M, score: 1[0m
-READ, thread_id: 2, epoch: 0, name_to_score: {  }
-    [32mWRITE_1, thread_id: 3, epoch: 0, name: C, score: 4[0m
-    [32mWRITE_1, thread_id: 4, epoch: 0, name: R, score: 4[0m
-    [31mWRITE in update, write_seq_num: 1, key: M, value: 1[0m
-    [31mWRITE in update, write_seq_num: 2, key: M, value: 1[0m
-    [31mWRITE in update, write_seq_num: 3, key: C, value: 4[0m
-    [31mWRITE in update, write_seq_num: 4, key: R, value: 4[0m
-    [32mWRITE_1, thread_id: 2, epoch: 1, name: X, score: 6[0m
-    [31mWRITE in update, write_seq_num: 5, key: X, value: 6[0m
-    [32mWRITE_2, thread_id: 0, epoch: 1, name: W, score: 8[0m
-    [31mWRITE in update, write_seq_num: 6, key: W, value: 8[0m
-    [32mWRITE_2, thread_id: 4, epoch: 1, name: X, score: 6[0m
-    [31mWRITE in update, write_seq_num: 7, key: X, value: 6[0m
-READ, thread_id: 1, epoch: 1, name_to_score: { [C:4], [M:1], [R:4], [X:6] }
-READ, thread_id: 3, epoch: 1, name_to_score: { [C:4], [M:1], [R:4], [X:6] }
-READ, thread_id: 2, epoch: 2, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 4, epoch: 2, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 0, epoch: 2, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 1, epoch: 2, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 3, epoch: 2, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-    [32mWRITE_2, thread_id: 2, epoch: 3, name: L, score: 4[0m
-    [31mWRITE in update, write_seq_num: 8, key: L, value: 4[0m
-READ, thread_id: 4, epoch: 3, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 0, epoch: 3, name_to_score: { [C:4], [M:1], [R:4], [W:8], [X:6] }
-    [32mWRITE_2, thread_id: 3, epoch: 3, name: K, score: 7[0m
-    [31mWRITE in update, write_seq_num: 9, key: K, value: 7[0m
-READ, thread_id: 1, epoch: 3, name_to_score: { [C:4], [L:4], [M:1], [R:4], [W:8], [X:6] }
-    [32mWRITE_3, thread_id: 4, epoch: 4, name: R, score: 7[0m
-    [31mWRITE in update, write_seq_num: 10, key: R, value: 7[0m
-READ, thread_id: 2, epoch: 4, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 0, epoch: 4, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 3, epoch: 4, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:4], [W:8], [X:6] }
-READ, thread_id: 1, epoch: 4, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6] }
-    [32mWRITE_3, thread_id: 3, epoch: 5, name: Z, score: 4[0m
-    [31mWRITE in update, write_seq_num: 11, key: Z, value: 4[0m
-READ, thread_id: 4, epoch: 5, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6] }
-READ, thread_id: 2, epoch: 5, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6] }
-READ, thread_id: 0, epoch: 5, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6] }
-READ, thread_id: 1, epoch: 5, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6] }
-    [32mWRITE_3, thread_id: 2, epoch: 6, name: Q, score: 7[0m
-    [31mWRITE in update, write_seq_num: 12, key: Q, value: 7[0m
-READ, thread_id: 4, epoch: 6, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 6, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 6, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 6, name_to_score: { [C:4], [K:7], [L:4], [M:1], [R:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_4, thread_id: 2, epoch: 7, name: L, score: 6[0m
-    [31mWRITE in update, write_seq_num: 13, key: L, value: 6[0m
-READ, thread_id: 0, epoch: 7, name_to_score: { [C:4], [K:7], [L:4], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 4, epoch: 7, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 7, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 7, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 8, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 2, epoch: 8, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 8, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 4, epoch: 8, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 8, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_4, thread_id: 4, epoch: 9, name: P, score: 8[0m
-    [31mWRITE in update, write_seq_num: 14, key: P, value: 8[0m
-READ, thread_id: 1, epoch: 9, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 2, epoch: 9, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 9, name_to_score: { [C:4], [K:7], [L:6], [M:1], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 9, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 4, epoch: 10, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 10, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 10, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 2, epoch: 10, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 10, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_5, thread_id: 4, epoch: 11, name: I, score: 6[0m
-    [31mWRITE in update, write_seq_num: 15, key: I, value: 6[0m
-READ, thread_id: 3, epoch: 11, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 11, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 2, epoch: 11, name_to_score: { [C:4], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 11, name_to_score: { [C:4], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_2, thread_id: 1, epoch: 12, name: V, score: 7[0m
-    [31mWRITE in update, write_seq_num: 16, key: V, value: 7[0m
-READ, thread_id: 4, epoch: 12, name_to_score: { [C:4], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 12, name_to_score: { [C:4], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 12, name_to_score: { [C:4], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_5, thread_id: 2, epoch: 12, name: D, score: 0[0m
-    [31mWRITE in update, write_seq_num: 17, key: D, value: 0[0m
-    [32mWRITE_3, thread_id: 0, epoch: 13, name: C, score: 9[0m
-    [31mWRITE in update, write_seq_num: 18, key: C, value: 9[0m
-READ, thread_id: 2, epoch: 13, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 4, epoch: 13, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 3, epoch: 13, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 1, epoch: 13, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 0, epoch: 14, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-READ, thread_id: 4, epoch: 14, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-    [32mWRITE_4, thread_id: 3, epoch: 14, name: S, score: 1[0m
-READ, thread_id: 2, epoch: 14, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [V:7], [W:8], [X:6], [Z:4] }
-    [31mWRITE in update, write_seq_num: 19, key: S, value: 1[0m
-READ, thread_id: 1, epoch: 14, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [S:1], [V:7], [W:8], [X:6], [Z:4] }
-thread_id: 4, READ count: 10, WRITE count: 5
-thread_id: 0, READ count: 12, WRITE count: 3
-thread_id: 3, READ count: 11, WRITE count: 4
-thread_id: 2, READ count: 10, WRITE count: 5
-thread_id: 1, READ count: 13, WRITE count: 2
+    [32mWRITE_1, thread_id: 0, epoch: 0, name: A, score: 8[0m
+    [32mWRITE_1, thread_id: 1, epoch: 0, name: A, score: 8[0m
+    [32mWRITE_1, thread_id: 2, epoch: 0, name: Y, score: 1[0m
+    [32mWRITE_1, thread_id: 4, epoch: 0, name: R, score: 0[0m
+READ, thread_id: 3, epoch: 0, name_to_score: {  }
+    [31mWRITE in update, write_seq_num: 1, key: A, value: 8[0m
+    [31mWRITE in update, write_seq_num: 2, key: A, value: 8[0m
+    [31mWRITE in update, write_seq_num: 3, key: Y, value: 1[0m
+    [31mWRITE in update, write_seq_num: 4, key: R, value: 0[0m
+READ, thread_id: 3, epoch: 1, name_to_score: { [A:8], [R:0], [Y:1] }
+READ, thread_id: 4, epoch: 1, name_to_score: { [A:8], [R:0], [Y:1] }
+READ, thread_id: 1, epoch: 1, name_to_score: { [A:8], [R:0], [Y:1] }
+READ, thread_id: 0, epoch: 1, name_to_score: { [A:8], [R:0], [Y:1] }
+    [32mWRITE_2, thread_id: 2, epoch: 1, name: Q, score: 4[0m
+    [31mWRITE in update, write_seq_num: 5, key: Q, value: 4[0m
+READ, thread_id: 4, epoch: 2, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 3, epoch: 2, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 0, epoch: 2, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 1, epoch: 2, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 2, epoch: 2, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+    [32mWRITE_1, thread_id: 3, epoch: 3, name: M, score: 1[0m
+    [32mWRITE_2, thread_id: 0, epoch: 3, name: M, score: 8[0m
+    [31mWRITE in update, write_seq_num: 6, key: M, value: 1[0m
+    [32mWRITE_2, thread_id: 1, epoch: 3, name: E, score: 7[0m
+READ, thread_id: 4, epoch: 3, name_to_score: { [A:8], [Q:4], [R:0], [Y:1] }
+    [31mWRITE in update, write_seq_num: 7, key: E, value: 7[0m
+    [31mWRITE in update, write_seq_num: 8, key: M, value: 8[0m
+READ, thread_id: 2, epoch: 3, name_to_score: { [A:8], [E:7], [M:8], [Q:4], [R:0], [Y:1] }
+    [32mWRITE_2, thread_id: 4, epoch: 4, name: M, score: 3[0m
+    [31mWRITE in update, write_seq_num: 9, key: M, value: 3[0m
+READ, thread_id: 3, epoch: 4, name_to_score: { [A:8], [E:7], [M:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 1, epoch: 4, name_to_score: { [A:8], [E:7], [M:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 0, epoch: 4, name_to_score: { [A:8], [E:7], [M:8], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 2, epoch: 4, name_to_score: { [A:8], [E:7], [M:8], [Q:4], [R:0], [Y:1] }
+    [32mWRITE_3, thread_id: 4, epoch: 5, name: U, score: 8[0m
+    [31mWRITE in update, write_seq_num: 10, key: U, value: 8[0m
+READ, thread_id: 2, epoch: 5, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 3, epoch: 5, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 1, epoch: 5, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [Y:1] }
+READ, thread_id: 0, epoch: 5, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+READ, thread_id: 4, epoch: 6, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+READ, thread_id: 0, epoch: 6, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+READ, thread_id: 2, epoch: 6, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+READ, thread_id: 3, epoch: 6, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+READ, thread_id: 1, epoch: 6, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+    [32mWRITE_4, thread_id: 4, epoch: 7, name: R, score: 2[0m
+    [32mWRITE_3, thread_id: 1, epoch: 7, name: R, score: 2[0m
+    [31mWRITE in update, write_seq_num: 11, key: R, value: 2[0m
+    [31mWRITE in update, write_seq_num: 12, key: R, value: 2[0m
+READ, thread_id: 0, epoch: 7, name_to_score: { [A:8], [E:7], [M:3], [Q:4], [R:0], [U:8], [Y:1] }
+    [32mWRITE_3, thread_id: 2, epoch: 7, name: O, score: 2[0m
+    [31mWRITE in update, write_seq_num: 13, key: O, value: 2[0m
+READ, thread_id: 3, epoch: 7, name_to_score: { [A:8], [E:7], [M:3], [O:2], [Q:4], [R:2], [U:8], [Y:1] }
+    [32mWRITE_5, thread_id: 4, epoch: 8, name: O, score: 1[0m
+    [31mWRITE in update, write_seq_num: 14, key: O, value: 1[0m
+READ, thread_id: 2, epoch: 8, name_to_score: { [A:8], [E:7], [M:3], [O:2], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 3, epoch: 8, name_to_score: { [A:8], [E:7], [M:3], [O:2], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 1, epoch: 8, name_to_score: { [A:8], [E:7], [M:3], [O:2], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 0, epoch: 8, name_to_score: { [A:8], [E:7], [M:3], [O:2], [Q:4], [R:2], [U:8], [Y:1] }
+    [32mWRITE_6, thread_id: 4, epoch: 9, name: P, score: 1[0m
+    [31mWRITE in update, write_seq_num: 15, key: P, value: 1[0m
+READ, thread_id: 0, epoch: 9, name_to_score: { [A:8], [E:7], [M:3], [O:1], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 2, epoch: 9, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 3, epoch: 9, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 1, epoch: 9, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+    [32mWRITE_3, thread_id: 0, epoch: 10, name: W, score: 8[0m
+    [31mWRITE in update, write_seq_num: 16, key: W, value: 8[0m
+READ, thread_id: 4, epoch: 10, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 1, epoch: 10, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+READ, thread_id: 3, epoch: 10, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 2, epoch: 10, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [Y:1] }
+    [32mWRITE_4, thread_id: 1, epoch: 11, name: L, score: 6[0m
+    [31mWRITE in update, write_seq_num: 17, key: L, value: 6[0m
+READ, thread_id: 4, epoch: 11, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 0, epoch: 11, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 2, epoch: 11, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 3, epoch: 11, name_to_score: { [A:8], [E:7], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+    [32mWRITE_7, thread_id: 4, epoch: 12, name: U, score: 6[0m
+    [31mWRITE in update, write_seq_num: 18, key: U, value: 6[0m
+READ, thread_id: 1, epoch: 12, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 3, epoch: 12, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 0, epoch: 12, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+READ, thread_id: 2, epoch: 12, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:8], [W:8], [Y:1] }
+    [32mWRITE_4, thread_id: 2, epoch: 13, name: Y, score: 8[0m
+    [31mWRITE in update, write_seq_num: 19, key: Y, value: 8[0m
+    [32mWRITE_2, thread_id: 3, epoch: 13, name: O, score: 7[0m
+    [31mWRITE in update, write_seq_num: 20, key: O, value: 7[0m
+READ, thread_id: 4, epoch: 13, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:1] }
+READ, thread_id: 1, epoch: 13, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:1], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+READ, thread_id: 0, epoch: 13, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+    [32mWRITE_4, thread_id: 0, epoch: 14, name: J, score: 7[0m
+    [31mWRITE in update, write_seq_num: 21, key: J, value: 7[0m
+READ, thread_id: 2, epoch: 14, name_to_score: { [A:8], [E:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+READ, thread_id: 3, epoch: 14, name_to_score: { [A:8], [E:7], [J:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+READ, thread_id: 4, epoch: 14, name_to_score: { [A:8], [E:7], [J:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+READ, thread_id: 1, epoch: 14, name_to_score: { [A:8], [E:7], [J:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }
+thread_id: 4, READ count: 8, WRITE count: 7
+thread_id: 0, READ count: 11, WRITE count: 4
+thread_id: 2, READ count: 11, WRITE count: 4
+thread_id: 3, READ count: 13, WRITE count: 2
+thread_id: 1, READ count: 11, WRITE count: 4
 
 Threads joined!!!
 
-READ, thread_id: 5, epoch: 15, name_to_score: { [C:9], [D:0], [I:6], [K:7], [L:6], [M:1], [P:8], [Q:7], [R:7], [S:1], [V:7], [W:8], [X:6], [Z:4] }
+READ, thread_id: 5, epoch: 15, name_to_score: { [A:8], [E:7], [J:7], [L:6], [M:3], [O:7], [P:1], [Q:4], [R:2], [U:6], [W:8], [Y:8] }

@@ -1,0 +1,20 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/int_to_type
+int_to_type
+no_op
+no_op
+insertion_sort
+quick_sort
+
+enable_if
+no_op
+no_op
+insertion_sort
+quick_sort
+
+use_constexpr
+no_op
+no_op
+insertion_sort
+quick_sort
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/int_to_type
+
