@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=iterator_pair
+export default_execute_file=tag_dispatching
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

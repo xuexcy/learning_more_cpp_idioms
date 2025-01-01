@@ -4,9 +4,9 @@
 - `build.sh`: 编译所有 src/*.cc
 - `run.sh`: 运行所有编译后的可执行文件，并将结果输出到 src 目录
 - `build_one.sh`: 编译 src 目录下的一个 .cc 文件，具体编译哪一个文件取决于 `env_variable.sh` 中的 `default_execute_file` 环境变量, 这个脚本主要是自己修改、测试某个 .cc 代码的时候使用，该文件里没有调用 cmake，如果编译的相关依赖发生改变，请重新执行 `build.sh` 生成新的 makefile 文件
-- `run.sh`: 执行一个编译结果，同 `build_one.sh` 一样，具体哪个取决于 `env_variable.sh` 中的 `default_execute_file`
+- `run_one.sh`: 执行一个编译结果，同 `build_one.sh` 一样，具体哪个取决于 `env_variable.sh` 中的 `default_execute_file`
 - 其他:
-  - `run.sh` 执行后的输出结果在 src 目录下（可以通过 `env_variable.sh` 进行配置）
+  - `run.sh` 执行后的输出结果在 stdout 目录下（可以通过 `env_variable.sh` 进行配置）
   - `src/*.cc` 是各个 idiom main 文件
 
 ## Idioms
@@ -128,6 +128,17 @@
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
 - [pointer_to_implementation](src/pointer_to_implementation.cc): ⭐⭐⭐ 将公开接口放到 class Public，并由 class Public 包含实现细节 class Public::Impl 的指针(class Public 的成员变量)，以此带来一些代码编译、解耦等方面的优势
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
+- [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
+    ```cpp
+    struct Tag1 {};
+    struct Tag2 {};
+    void sort(Tag1, Container& container);
+    void sort(Tag2, Container& container);
+    template <class Tag>
+    void call_sort(Tag t, Container& container) {
+        sort(t, container);
+    }
+    ```
 - [thread_safe_copy_on_write](src/thread_safe_copy_on_write.cc): ⭐⭐⭐⭐⭐ 在多线程环境下更新一个共享的数据，通过将数据存储于 `std::atomic<std::shared_ptr<T>>` ，并使用 copy on write (其实这里应该是 copy and write)来保证读无锁、写安全。这里和前面的 idiom copy_on_write 不同，这里是为了 thread_safe 而使用了 copy，这里的 copy 是保证安全的一个手段，前面的 copy_on_write 的 copy 是目的。
     ```cpp
     // 拷贝所有数据到新的实例、写入新数据到新的实例、将新的实例的指针写入原指针中

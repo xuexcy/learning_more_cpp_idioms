@@ -1,0 +1,6 @@
+container's remove_if
+my_class after remove_if: 1, 2, 3, 4, 5, 7, 8, 9
+
+std::remove_if and std::erase
+vec after remove_if: 1, 2, 4, 5, 7, 8
+
