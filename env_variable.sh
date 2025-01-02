@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=making_new_friends
+export default_execute_file=metafunction
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

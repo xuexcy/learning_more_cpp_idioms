@@ -1,0 +1,6 @@
+type: i, name: a, value 42
+type: d, name: b, value 42
+type: i, name: c, value 42
+type: d, name: d, value 42
+Factorial<0>::value: 1
+Factorial<5>::value: 120
