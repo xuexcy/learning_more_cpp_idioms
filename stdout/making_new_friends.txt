@@ -1,0 +1,7 @@
+void run_foo_1()
+void run_foo_2()
+std::ostream &operator<<(std::ostream &, const Foo_2<T> &)
+42
+void run_foo_3()
+std::ostream &operator<<(std::ostream &, const Foo_3<T> &) [T = int]
+42
