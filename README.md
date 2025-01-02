@@ -149,6 +149,7 @@
     new_ptr->write_or_update(xxxx);
     data_ptr_.store(new_ptr);
     ```
+- [type_generator](src/type_generator.cc): ⭐⭐⭐ 通过封装多参数模板类，并指定部分模板参数的默认值，来减少代码编写量，同时可以使用 `using` 关键字提供更多的便捷，比如 `template <bool B, class T, class F> std::condition_t =  std::condition<B, T, F>::type`
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |

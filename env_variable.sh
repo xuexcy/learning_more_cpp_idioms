@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=metafunction
+export default_execute_file=type_generator
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
