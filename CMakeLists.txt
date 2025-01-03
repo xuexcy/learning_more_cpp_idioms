@@ -4,6 +4,7 @@ project(learning_more_cpp_idioms)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+message ("compiler: ${CMAKE_CXX_COMPILER}")
 # set(CMAKE_BUILD_TYPE Debug)
 
 set(THIRDPARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)

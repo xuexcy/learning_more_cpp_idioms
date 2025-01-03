@@ -163,6 +163,18 @@ set(main_name metafunction)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name move_constructor)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set(file_name move_constructor)
+    set(main_name ${file_name}_no_elide_constructor)
+    add_executable(${main_name} ${file_name}.cc)
+    target_compile_options(${main_name} PRIVATE -fno-elide-constructors)
+    target_link_libraries(${main_name} main_decorator)
+endif()
+
 set(main_name parameterized_base)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)

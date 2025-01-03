@@ -125,6 +125,8 @@
     ```
 - [making_new_friends](src/making_new_friends.cc): ⭐⭐⭐ 在模板类中声明和定义友元操作符，解决在类外定义操作符时，操作符(比如 `operator<<` 不接受模板参数的问题)
 - [metafunction](src/metafunction.cc): ⭐⭐⭐ 通过元模板编程，在编译期确定类型或调用的函数(比如 `std::conditional_t`、[int_to_type](src/int_to_type.cc))
+- [move_constructor](src/move_constructor.cc): ⭐ 在 c++11 以前，没有 move constructor 的情况下，通过隐式转换的方式来实现对临时变量的 move
+    - 样例中的代码可以使用 gcc 5.1 --no-elide-constructors 来测试
 - [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 Base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
