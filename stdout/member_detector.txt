@@ -1,0 +1,23 @@
+class NoX has X: false
+class HasX has X: true
+C has member attr:  true
+C has member func:  true
+C has type Foo:  true
+
+A has function display(int):  true
+B has function display:  true
+C has function display:  true
+D has function display:  true
+E has function display:  true
+
+A has function display(int):  true
+B has function display:  false
+C has function display:  false
+D has function display:  false
+E has function display:  false
+A has X: true
+B has X: true
+C has X: false
+A has X member: true
+B has X member: false
+C has X member: false

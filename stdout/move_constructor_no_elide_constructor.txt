@@ -1,0 +1,37 @@
+MoveableData 带参构造: MoveableData(T*)
+Moveable 析构
+
+void safe_move_constructor::run_copy_assignment()
+MoveableData 带参构造: MoveableData(T*)
+MoveableData 带参构造: MoveableData(T*)
+MoveableData 拷贝赋值(non-const 参数): MoveableData& operator=(Moveable&)
+MoveableData 拷贝构造(non-const 参数): MoveableData(MoveableData&)
+Moveable 析构
+Moveable 析构
+Moveable 析构
+MoveableData 带参构造: MoveableData(T*)
+MoveableData 拷贝构造(non-const 参数): MoveableData(MoveableData&)
+Moveable 析构
+Moveable 析构
+
+MoveableData 带参构造: MoveableData(T*)
+MoveableData 隐式转换成 proxy<T>: operator proxy<T>()
+proxy 带参构造
+Moveable 带参构造(proxy<T>): Moveable(proxy<T>)
+Moveable 析构
+MoveableData 带参构造: MoveableData(T*)
+MoveableData 隐式转换成 proxy<T>: operator proxy<T>()
+proxy 带参构造
+Moveable 带参构造(proxy<T>): Moveable(proxy<T>)
+MoveableData 隐式转换成 proxy<T>: operator proxy<T>()
+proxy 带参构造
+MoveableData 拷贝赋值(proxy 参数): MoveableData& operator=(proxy<T>)
+Moveable 带参构造(proxy<T>): Moveable(proxy<T>)
+Moveable 析构
+Moveable 析构
+MoveableData 隐式转换成 proxy<T>: operator proxy<T>()
+proxy 带参构造
+Moveable 带参构造(proxy<T>): Moveable(proxy<T>)
+Moveable 析构
+Moveable 析构
+Moveable 析构

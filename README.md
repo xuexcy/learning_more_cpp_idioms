@@ -124,6 +124,7 @@
     Container::Container(InputIterator begin, InputIterator end): size_(std::distance(begin, end)) { xxxx }
     ```
 - [making_new_friends](src/making_new_friends.cc): ⭐⭐⭐ 在模板类中声明和定义友元操作符，解决在类外定义操作符时，操作符(比如 `operator<<` 不接受模板参数的问题)
+- [member_detector](src/member_detector.cc): ⭐⭐⭐ 使用 SFINAE 来检测类是否含有名为 X 的成员(变量、函数、或类)
 - [metafunction](src/metafunction.cc): ⭐⭐⭐ 通过元模板编程，在编译期确定类型或调用的函数(比如 `std::conditional_t`、[int_to_type](src/int_to_type.cc))
 - [move_constructor](src/move_constructor.cc): ⭐ 在 c++11 以前，没有 move constructor 的情况下，通过隐式转换的方式来实现对临时变量的 move
     - 样例中的代码可以使用 gcc 5.1 --no-elide-constructors 来测试，测试平台可以使用 [godbolt](https://godbolt.org/)

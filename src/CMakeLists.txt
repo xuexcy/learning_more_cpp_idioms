@@ -159,6 +159,10 @@ set(main_name making_new_friends)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name member_detector)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name metafunction)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
