@@ -129,6 +129,7 @@
 - [move_constructor](src/move_constructor.cc): ⭐ 在 c++11 以前，没有 move constructor 的情况下，通过隐式转换的方式来实现对临时变量的 move
     - 样例中的代码可以使用 gcc 5.1 --no-elide-constructors 来测试，测试平台可以使用 [godbolt](https://godbolt.org/)
 - [multi_statement_macro](src/multi_statement_macro.cc): ⭐⭐⭐ 通过 `do {} while(0)` 来解决宏有多个语句带来的语法错误问题(并不能解决宏做参数的语法错误问题)
+- [named_constructor](src/named_constructor.cc): ⭐⭐⭐  构造函数只能通过参数类进行区分，如果构造函数很多，那么在调用时就不便看出调用的哪一个构造函数。可以通过 static class function 来获得构造的对象，这样可以给 function 起一个 meaningful 的名字。
 - [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 Base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
