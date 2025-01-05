@@ -1,0 +1,18 @@
+Stream::Stream()
+nifty_counter: 1
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/nifty_counter
+nifty_counter: 2
+nifty_counter: 3
+nifty_counter: 4
+void A::use_global_stream() const
+hi, I'm stream, an instance of class 'Stream'
+void B::use_global_stream() const
+hi, I'm stream, an instance of class 'Stream'
+hi, I'm stream, an instance of class 'Stream'
+nifty_counter: 3
+nifty_counter: 2
+nifty_counter: 1
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/nifty_counter
+
+Stream::~Stream()
+nifty_counter: 0

@@ -130,6 +130,7 @@
     - 样例中的代码可以使用 gcc 5.1 --no-elide-constructors 来测试，测试平台可以使用 [godbolt](https://godbolt.org/)
 - [multi_statement_macro](src/multi_statement_macro.cc): ⭐⭐⭐ 通过 `do {} while(0)` 来解决宏有多个语句带来的语法错误问题(并不能解决宏做参数的语法错误问题)
 - [named_constructor](src/named_constructor.cc): ⭐⭐⭐  构造函数只能通过参数类进行区分，如果构造函数很多，那么在调用时就不便看出调用的哪一个构造函数。可以通过 static class function 来获得构造的对象，这样可以给 function 起一个 meaningful 的名字。
+- [nifty_counter](src/nifty_counter.cc): ⭐ 通过在 global static object 初始化和析构时使用计数器，对 global object 进行资源管理。不过感觉可以通过 static class function 中 static variable 来获取一个类似 global object 的实例(样例见 [construct_on_first_use](src/construct_on_first_use.cc))
 - [non_copyable_mixin](src/non_copyable_mixin.cc): ⭐⭐⭐ 将拷贝构造和拷贝赋值操作符设置成 private，来避免类实例被拷贝和赋值
 - [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 Base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
