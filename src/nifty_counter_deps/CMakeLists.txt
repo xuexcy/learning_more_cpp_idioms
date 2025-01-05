@@ -1,0 +1,6 @@
+add_library(nifty_counter_deps_stream stream.cpp)
+
+add_library(nifty_counter_deps_a a.cpp)
+target_link_libraries(nifty_counter_deps_a nifty_counter_deps_stream)
+add_library(nifty_counter_deps_b b.cpp)
+target_link_libraries(nifty_counter_deps_b nifty_counter_deps_stream)
