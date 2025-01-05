@@ -131,6 +131,7 @@
 - [multi_statement_macro](src/multi_statement_macro.cc): ⭐⭐⭐ 通过 `do {} while(0)` 来解决宏有多个语句带来的语法错误问题(并不能解决宏做参数的语法错误问题)
 - [named_constructor](src/named_constructor.cc): ⭐⭐⭐  构造函数只能通过参数类进行区分，如果构造函数很多，那么在调用时就不便看出调用的哪一个构造函数。可以通过 static class function 来获得构造的对象，这样可以给 function 起一个 meaningful 的名字。
 - [named_parameter](src/named_parameter.cc): ⭐⭐⭐ 在函数参数较多的情况下，可以定义一个 class 来封装这些参数，并设置一些函数来指定参数值，当代码更加清晰。比如在调用函数 `foo(int x, double y, float z, int a=1, double b=2, float c=3)`，不使用 named_parameter，就可能要写成 `foo(1, 2, 3, 1, 2, 4)` ，使用 named_parameter 就可以写成 `foo(Parameter().set_x(1).set_y(2).set_z(3).set_c(4))`，而且可以不用换 set_xx 的顺序
+- [named_loop](src/named_loop.cc): ⭐ 通过在宏中使用 `goto` 来跳出代码块
 - [nifty_counter](src/nifty_counter.cc): ⭐ 通过在 global static object 初始化和析构时使用计数器，对 global object 进行资源管理。不过感觉可以通过 static class function 中 static variable 来获取一个类似 global object 的实例(样例见 [construct_on_first_use](src/construct_on_first_use.cc))
 - [non_copyable_mixin](src/non_copyable_mixin.cc): ⭐⭐⭐ 将拷贝构造和拷贝赋值操作符设置成 private，来避免类实例被拷贝和赋值
 - [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
