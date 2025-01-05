@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=resource_return
+export default_execute_file=non_copyable_mixin
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
