@@ -16,6 +16,11 @@
 1. 在策略类(如下的 Allocator 模板类)中定义一个 rebind 类，接受和外部策略相同的模板参数
 2. 在使用这个策略的类(如下的 List 类)中 使用 rebind 重新为策略类绑定新的模板参数(如下将 Allocator<T>
 改为 Allocator<Node<T>>)
+
+@refs:
+https://blog.csdn.net/walkerkalr/article/details/22263351
+https://no5-aaron-wu.github.io/2023/03/17/cpp-modern-7-CustomAllocator/
+https://zhuanlan.zhihu.com/p/185611161
 */
 
 namespace bad_case {
@@ -64,6 +69,7 @@ class Node {
 template <class T, class Alloc=Allocator<T>>
 class List {
   // 这里限制了 List 为 Node 使用的分配器，必须和 T 使用的分配器是同一个'类型'
+  // "容器中很多时候不只是会对类型T分配内存，还需要对与T相关的类型U分配内存，如链表std::list<int> 还需要对结点类型Node<int>分配内存"
   using other = Alloc::template rebind<Node<T>>::other;
   using other2 = Alloc::template rebind2<Node<T>>;
 };  // class List
