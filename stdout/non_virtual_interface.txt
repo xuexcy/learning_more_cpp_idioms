@@ -1,0 +1,10 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/non_virtual_interface
+count: 5
+set elements: {1, 2, 3}
+abcdefg
+abc
+bcd
+cde
+def
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/non_virtual_interface
+

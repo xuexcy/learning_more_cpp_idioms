@@ -136,6 +136,19 @@
 - [non_copyable_mixin](src/non_copyable_mixin.cc): ⭐⭐⭐ 将拷贝构造和拷贝赋值操作符设置成 private，来避免类实例被拷贝和赋值
 - [no_throwing_swap](src/non_throwing_swap.cc): ⭐⭐⭐⭐⭐ 通过交换两个实例中数据指针的方式来达到 no_throwing 的 swap
 - ~~object_generator~~
+- [non_virtual_interface](src/non_virtual_interface.cc): ⭐⭐ 通过 Base 类 public 接口，并在 public 接口中调用 private virtual function，以在接口中实现一些通过功能，并最终执行 Derived 类的逻辑
+    ```cpp
+    class Base {
+    public:
+        void say_hi() { std::println("hi"); say_hi_impl(); }
+    private:
+        virtual void say_hi_impl() = 0;
+    };
+    class Derive : public Base {
+    private:
+        void say_hi_impl() override { std::println("I'm instance of class 'Derived'"); }
+    };
+    ```
 - [nullptr](src/nullptr.cc): ⭐ 在 c++11 以前，自己实现一个 `class nullptr_t` 替代 `NULL`
 - [parameterized_base](src/parameterized_base.cc): ⭐⭐⭐⭐⭐ 通过将 Base 类作为模板参数，为某个类型 T 提供期望的接口能力，比如为类型 T 提供序列化能力 class ISerializable， `template <class T> Serializable: public T, public ISerializable {};`，和 [interface_class](src/interface_class.cc) 不同，这种方式可以在不改变类型 T 的定义下为其实现接口功能，特别是 T 是第三方库中的类型结构时。使用样例见 [construction_tracker](src/construction_tracker.cc) 中的 `Adapter<E> e_`
     > 有点像 rust traits，样例 [rust_traits_serializable](src/parameterized_base_deps/rust_traits_serializable/src/main.rs)
