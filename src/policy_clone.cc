@@ -63,6 +63,7 @@ class Node {
 
 template <class T, class Alloc=Allocator<T>>
 class List {
+  // 这里限制了 List 为 Node 使用的分配器，必须和 T 使用的分配器是同一个'类型'
   using other = Alloc::template rebind<Node<T>>::other;
   using other2 = Alloc::template rebind2<Node<T>>;
 };  // class List
