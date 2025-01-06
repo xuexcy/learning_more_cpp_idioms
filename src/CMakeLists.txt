@@ -228,6 +228,10 @@ target_link_libraries(${main_name} main_decorator)
 add_subdirectory(${main_name}_deps)
 target_link_libraries(${main_name} book book_with_pimpl book_template_with_pimpl)
 
+set(main_name policy_clone)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name resource_return)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
