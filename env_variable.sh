@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=non_virtual_interface
+export default_execute_file=polymorphic_exception
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

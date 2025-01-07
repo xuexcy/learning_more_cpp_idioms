@@ -165,6 +165,14 @@
         // 这样，我们就可以在 List 中使用为 Node<T> 分配内存的分配器，而不是使用 T 的内存分配器
     }
     ```
+- [polymorphic_exception](src/polymorphic_exception.cc): ⭐⭐⭐ 通过 `throw e;` 的方式来抛出异常，会将 e 进行拷贝构造，如果 e 是一个 Base 类的引用，其实际类型是 Derived 类，那么 `throw e;` 只会拷贝 Base 类的信息，而丢失 Derived 类的信息。可以借用虚函数，在虚函数中通过 `throw *this;` 方式来抛出异常，以避免 Derived 类的信息丢失
+    ```cpp
+    ExceptionDerived e;
+    // no: throw e 会抛出 ExceptionBase 类型的异常，导致 ExceptionDerived 中的一些信息丢失
+    void foo(ExceptionBase& e) { throw e; }
+    // yes: ExceptionBase::raise() 是一个虚函数，通过 throw *this 来抛出 ExceptionDerived 类型的异常
+    void foo2(ExceptionBase& e) { e.raise(); }
+    ```
 - [resource_return](src/resource_return.cc): ⭐⭐⭐ 当函数返回裸指针指向新建的资源时(比如 `return new Foo`)，用户可能会忘记释放资源，此时，可以通过返回智能指针来管理和释放资源
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
