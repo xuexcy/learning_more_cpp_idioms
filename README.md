@@ -70,7 +70,7 @@
     ```cpp
     class A final {};
     ```
-- [free_function_allocator](): TODO
+- [free_function_allocator](): **<span style="color:red">TODO</span>**
 - [function_poisoning](src/function_poisoning.cc): ⭐⭐⭐ 将一些用户使用不便的函数封装成更易使用的接口，并通过 `#pragma GCC poison $function_name` 来禁止用户使用这些函数，比如 c 或 c++ 11 以前的一些函数，封装成 RAII-friendly 的接口
 - [generic_container](src/generic_container.cc): ⭐⭐⭐⭐⭐ 在需要实现一些泛型容器时，将 new/delete array 和 delete array 换成 operator new/delete，分离内存申请与释放和实例构造与析构，以此来减少泛型类的函数依赖限制
 - [hierarchy_generation](src/hierarchy_generation.cc): ⭐⭐ 在将多个能力整合到一起时，可以通过多继承来解决(`class MyType: public A, public B, public C`)，也可以通过变长模板展开的方式来实现层次结构的单一继承(`class MyType: public A<B<C<>>>`)
@@ -173,6 +173,8 @@
     // yes: ExceptionBase::raise() 是一个虚函数，通过 throw *this 来抛出 ExceptionDerived 类型的异常
     void foo2(ExceptionBase& e) { e.raise(); }
     ```
+- [polymorphic_value_types](src/polymorphic_value_types.cc): **<span style="color:red">TODO</span>**
+
 - [resource_return](src/resource_return.cc): ⭐⭐⭐ 当函数返回裸指针指向新建的资源时(比如 `return new Foo`)，用户可能会忘记释放资源，此时，可以通过返回智能指针来管理和释放资源
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
