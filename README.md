@@ -178,6 +178,7 @@
 - [resource_acquisition_is_initialization](src/resource_acquisition_is_initialization.cc): ⭐⭐⭐⭐⭐ 通过将资源(指针)封装到资源管理类中，利用资源管理类的实例结束生命周期时，通过其析构函数来释放资源，比如通过  `std::unique_ptr<T>` 来 `delete t`，`std::lock_guard<T>` 来 `mutex.unlock`。另见 [execute_around_pointer](src/execute_around_pointer.cc)
 - [resource_return](src/resource_return.cc): ⭐⭐⭐ 当函数返回裸指针指向新建的资源时(比如 `return new Foo`)，用户可能会忘记释放资源，此时，可以通过返回智能指针来管理和释放资源
 - [return_type_resolver](src/return_type_resolver.cc): ⭐⭐⭐ 当函数返回类型取决于模板参数类型时，在调用函数时，需要将模板参数填入，同时承接返回的实例时也需要填写实例类型(如果模板参数类型和返回类型一致，其实可以用 auto 承接实例)。通过使用隐式转换，可以避免填写模板参数，函数返回类型取决于用何种类型承接。
+- runtime_static_initialization_on_order: 通过 [construct_on_first_use](src/construct_on_first_use.cc) 和 [nifty_counter](src/nifty_counter.cc) 来解决 non-local static objects 初始化顺序的问题
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
     ```cpp
