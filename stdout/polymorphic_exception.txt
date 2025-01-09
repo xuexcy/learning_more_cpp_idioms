@@ -1,69 +1,69 @@
 void bad_case::run()
 bad_case::ExceptionBase::ExceptionBase()
-addr: 0x16b236de8
+addr: 0x16d5f2dd8
 bad_case::ExceptionDerived::ExceptionDerived()
-addr: 0x16b236de8
+addr: 0x16d5f2dd8
 void bad_case::foo(ExceptionBase &)
 bad_case::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x145704130
-there is an exception, add: 0x145704130
+addr: 0x132e05c70
+std::exception, addr: 0x132e05c70
 
 void solution::run()
 solution::ExceptionBase::ExceptionBase()
-addr: 0x16b236de8
+addr: 0x16d5f2dd8
 solution::ExceptionDerived::ExceptionDerived()
-addr: 0x16b236de8
+addr: 0x16d5f2dd8
 void solution::foo(ExceptionBase &)
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x145704110
+addr: 0x132e05c70
 solution::ExceptionDerived::ExceptionDerived(const ExceptionDerived &)
-addr: 0x145704110
-ExceptionDerived, addr: 0x145704110
+addr: 0x132e05c70
+ExceptionDerived, addr: 0x132e05c70
 
 void rethrow::catch_rethrow(void (*)())
 void rethrow::run_rethrow_1()
 solution::ExceptionBase::ExceptionBase()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 solution::ExceptionDerived::ExceptionDerived()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 void solution::foo(ExceptionBase &)
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x145704110
+addr: 0x132e05c70
 solution::ExceptionDerived::ExceptionDerived(const ExceptionDerived &)
-addr: 0x145704110
-ExceptionBase, rethrow, addr: 0x145704110
+addr: 0x132e05c70
+ExceptionBase, rethrow, addr: 0x132e05c70
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x1457041d0
-there is an exception, addr: 0x1457041d0
+addr: 0x132e05d00
+there is an exception, addr: 0x132e05d00
 
 void rethrow::catch_rethrow(void (*)())
 void rethrow::run_rethrow_2()
 solution::ExceptionBase::ExceptionBase()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 solution::ExceptionDerived::ExceptionDerived()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 void solution::foo(ExceptionBase &)
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x145704110
+addr: 0x132e05c70
 solution::ExceptionDerived::ExceptionDerived(const ExceptionDerived &)
-addr: 0x145704110
-ExceptionBase, rethrow, addr: 0x145704110
-ExceptionBase, rethrow, addr: 0x145704110
+addr: 0x132e05c70
+ExceptionBase, rethrow, addr: 0x132e05c70
+ExceptionBase, rethrow, addr: 0x132e05c70
 
 void rethrow::catch_rethrow(void (*)())
 void rethrow::run_rethrow_3()
 solution::ExceptionBase::ExceptionBase()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 solution::ExceptionDerived::ExceptionDerived()
-addr: 0x16b236d48
+addr: 0x16d5f2d38
 void solution::foo(ExceptionBase &)
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x145704110
+addr: 0x132e05c70
 solution::ExceptionDerived::ExceptionDerived(const ExceptionDerived &)
-addr: 0x145704110
-ExceptionBase, rethrow, addr: 0x145704110
+addr: 0x132e05c70
+ExceptionBase, rethrow, addr: 0x132e05c70
 solution::ExceptionBase::ExceptionBase(const ExceptionBase &)
-addr: 0x1457041a0
+addr: 0x132e05d00
 solution::ExceptionDerived::ExceptionDerived(const ExceptionDerived &)
-addr: 0x1457041a0
-ExceptionBase, rethrow, addr: 0x1457041a0
+addr: 0x132e05d00
+ExceptionBase, rethrow, addr: 0x132e05d00
