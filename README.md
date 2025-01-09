@@ -174,6 +174,7 @@
     void foo2(ExceptionBase& e) { e.raise(); }
     ```
 - [polymorphic_value_types](src/polymorphic_value_types.cc): **<span style="color:red">TODO</span>**
+- requiring_or_prohibiting_head_based_objects: 限制某个类的实例只能在栈上构造，或者限制只能在堆上构造，同 [concrete_data_type](src/concrete_data_type.cc)
 
 - [resource_return](src/resource_return.cc): ⭐⭐⭐ 当函数返回裸指针指向新建的资源时(比如 `return new Foo`)，用户可能会忘记释放资源，此时，可以通过返回智能指针来管理和释放资源
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error

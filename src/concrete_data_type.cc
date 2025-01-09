@@ -110,6 +110,8 @@ private:
     static void* operator new(size_t size);
     // 不允许使用 placement new
     static void* operator new(size_t, void* mem);
+    static void* operator new [] (size_t size);
+    static void* operator new [] (size_t, void* mem);
 };
 
 void run() {
