@@ -244,6 +244,14 @@ set(main_name resource_return)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name return_type_resolver)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
+set(main_name SFINAE)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name tag_dispatching)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
@@ -252,6 +260,3 @@ set(main_name type_generator)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
-set(main_name SFINAE)
-add_executable(${main_name} ${main_name}.cc)
-target_link_libraries(${main_name} main_decorator)
