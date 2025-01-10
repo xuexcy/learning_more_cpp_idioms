@@ -200,7 +200,16 @@
     v.shrink_to_fit();
     ```
     - 另外，在 [clear_and_minimize](src/clear_and_minimize.cc) 中，也使用了 swap 方法来清理内存
-- small_object_optimization
+- small_object_optimization: **<span style="color:red">TODO</span>** and SBO
+- [smart_pointer](src/smart_pointer.cc): ⭐⭐⭐ 这个不是指 c++ STL 中的 std::shared_ptr、std::unique_ptr 等能用于资源管理的智能指针。在 [pointer_to_implementation](src/pointer_to_implementation.cc) 中，外部类可能需要定义多个和 class Impl 同名的成员函数，然后才能调用这些函数。在外部类通过定义 `Impl* operator()->()` 直接获取数据指针，以此调用其成员函数，减少代码量
+    ```cpp
+    struct Body;
+    struct Handle {
+        Body* operator->() { return body_; }
+        const Body* operator->() const { return body_; }
+        Body body_;
+    };
+    ```
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
     ```cpp
     struct Tag1 {};
