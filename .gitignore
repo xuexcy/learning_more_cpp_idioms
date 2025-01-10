@@ -1,6 +1,7 @@
 .cache/
 .vscode/
 .DS_Store
+.clang-format
 
 # for rust
 Cargo.lock
