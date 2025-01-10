@@ -190,6 +190,17 @@
     - c++11 explicit conversion operators: `explicit operator bool();`
 - ~~scoped_guard~~
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
+- shrink_to_fit: ⭐⭐⭐ 将容器的 capacity 缩减成和 size 一样，以节省内存
+    ```cpp
+    std::vector<int> v{1, 2, 3, 4 ,5};
+    std::vector<int>(v).swap(v);
+    // 或者
+    std::vector<int>(v.begin(), v.end()).swap(v);
+    // 前面两种办法都会拷贝原有 v 的元素，最好是使用容器自带的 shrink_to_fit 函数，这样可能只在 v 原有的内存上进行缩减，而且当 capacity == size，什么也不用做。当然 shrink_to_fit 并不会严格的将 capacity 缩减到 size
+    v.shrink_to_fit();
+    ```
+    - 另外，在 [clear_and_minimize](src/clear_and_minimize.cc) 中，也使用了 swap 方法来清理内存
+- small_object_optimization
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
     ```cpp
     struct Tag1 {};
