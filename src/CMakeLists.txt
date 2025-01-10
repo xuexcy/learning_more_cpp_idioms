@@ -252,11 +252,11 @@ set(main_name safe_bool)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
-set(main_name SFINAE)
+set(main_name smart_pointer)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
-set(main_name smart_pointer)
+set(main_name substitution_failure_is_not_an_error)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 

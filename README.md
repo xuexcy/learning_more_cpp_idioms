@@ -189,7 +189,7 @@
     - [boost safe_bool](https://www.boost.org/doc/libs/1_50_0/boost/spirit/home/classic/core/safe_bool.hpp)
     - c++11 explicit conversion operators: `explicit operator bool();`
 - ~~scoped_guard~~
-- [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
+- [substitution_failure_is_not_an_error](src/substitution_failure_is_not_an_error.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
 - shrink_to_fit: ⭐⭐⭐ 将容器的 capacity 缩减成和 size 一样，以节省内存
     ```cpp
     std::vector<int> v{1, 2, 3, 4 ,5};
