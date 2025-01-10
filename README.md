@@ -179,6 +179,16 @@
 - [resource_return](src/resource_return.cc): ⭐⭐⭐ 当函数返回裸指针指向新建的资源时(比如 `return new Foo`)，用户可能会忘记释放资源，此时，可以通过返回智能指针来管理和释放资源
 - [return_type_resolver](src/return_type_resolver.cc): ⭐⭐⭐ 当函数返回类型取决于模板参数类型时，在调用函数时，需要将模板参数填入，同时承接返回的实例时也需要填写实例类型(如果模板参数类型和返回类型一致，其实可以用 auto 承接实例)。通过使用隐式转换，可以避免填写模板参数，函数返回类型取决于用何种类型承接。
 - runtime_static_initialization_on_order: 通过 [construct_on_first_use](src/construct_on_first_use.cc) 和 [nifty_counter](src/nifty_counter.cc) 来解决 non-local static objects 初始化顺序的问题
+- [safe_bool](src/safe_bool.cc): ⭐⭐⭐ 为类型 T 提供隐式转换操作符，将其转换成 bool 类型(`operator bool();`)，以用作条件判断，如 if (t), while(t) 等。但是转换成 bool 的方式有一些问题，需要使用一些方法来避免这些问题。
+  - 问题如下:
+    - 阻止相同类型的比较(`T t1, t2; if (t1 == t2) {}`)
+    - 阻止不同类型的比较(`T1 t1; T2 t2; if (t1 == t2) {}`)
+    - 阻止隐式转换成 bool 后又进行其他操作，如赋值、计算等(`int a = t;`, `int a = t + 1`)
+  - 解决办法:
+    - [boost explicit_operator_bool](https://www.boost.org/doc/libs/1_65_1/boost/core/explicit_operator_bool.hpp)
+    - [boost safe_bool](https://www.boost.org/doc/libs/1_50_0/boost/spirit/home/classic/core/safe_bool.hpp)
+    - c++11 explicit conversion operators: `explicit operator bool();`
+- ~~scoped_guard~~
 - [SFINAE](src/SFINAE.cc): ⭐⭐⭐⭐⭐ Substitution Failure Is Not An Error
 - [tag_dispatching](src/tag_dispatching.cc): ⭐⭐⭐⭐⭐ 在函数参数中设置一个 tag class，用于区分不同的重载函数，调用这些函数时通过传入不同的 tag 来确定调用哪一个函数
     ```cpp
