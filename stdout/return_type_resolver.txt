@@ -1,0 +1,5 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/return_type_resolver
+隐式转换
+隐式转换
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/return_type_resolver
+

@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=smart_pointer
+export default_execute_file=thin_template
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

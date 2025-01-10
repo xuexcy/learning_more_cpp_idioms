@@ -1,0 +1,5 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/smart_pointer
+title: Hail, Hydra!, contents: 菩萨保佑
+title: Hail, Hydra!, contents: 菩萨保佑
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/smart_pointer
+

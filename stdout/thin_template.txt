@@ -1,0 +1,11 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/thin_template
+void bad_case::run()
+1, 2
+1, 2
+1, 2
+void solution::run()
+1, 2
+1, 2
+1, 2
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/thin_template
+
