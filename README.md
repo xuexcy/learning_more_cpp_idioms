@@ -221,6 +221,26 @@
         sort(t, container);
     }
     ```
+- [temporary_base_class](src/temporary_base_class.cc): ⭐⭐⭐⭐⭐ 在向量、矩阵、字符串等表达式计算中，会反复产生临时对象用于存储中间结果，构造和析构临时对象的过程会调用 new 和 delete 造成一些开销，这是可以通过一个临时的类来存储数据(new)，并将后续的计算结果存储到这个临时对象中，在表达式结果后再将数据所有权转移给计算结果的实例。
+    ```cpp
+    Matrix m1, m2, m3, m4;
+    Matrix result = m1 + m2 + m3 + m4;
+    // 以下为拆解的执行过程
+    // Matrix tmp_1 = m1 + m2;  // new for tmp_1.data_
+    // Matrix tmp_2 = tmp_1 + m3;  // new for tmp_2.data_, delete tmp_1.data_
+    // Matrix tmp_3 = tmp_2 + m4;  // new for tmp_3.data_
+    // Matrix result = tmp_3;  // result.data_ = tmp_3.dat_
+    // 上面产生了三个临时对象，其中 tmp_1 通过 new 申请内存来存储 m1 + m2 的结果，然后在 tmp_1 + m3 计算结束后通过 delete 释放掉申请的内存
+    // 同理，tmp_2 也是如此
+    // 最后 tmp_3 通过编译器 rvo 将申请的内存资源即计算结果转移给 result
+
+    // solution: 通过 TMatrix 存储计算结果
+    // TMatrix tmp = m1 + m2;  // new for tmp.data_
+    // tmp.add(m3);  // add m3.data_ to tmp.data_
+    // tmp.add(m4);  // add m4.data_ to tmp.data_
+    // Matrix result = tmp;  // result.data_ = tmp.data_
+    // 这样只用一开始在 tmp 构造时申请内存，中间的计算结果全部存到 tmp 中，最终将申请的内存移交给 result
+    ```
 - [thin_template](src/thin_template.cc): ⭐⭐⭐ 通过将模板类中一些与模板参数无关的成员变量或函数提取到一个 Base 类中，以减少模板实例化后的目标代码大小。另外，共用同一份代码也可以提高缓存性能。比如将 vector 类中的 `size_t size_; size_t capacity_;` 放到 vector_base 类中，这样就不用在每个实例化的 vector<T> 代码中存一份相同的代码
 - [thread_safe_copy_on_write](src/thread_safe_copy_on_write.cc): ⭐⭐⭐⭐⭐ 在多线程环境下更新一个共享的数据，通过将数据存储于 `std::atomic<std::shared_ptr<T>>` ，并使用 copy on write (其实这里应该是 copy and write)来保证读无锁、写安全。这里和前面的 idiom copy_on_write 不同，这里是为了 thread_safe 而使用了 copy，这里的 copy 是保证安全的一个手段，前面的 copy_on_write 的 copy 是目的。
     ```cpp

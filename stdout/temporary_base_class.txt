@@ -1,0 +1,77 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/temporary_base_class
+bad_case::Matrix::Matrix(size_t)
+bad_case::Matrix::Matrix(size_t)
+bad_case::Matrix::Matrix(size_t)
+bad_case::Matrix::Matrix(size_t)
+bad_case::Matrix::Matrix(const Matrix &)
+bad_case::Matrix::Matrix(const Matrix &)
+bad_case::Matrix::Matrix(const Matrix &)
+Matrix::kConstructCount: 4
+Matrix::kCopyConstructCount: 3
+
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+TMatrix solution::Matrix::operator+(const Matrix &) const
+solution::TMatrix::TMatrix(const Matrix &)
+TMatrix solution::TMatrix::operator+(const MatrixBase &)
+solution::TMatrix::TMatrix()
+TMatrix solution::TMatrix::operator+(const MatrixBase &)
+solution::TMatrix::TMatrix()
+solution::Matrix::Matrix(TMatrix)
+TMatrix::kConstructFromMatrixCount: 1
+Matrix::kConstructCount: 4
+Matrix::kCopyConstructCount: 0
+Matrix::kConstructFromTMatrixCount: 1
+MatrixBase::kDestructCount: 8
+MatrixBase::kReleaseCount: 5
+
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+solution::Matrix::Matrix(size_t)
+TMatrix solution::Matrix::operator+(const Matrix &) const
+solution::TMatrix::TMatrix(const Matrix &)
+TMatrix solution::Matrix::operator+(const Matrix &) const
+solution::TMatrix::TMatrix(const Matrix &)
+TMatrix solution::TMatrix::operator+(const MatrixBase &)
+solution::TMatrix::TMatrix()
+solution::Matrix::Matrix(TMatrix)
+TMatrix::kConstructFromMatrixCount: 2
+Matrix::kConstructCount: 4
+Matrix::kCopyConstructCount: 0
+Matrix::kConstructFromTMatrixCount: 1
+MatrixBase::kDestructCount: 8
+MatrixBase::kReleaseCount: 6
+
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+TMatrix matrix::Matrix::operator+(const Matrix &)
+matrix::TMatrix::TMatrix(const Matrix &)
+TMatrix &matrix::TMatrix::operator+(const Matrix &)
+TMatrix &matrix::TMatrix::operator+(const Matrix &)
+matrix::TMatrix::TMatrix(const TMatrix &)
+TMatrix::kConstructFromMatrixCount: 1
+TMatrix::kCopyConstructCount: 1
+Matrix::kConstructCount: 4
+TMatrix::kReleaseCount: 5
+
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+matrix::Matrix::Matrix(size_t)
+TMatrix matrix::Matrix::operator+(const Matrix &)
+matrix::TMatrix::TMatrix(const Matrix &)
+TMatrix matrix::Matrix::operator+(const Matrix &)
+matrix::TMatrix::TMatrix(const Matrix &)
+TMatrix &matrix::TMatrix::operator+(TMatrix)
+matrix::TMatrix::TMatrix(const TMatrix &)
+TMatrix::kConstructFromMatrixCount: 2
+TMatrix::kCopyConstructCount: 1
+Matrix::kConstructCount: 4
+Matrix::kReleaseCount: 6
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/temporary_base_class
+

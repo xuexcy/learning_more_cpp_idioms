@@ -20,9 +20,13 @@ class Matrix;
 
 class TMatrix {
 public:
+  static size_t kConstructFromMatrixCount;
+  static size_t kCopyConstructCount;
+  static size_t kReleaseCount;
   ~TMatrix() = default;
   TMatrix& operator+(TMatrix m);
   TMatrix& operator+(const Matrix& tm);
+  static void reset_count();
 protected:
   TMatrix() = default;
   TMatrix(const TMatrix& tm);
@@ -39,6 +43,7 @@ protected:
 
 class Matrix : public TMatrix {
 public:
+  static size_t kConstructCount;
   explicit Matrix(size_t dim);
   Matrix(const Matrix& m);
   Matrix(const TMatrix& tm);
@@ -49,6 +54,7 @@ public:
   ~Matrix();
 
   void swap(Matrix* m);
+  static void reset_count();
 };  // class Matrix
 
 }  // namespace matrix

@@ -119,11 +119,11 @@ temp1 里，并最终通过 rvo 的方式将 temp1 的结果给到 result，即:
 存储给用户使用的值。实现该方案的关键在于，将表达式的计算结果都存储于 TMatrix， 表达式计算结果后在将结果赋值给 Matrix。
 根据下面 TMatrix 和 Matrix 的定义可以看到:
 1. 用于表达式计算的操作符 operator+ 的返回结果都是 TMatrix，即将计算的临时结果存入 TMatrix
-2. 按照 wiki 中的描述, TMatrix 的 operator+() 返回的是 *this，最好
+2. 按照 wiki 中的描述, TMatrix 的 operator+() 返回的是 *this，最好不要返回引用，因为返回引用可能会导致临时变量的生命周期延长
 
 construct cases:
   1. TMatrix tm1(dim): 不存在
-  2. TMatrix tm1(tm2): 在编译器由 rvo 时，不需要 copy constructor
+  2. TMatrix tm1(tm2): 在编译器有 rvo 时，不需要 copy constructor
   3. TMatrix tm1(m1):  a. new tm1.data_   b. copy m1.data_ to tm1.data_
   4. Matrix  m1(dim):  a. new m1.data_    b. init m1.data_
   5. Matrix  m1(m2):   a. new m1.data_    b. copy m2.data_ to m1.data_
@@ -148,7 +148,7 @@ class TMatrix 分析:
   1. TMatrix 只有一个构造函数 TMatrix(const Matrix&)，并且只在 m1 + m2 时发生，也就是在
     Matrix::operator+(const Matrix& m) 中，所以 TMatrix 的这个构造函数是私有的，只能由 friend class Matrix
     调用
-  2. 由于 tm1 + tm2 和 tm1 + m1，其结算逻辑都相同，所以 TMatrix 只有一个 operator+(const MatrixBase&)，不过
+  2. 由于 tm1 + tm2 和 tm1 + m1，其计算逻辑都相同，所以 TMatrix 只有一个 operator+(const MatrixBase&)，不过
     这样就需要 MatrixBase 有一个虚函数
 
 class Matrix 分析:
@@ -209,7 +209,7 @@ size_t MatrixBase::kReleaseCount{0};
 
 class TMatrix : public MatrixBase {  // temporary matrix
 private:
-  TMatrix() = default;
+  TMatrix();
   TMatrix(const Matrix& m);
 public:
   static size_t kConstructFromMatrixCount;
@@ -240,6 +240,10 @@ public:
   friend class TMatrix;
 };  // class Matrix
 
+TMatrix::TMatrix() {
+  PRINT_CURRENT_FUNCTION_NAME;
+}
+
 size_t TMatrix::kConstructFromMatrixCount{0};
 // 在 Matrix::operator+(const Matrix& m) 中被调用，即 m1 + m2 时，将其变成 TMatrix(m1) + m2
 TMatrix::TMatrix(const Matrix& m): MatrixBase(m) {
@@ -251,7 +255,6 @@ TMatrix::TMatrix(const Matrix& m): MatrixBase(m) {
 // tm1 + tm2
 TMatrix TMatrix::operator+(const MatrixBase& mb) {
   PRINT_CURRENT_FUNCTION_NAME;
-  // std::println("{} + {}", (void*)this, (void*)(&mb));
   this->add(mb);
   TMatrix res;
   res.swap(this);
@@ -344,6 +347,7 @@ void run() {
 }  // namespace solution
 
 
+// TODO
 namespace matrix {
 void run() {
   std::println();
@@ -353,18 +357,18 @@ void run() {
     Matrix m3(3);
     Matrix m4(3);
     // std::println("1: {}, 2: {}, 3: {}, 4: {}", (void*)(&m1), (void*)(&m2), (void*)(&m3), (void*)(&m4));
+    // 一开始构造的 TMatrix tm 在最后一个操作符执行完后（即 + m4，返回类型是 TMatrix&），右边的表达式结束了
+    // 此时 tm 的生命周期即将结束，在结束前后调用 TMatrix(const TMatrix&) 构造函数，重新构造一个临时对象，
+    // 然后用这个新的 TMatrix 构造 Matrix result，所以在这个表达式的最后就调用了两次构造函数
     Matrix result = m1 + m2 + m3 + m4;
-    //std::println("TMatrix::kConstructFromMatrixCount: {}", TMatrix::kConstructFromMatrixCount);
-    //std::println("Matrix::kConstructCount: {}", Matrix::kConstructCount);
-    //std::println("Matrix::kCopyConstructCount: {}", Matrix::kCopyConstructCount);
-    //std::println("Matrix::kConstructFromTMatrixCount: {}", Matrix::kConstructFromTMatrixCount);
+    std::println("TMatrix::kConstructFromMatrixCount: {}", TMatrix::kConstructFromMatrixCount);
+    std::println("TMatrix::kCopyConstructCount: {}", TMatrix::kCopyConstructCount);
+    std::println("Matrix::kConstructCount: {}", Matrix::kConstructCount);
   }
-  //std::println("MatrixBase::kDestructCount: {}", MatrixBase::kDestructCount);
-  //std::println("MatrixBase::kReleaseCount: {}", MatrixBase::kReleaseCount);
-  //std::println();
-  //MatrixBase::reset_count();
-  //TMatrix::reset_count();
-  //Matrix::reset_count();
+  std::println("TMatrix::kReleaseCount: {}", TMatrix::kReleaseCount);
+  std::println();
+  TMatrix::reset_count();
+  Matrix::reset_count();
   {
     Matrix m1(3);
     Matrix m2(3);
@@ -373,13 +377,13 @@ void run() {
     // std::println("1: {}, 2: {}, 3: {}, 4: {}", (void*)(&m1), (void*)(&m2), (void*)(&m3), (void*)(&m4));
     // 根据 stdout 可以看到，m3 + m4 也生成了一个临时变量
     Matrix result = m1 + m2 + (m3 + m4);
-    //std::println("TMatrix::kConstructFromMatrixCount: {}", TMatrix::kConstructFromMatrixCount);
-    //std::println("Matrix::kConstructCount: {}", Matrix::kConstructCount);
-    //std::println("Matrix::kCopyConstructCount: {}", Matrix::kCopyConstructCount);
-    //std::println("Matrix::kConstructFromTMatrixCount: {}", Matrix::kConstructFromTMatrixCount);
+    std::println("TMatrix::kConstructFromMatrixCount: {}", TMatrix::kConstructFromMatrixCount);
+    std::println("TMatrix::kCopyConstructCount: {}", TMatrix::kCopyConstructCount);
+    std::println("Matrix::kConstructCount: {}", Matrix::kConstructCount);
   }
-  //std::println("MatrixBase::kDestructCount: {}", MatrixBase::kDestructCount);
-  //std::println("MatrixBase::kReleaseCount: {}", MatrixBase::kReleaseCount);
+  std::println("Matrix::kReleaseCount: {}", TMatrix::kReleaseCount);
+  TMatrix::reset_count();
+  Matrix::reset_count();
 }
 }
 
