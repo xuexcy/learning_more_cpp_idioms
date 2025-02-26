@@ -251,7 +251,12 @@
     new_ptr->write_or_update(xxxx);
     data_ptr_.store(new_ptr);
     ```
-- [traits](src/traits.cc): ⭐⭐⭐⭐⭐ 使用 traits 在模板类和其特化类中使用相同的俩名称
+- [traits](src/traits.cc): ⭐⭐⭐⭐⭐ 使用 traits 在模板类和其特化类中使用相同的名称
+- [type_erasure](src/type_erasure.cc): ⭐⭐⭐ 类型擦除。让 variant 类可以存储任意类型的数据
+    1. 定义一个基类 class inner_base
+    2. 定义一个 class variant，在类中包含一个指针 inner_base* ptr
+    3. 定义一个模板类并继承 class inner_base，即 `template <class T> class inner : public inner_base`，并在 class inner 中存储类型 T 数据
+    4. 这样 class variant 就可以通过 ptr 指向任意的 inner<T>，以此达到存储任意类型 T 数据的目的，即类型擦除
 - [type_generator](src/type_generator.cc): ⭐⭐⭐ 通过封装多参数模板类，并指定部分模板参数的默认值，来减少代码编写量，同时可以使用 `using` 关键字提供更多的便捷，比如 `template <bool B, class T, class F> std::condition_t =  std::condition<B, T, F>::type`
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
