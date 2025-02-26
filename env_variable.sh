@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=temporary_base_class
+export default_execute_file=temporary_proxy
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];

@@ -241,6 +241,7 @@
     // Matrix result = tmp;  // result.data_ = tmp.data_
     // 这样只用一开始在 tmp 构造时申请内存，中间的计算结果全部存到 tmp 中，最终将申请的内存移交给 result
     ```
+- [temporary_proxy](src/temporary_proxy.cc): ⭐⭐⭐ 在调用 operator[] 后得到的 Element&，我们无法知晓后续该 Element 是被写还是被读
 - [thin_template](src/thin_template.cc): ⭐⭐⭐ 通过将模板类中一些与模板参数无关的成员变量或函数提取到一个 Base 类中，以减少模板实例化后的目标代码大小。另外，共用同一份代码也可以提高缓存性能。比如将 vector 类中的 `size_t size_; size_t capacity_;` 放到 vector_base 类中，这样就不用在每个实例化的 vector<T> 代码中存一份相同的代码
 - [thread_safe_copy_on_write](src/thread_safe_copy_on_write.cc): ⭐⭐⭐⭐⭐ 在多线程环境下更新一个共享的数据，通过将数据存储于 `std::atomic<std::shared_ptr<T>>` ，并使用 copy on write (其实这里应该是 copy and write)来保证读无锁、写安全。这里和前面的 idiom copy_on_write 不同，这里是为了 thread_safe 而使用了 copy，这里的 copy 是保证安全的一个手段，前面的 copy_on_write 的 copy 是目的。
     ```cpp
@@ -250,6 +251,7 @@
     new_ptr->write_or_update(xxxx);
     data_ptr_.store(new_ptr);
     ```
+- [traits](src/traits.cc): ⭐⭐⭐⭐⭐ 使用 traits 在模板类和其特化类中使用相同的俩名称
 - [type_generator](src/type_generator.cc): ⭐⭐⭐ 通过封装多参数模板类，并指定部分模板参数的默认值，来减少代码编写量，同时可以使用 `using` 关键字提供更多的便捷，比如 `template <bool B, class T, class F> std::condition_t =  std::condition<B, T, F>::type`
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |

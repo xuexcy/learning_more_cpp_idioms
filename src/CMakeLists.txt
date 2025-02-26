@@ -271,7 +271,15 @@ set(deps ${main_name}_deps)
 add_subdirectory(${deps})
 target_link_libraries(${main_name} ${deps}_matrix)
 
+set(main_name temporary_proxy)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
 set(main_name thin_template)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+
+set(main_name traits)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 

@@ -17,9 +17,9 @@
 
 [----------] 1 test from DifferentSize/ArrayCalculationTest/3, where TypeParam = ArraySize<16384ul>
 [ RUN      ] DifferentSize/ArrayCalculationTest/3.CheckEqual
-[       OK ] DifferentSize/ArrayCalculationTest/3.CheckEqual (18 ms)
-[----------] 1 test from DifferentSize/ArrayCalculationTest/3 (18 ms total)
+[       OK ] DifferentSize/ArrayCalculationTest/3.CheckEqual (17 ms)
+[----------] 1 test from DifferentSize/ArrayCalculationTest/3 (17 ms total)
 
 [----------] Global test environment tear-down
-[==========] 4 tests from 4 test suites ran. (22 ms total)
+[==========] 4 tests from 4 test suites ran. (21 ms total)
 [  PASSED  ] 4 tests.

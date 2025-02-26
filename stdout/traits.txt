@@ -1,0 +1,3 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/traits
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/traits
+

@@ -1,0 +1,14 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/temporary_proxy
+c=e, cs=[str=hello, read_char_cnt=1, write_char_cnt=0]
+e
+cs=[str=hello, read_char_cnt=2, write_char_cnt=0]
+e
+cs=[str=hello, read_char_cnt=3, write_char_cnt=0]
+cs=[str=hallo, read_char_cnt=3, write_char_cnt=1]
+cs=[str=hbllo, read_char_cnt=3, write_char_cnt=2]
+
+us=hello
+us=hallo
+us=hello
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/temporary_proxy
+
