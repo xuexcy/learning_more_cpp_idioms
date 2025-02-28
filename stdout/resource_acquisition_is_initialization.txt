@@ -3,6 +3,6 @@ flag_1 true
 flag_2 false
 lock mutex
 unlock mutex
-auto delete: 0x11ee05d50
+auto delete: 0x152804170
 Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/resource_acquisition_is_initialization
 

@@ -1,0 +1,15 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/virtual_constructor
+employee::Manager::Manager()
+employee::Staff::Staff()
+employee::Manager::Manager()
+employee::Manager::Manager(const Manager &)
+employee::Staff::Staff()
+employee::Staff::Staff(const Staff &)
+employee_2::Manager::Manager()
+employee_2::Staff::Staff()
+employee_2::Manager::Manager()
+employee_2::Manager::Manager(const Manager &)
+employee_2::Staff::Staff()
+employee_2::Staff::Staff(const Staff &)
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/virtual_constructor
+
