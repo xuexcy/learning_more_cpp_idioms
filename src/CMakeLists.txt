@@ -291,3 +291,7 @@ set(main_name type_generator)
 add_executable(${main_name} ${main_name}.cc)
 target_link_libraries(${main_name} main_decorator)
 
+set(main_name type_safe_enum)
+add_executable(${main_name} ${main_name}.cc)
+target_link_libraries(${main_name} main_decorator)
+

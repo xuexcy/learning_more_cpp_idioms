@@ -1,0 +1,7 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/type_safe_enum
+void unsafe_enum::run()
+sizeof(enum color): 4, underlying type: NSt3__115underlying_typeIN11unsafe_enum5colorEEE
+color::red >= shape::triangle: false
+void type_safe_enum::run()
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/type_safe_enum
+

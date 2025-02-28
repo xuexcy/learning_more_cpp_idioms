@@ -258,6 +258,20 @@
     3. 定义一个模板类并继承 class inner_base，即 `template <class T> class inner : public inner_base`，并在 class inner 中存储类型 T 数据
     4. 这样 class variant 就可以通过 ptr 指向任意的 inner<T>，以此达到存储任意类型 T 数据的目的，即类型擦除
 - [type_generator](src/type_generator.cc): ⭐⭐⭐ 通过封装多参数模板类，并指定部分模板参数的默认值，来减少代码编写量，同时可以使用 `using` 关键字提供更多的便捷，比如 `template <bool B, class T, class F> std::condition_t =  std::condition<B, T, F>::type`
+- [type_safe_enum](src/type_safe_enum.cc): ⭐ 在 c++ 11 以前，enum 存在的问题：1. 值是整型，不同 enum 可以比较 2. 同一个 namespace  枚举值名称会发生同名冲突。c++ 11 可以使用 enum class 解决这些问题。在 c++ 11 以前，我们可以为将 enum 放到 struct 中，以解决同名冲突问题，并将该 struct 放到模板类 struct safe_num<T> 中，在模板类中提供比较函数，以 让不同 enum 无法直接比较
+  ```cpp
+  template <T>
+  struct safe_enum : public T {
+    safe(T t): val(t) {}
+    using type = T::type;
+    type val;
+    // friend bool operator==(const safe_enum& lhs, const safe_enum& rhs);
+  };
+  struct color_def {
+    enum type { red, green, blue };
+  };
+  using color = safe_num<color_def>
+  ```
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |
