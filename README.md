@@ -272,6 +272,7 @@
   };
   using color = safe_num<color_def>
   ```
+- [type_selection](src/type_selection.cc): ⭐⭐⭐⭐⭐ 在编译期，根据静态条件选择数据类型，即 std::conditional
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |
