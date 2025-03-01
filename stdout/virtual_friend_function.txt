@@ -1,0 +1,5 @@
+Start main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/virtual_friend_function
+Base
+Derived
+Finished main: /Users/xuechengyun/code/cpp/learning_more_cpp_idioms/build/output/bin/virtual_friend_function
+

@@ -272,6 +272,7 @@
   };
   using color = safe_num<color_def>
   ```
+- [virtual_friend_function](src/virtual_friend_function.cc): ⭐⭐⭐ 友元函数不能是虚函数，为了实现类似虚函数的效果，我们可以让友元函数调用虚函数
 - [type_selection](src/type_selection.cc): ⭐⭐⭐⭐⭐ 在编译期，根据静态条件选择数据类型，即 std::conditional
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |

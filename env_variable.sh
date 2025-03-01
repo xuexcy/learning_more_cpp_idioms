@@ -11,7 +11,7 @@ echo ''
 
 export compiler=clang++
 #export compiler=g++
-export default_execute_file=virtual_constructor
+export default_execute_file=virtual_friend_function
 
 # cmake 工作目录
 if [[ $compiler == "g++" ]];
