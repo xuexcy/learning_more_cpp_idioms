@@ -280,14 +280,6 @@
   Base* b3 = b.clone();  // clone 是一个虚函数，继承类实现该虚函数，比如 return new Derived(*this)
   ```
 - [virtual_friend_function](src/virtual_friend_function.cc): ⭐⭐⭐ 友元函数不能是虚函数，为了实现类似虚函数的效果，我们可以让友元函数调用虚函数
-## Related Idioms
-| idiom | related idioms | TODO(mark in code) |
-| :------ | :-------------- | :------------: |
-| algebraic_hierarch | handle_body, envelop_letter | no |
-| capability_query | interface_class, inner_class | yes |
-| coercion_by_member_template | generic_container_idioms | no |
-| construct_on_first_use | nifty_schwarz_counter | no |
-| copy_and_swap | non_throwing_swap, resource_acquisition_is_initialization | no |
 
 ## 常见用法
 - reference_count: algebraic_hierarchy, copy_on_write, counted_body
