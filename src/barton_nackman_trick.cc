@@ -10,7 +10,7 @@
 
 @solution: 将 operator== 定义在 class 内部，这样在 operator== 就没有了模板参数(模板参数在 class List), 如
 class ListV2, 在实例化模板时,编译器就会将非模板函数注入全局作用域，比如实例化 class ListV2<int>时，就会注入
-bool operator==(const ListV2<int>& lhs, const ListV2<T>& rhs) 到全局作用域
+bool operator==(const ListV2<int>& lhs, const ListV2<int>& rhs) 到全局作用域
 */
 
 #include <cassert>

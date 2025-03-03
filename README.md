@@ -2,17 +2,15 @@
 ## Build And Run
 - `env_variable.sh`: 设置环境变量，如 cmake 工作目录、可执行文件存放的 bin 文件夹目录等
 - `build.sh`: 编译所有 src/*.cc
-- `run.sh`: 运行所有编译后的可执行文件，并将结果输出到 src 目录
-- `build_one.sh`: 编译 src 目录下的一个 .cc 文件，具体编译哪一个文件取决于 `env_variable.sh` 中的 `default_execute_file` 环境变量, 这个脚本主要是自己修改、测试某个 .cc 代码的时候使用，该文件里没有调用 cmake，如果编译的相关依赖发生改变，请重新执行 `build.sh` 生成新的 makefile 文件
+- `run.sh`: 运行所有编译后的可执行文件，并将结果输出到 stdout 目录
+- `build_one.sh`: 编译 src 目录下的一个 .cc 文件，具体编译哪一个文件取决于 `env_variable.sh` 中的 `default_execute_file` 环境变量。 这个脚本主要是自己修改、测试某个 .cc 代码的时候使用，该文件里没有调用 cmake，如果编译的相关依赖发生改变，请重新执行 `build.sh` 生成新的 makefile 文件
 - `run_one.sh`: 执行一个编译结果，同 `build_one.sh` 一样，具体哪个取决于 `env_variable.sh` 中的 `default_execute_file`
-- 其他:
-  - `run.sh` 执行后的输出结果在 stdout 目录下（可以通过 `env_variable.sh` 进行配置）
-  - `src/*.cc` 是各个 idiom main 文件
+- `src/*.cc`: 各个 idiom main 文件
 
 ## Idioms
-- [address_of](address_of.cpp): ⭐ 在 `&` 操作符被重载的情况下，获取 object 的地址
+- [address_of](src/address_of.cc): ⭐ 在 `&` 操作符被重载的情况下，获取 object 的地址
     > `&` 操作符作为一元操作符，用于获取 object 的地址，作为二元操作符，表示两个 object 逻辑与。如果  `&` 一元操作符被重载后不表示 object 的地址，那就改变了操作符含义。我们可能会重载 `operator+`，但是并不会改变 `+` 的含义，比如小时 + 分 + 秒，依旧表示时间上的相加。但是什么情况下会改变 `operator&` 的含义呢？如果改变了其含义，那和 `#define false true` 有什么区别，这不是搞事情吗？
-- [algebraic_hierarchy](algebraic_hierarchy.cpp): ⭐ 仅暴露抽象基类并在用户代码中进行使用， 如使用抽象基类`Number`表达数字， 定义继承类虚数`Complex`和实数`RealNumber`，但是，在用户代码中只会使用基类而不是使用继承类
+- [algebraic_hierarchy](src/algebraic_hierarchy.cc): ⭐ 仅暴露抽象基类并在用户代码中进行使用， 如使用抽象基类`Number`表达数字， 定义继承类虚数`Complex`和实数`RealNumber`，但是，在用户代码中只会使用基类而不是使用继承类
     ```cpp
     // 如下代码中只使用了 Number 基类
     Number n1 = Number::makeComplex(1， 2);
@@ -123,7 +121,7 @@
     template <class InputIterator>
     Container::Container(InputIterator begin, InputIterator end): size_(std::distance(begin, end)) { xxxx }
     ```
-- [making_new_friends](src/making_new_friends.cc): ⭐⭐⭐ 在模板类中声明和定义友元操作符，解决在类外定义操作符时，操作符(比如 `operator<<` 不接受模板参数的问题)
+- [making_new_friends](src/making_new_friends.cc): ⭐⭐⭐ 在模板类中声明和定义友元操作符，解决在类外定义操作符时，操作符(比如 `operator<<`) 不接受模板参数的问题
 - [member_detector](src/member_detector.cc): ⭐⭐⭐ 使用 SFINAE 来检测类是否含有名为 X 的成员(变量、函数、或类)
 - [metafunction](src/metafunction.cc): ⭐⭐⭐ 通过元模板编程，在编译期确定类型或调用的函数(比如 `std::conditional_t`、[int_to_type](src/int_to_type.cc))
 - [move_constructor](src/move_constructor.cc): ⭐ 在 c++11 以前，没有 move constructor 的情况下，通过隐式转换的方式来实现对临时变量的 move
@@ -272,8 +270,16 @@
   };
   using color = safe_num<color_def>
   ```
-- [virtual_friend_function](src/virtual_friend_function.cc): ⭐⭐⭐ 友元函数不能是虚函数，为了实现类似虚函数的效果，我们可以让友元函数调用虚函数
 - [type_selection](src/type_selection.cc): ⭐⭐⭐⭐⭐ 在编译期，根据静态条件选择数据类型，即 std::conditional
+- [virtual_constructor](src/virtual_constructor.cc): ⭐⭐⭐ 构造和拷贝构造函数不能是虚函数，我们可以通过其他虚函数调用构造函数来解决此问问题。
+  ```cpp
+  Base* b = new Derived();
+  // no
+  Base* b2 = new ????(*b);  // 此时并不知道 *b 的具体是哪个继承类型，所以不知道要调用哪个拷贝构造函数
+  // yes
+  Base* b3 = b.clone();  // clone 是一个虚函数，继承类实现该虚函数，比如 return new Derived(*this)
+  ```
+- [virtual_friend_function](src/virtual_friend_function.cc): ⭐⭐⭐ 友元函数不能是虚函数，为了实现类似虚函数的效果，我们可以让友元函数调用虚函数
 ## Related Idioms
 | idiom | related idioms | TODO(mark in code) |
 | :------ | :-------------- | :------------: |
@@ -282,3 +288,16 @@
 | coercion_by_member_template | generic_container_idioms | no |
 | construct_on_first_use | nifty_schwarz_counter | no |
 | copy_and_swap | non_throwing_swap, resource_acquisition_is_initialization | no |
+
+## 常见用法
+- reference_count: algebraic_hierarchy, copy_on_write, counted_body
+- extern_global_variable: attach_by_initialization
+- 新增一个类用于继承：attorney_client, base_from_member
+- 友元函数调用虚函数：attorney_client, virtual_friend_function
+- swap : clear_and_minimize, copy_and_swap, non_throwing_swap, shrink_to_fit
+- 封装适配基类与继承类：coercion_by_member
+- 通过函数获取 static variable，解决初始化顺序问题：construct_on_first_use
+- 逗号运算符：construction_tracker
+- crtp: curiously_recurring_template_pattern, type_safe_enum
+- 新增一个 proxy 类用于封装一些功能:execute_around_pointer, temporary_proxy
+- 隐式转换: move_constructor, nullptr, return_type_resolver, safe_bool

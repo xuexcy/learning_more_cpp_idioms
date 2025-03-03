@@ -57,7 +57,7 @@ private:
 
 private:
     // idiom: handle body
-    Number* rep{nullptr};
+    Number* rep{nullptr};  // 指向一个继承类指针
     short referenceCount{0};
 };
 
