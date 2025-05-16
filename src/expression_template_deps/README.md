@@ -1,3 +1,15 @@
+---
+title: 使用表达式模板做向量计算
+description: 使用表达式模板做向量计算
+date: 2025-05-16T22:31:29+08:00
+draft: false
+categories:
+  - cpp
+tags:
+  - cpp
+  - 表达式模板
+---
+
 # 使用表达式模板做向量计算
 # 1. 问题: 向量计算
 ```cpp
