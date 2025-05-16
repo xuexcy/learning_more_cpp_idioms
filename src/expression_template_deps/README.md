@@ -10,6 +10,8 @@ tags:
   - 表达式模板
 ---
 
+文中链接跳转失效，请至[github 使用表达式模板做向量计算](https://github.com/xuexcy/learning_more_cpp_idioms/blob/main/src/expression_template_deps/README.md)查阅
+
 # 使用表达式模板做向量计算
 # 1. 问题: 向量计算
 ```cpp
